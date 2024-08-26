@@ -1,10 +1,11 @@
-// import { useState } from 'react'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import reactLogo from 'assets/react.svg';
 import viteLogo from '/vite.svg';
 import 'App.css';
 
-function App() {
-  // const [count, setCount] = useState(0)
+export default () => {
+  const [count, setCount] = useState(0);
 
   return (
     <>
@@ -18,19 +19,15 @@ function App() {
       </div>
       <h1>Manu Perez's website will be built here</h1>
       <h1>Coming soon</h1>
-      {/*<div className="card">*/}
-      {/*  <button onClick={() => setCount((count) => count + 1)}>*/}
-      {/*    count is {count}*/}
-      {/*  </button>*/}
-      {/*  <p>*/}
-      {/*    Edit <code>src/App.tsx</code> and save to test HMR*/}
-      {/*  </p>*/}
-      {/*</div>*/}
+      <Link to='/portfolio'>Go to portfolio page</Link>
+      <div className='card'>
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+      </div>
       <p className='read-the-docs'>
         Click on the Vite and React logos to learn more
       </p>
     </>
   );
-}
-
-export default App;
+};
