@@ -1,8 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Stack } from '@mantine/core';
+import Link from 'components/link';
+import MainLayout from 'components/main-layout';
 
 export default () => (
-  <div>
-    <p>This will be the portfolio page</p>
-    <Link to='/'>Go back to home</Link>
-  </div>
+  <MainLayout>
+    <Stack align='center'>
+      <p>This will be the portfolio page</p>
+      <Link to='/'>Go back to home</Link>
+    </Stack>
+  </MainLayout>
 );
