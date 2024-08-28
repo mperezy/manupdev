@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Anchor } from '@mantine/core';
 
 export default (props: LinkProps) => (
-  <Link {...props} style={{ textDecoration: 'none' }}>
-    <Anchor underline='hover'>{props.children}</Anchor>
-  </Link>
+  <Anchor to={props.to} component={Link} underline='hover'>
+    {props.children}
+  </Anchor>
 );
