@@ -96,23 +96,31 @@ const mainTheme = createTheme({
   other,
   components: {
     AppShell: AppShell.extend({
-      styles: {
-        header: {
-          background: '#242424',
-          color: '#E7E7E7',
-          boxShadow:
-            // eslint-disable-next-line
-            '0 calc(0.0625rem * 1) calc(0.1875rem * 1) rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) 0 calc(2.25rem * 1) calc(1.75rem * 1) calc(-0.4375rem * 1), rgba(0, 0, 0, 0.04) 0 calc(1.0625rem * 1) calc(1.0625rem * 1) calc(-0.4375rem * 1)',
-        },
-        navbar: {
-          background: `var(${appShell.navbar.background})`,
-          boxShadow:
-            // eslint-disable-next-line
-            '0 calc(0.0625rem * 1) calc(0.1875rem * 1) rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) 0 calc(2.25rem * 1) calc(1.75rem * 1) calc(-0.4375rem * 1), rgba(0, 0, 0, 0.04) 0 calc(1.0625rem * 1) calc(1.0625rem * 1) calc(-0.4375rem * 1)',
-        },
-        main: {
-          background: `var(${appShell.main.background})`,
-        },
+      styles: (_, { navbar }) => {
+        const isNavbarOpened = !(
+          navbar?.collapsed?.mobile || navbar?.collapsed?.desktop
+        );
+
+        return {
+          header: {
+            border: 0,
+            background: '#242424',
+            color: '#E7E7E7',
+            boxShadow: '3px 9px 33px -10px rgba(20, 20, 20, 0.75)',
+          },
+          navbar: {
+            background: `var(${appShell.navbar.background})`,
+            boxShadow: isNavbarOpened
+              ? '9px 3px 25px -15px rgba(20, 20, 20, 0.75)'
+              : '',
+          },
+          main: {
+            background: `var(${appShell.main.background})`,
+            position: 'absolute',
+            right: 0,
+            top: 0,
+          },
+        };
       },
     }),
 

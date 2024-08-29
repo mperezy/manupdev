@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import {
   AppShell,
+  Box,
   Burger,
   Center,
   Divider,
@@ -39,7 +40,7 @@ export default ({ children }: Props) => {
       header={{ height: '4rem' }}
       navbar={{
         width: '15rem',
-        breakpoint: 'sm',
+        breakpoint: 'xs',
         collapsed: { mobile: !navbarOpened, desktop: !navbarOpened },
       }}
     >
@@ -65,6 +66,7 @@ export default ({ children }: Props) => {
       <AppShell.Navbar
         px='md'
         py='xl'
+        w={{ base: '100%', xs: '15rem', sm: '15rem' }}
         style={{ justifyContent: 'space-between' }}
       >
         <Stack gap='xs'>
@@ -93,12 +95,20 @@ export default ({ children }: Props) => {
         </Stack>
       </AppShell.Navbar>
 
-      <AppShell.Main maw='75em'>
-        <Flex w='100%' justify='center'>
-          <Center h='100vh' px={{ base: 'md' }} pb={{ base: 'md' }}>
-            {children}
-          </Center>
-        </Flex>
+      <AppShell.Main
+        w='100%'
+        pt={0}
+        mt='var(--app-shell-header-height)'
+        mih='calc(100dvh - var(--app-shell-header-height))'
+        h='calc(100dvh - var(--app-shell-header-height))'
+      >
+        <Box w='100%' h='100%' p='xl' style={{ overflow: 'auto' }}>
+          <Flex w='100%' h='100%' justify='center'>
+            <Center h='100%' maw='75em' px={{ base: 'md' }} pb={{ base: 'md' }}>
+              {children}
+            </Center>
+          </Flex>
+        </Box>
       </AppShell.Main>
     </AppShell>
   );
