@@ -5,7 +5,7 @@ import MainLayout from 'components/main-layout';
 export default () => (
   <MainLayout totallyCentered>
     <Stack align='center'>
-      <p>This will be the portfolio page</p>
+      <p>This will be the links page</p>
       <Link to='/'>Go back to home</Link>
     </Stack>
   </MainLayout>

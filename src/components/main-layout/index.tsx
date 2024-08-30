@@ -9,6 +9,7 @@ import {
   em,
   Flex,
   NavLink,
+  Select,
   Stack,
   Title,
 } from '@mantine/core';
@@ -20,9 +21,10 @@ import useTheme from 'hooks/use-theme';
 
 type Props = {
   children: ReactNode;
+  totallyCentered?: boolean;
 };
 
-export default ({ children }: Props) => {
+export default ({ children, totallyCentered }: Props) => {
   const { pathname: route } = useLocation();
   const { isLightTheme, handleToggleColorTheme } = useTheme();
   const isMobile = useMediaQuery(`(max-width: ${em(768)})`);
@@ -46,7 +48,7 @@ export default ({ children }: Props) => {
     >
       <AppShell.Header>
         <Flex h='100%' align='center' justify='space-between' px='2rem'>
-          <Flex align='center' gap='.5rem'>
+          <Flex align='center' gap='lg'>
             <PopoverHint text='⌘ + B'>
               <Burger
                 color='#FFF'
@@ -54,11 +56,22 @@ export default ({ children }: Props) => {
                 onClick={() => setNavbarOpened((prevState) => !prevState)}
               />
             </PopoverHint>
+
+            <PopoverHint text='Go to home'>
+              <Link to='/' style={{ color: '#E7E7E7', textDecoration: 'none' }}>
+                <Title order={2}>manup.dev</Title>
+              </Link>
+            </PopoverHint>
           </Flex>
 
           <Flex align='center' gap='lg'>
-            <Title order={2}>manup.dev</Title>
             <ThemeSwitcher />
+            <Select
+              w='5rem'
+              defaultValue='ES'
+              placeholder='Language'
+              data={['EN', 'ES']}
+            />
           </Flex>
         </Flex>
       </AppShell.Header>
@@ -104,7 +117,16 @@ export default ({ children }: Props) => {
       >
         <Box w='100%' h='100%' p='xl' style={{ overflow: 'auto' }}>
           <Flex w='100%' h='100%' justify='center'>
-            <Center h='100%' maw='75em' px={{ base: 'md' }} pb={{ base: 'md' }}>
+            <Center
+              h='100%'
+              w='100%'
+              maw='95em'
+              px={{ base: 'md' }}
+              pb={{ base: 'md' }}
+              style={{
+                alignItems: totallyCentered ? 'center' : 'flex-start',
+              }}
+            >
               {children}
             </Center>
           </Flex>
