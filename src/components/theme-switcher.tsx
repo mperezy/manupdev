@@ -7,7 +7,9 @@ export default () => {
   const { isLightTheme, handleToggleColorTheme } = useTheme();
 
   return (
-    <PopoverHint text='⌘ + J'>
+    <PopoverHint
+      text={`Switch to ${isLightTheme ? 'dark' : 'light'} mode - mod+J`}
+    >
       <ActionIcon
         variant='theme-toggler'
         size='lg'
@@ -15,12 +17,12 @@ export default () => {
         onClick={handleToggleColorTheme}
       >
         {isLightTheme ? (
-          <MdOutlineWbSunny color={isLightTheme ? '#000' : '#FFF'} />
-        ) : (
           <MdOutlineNightlight
             color={isLightTheme ? '#000' : '#FFF'}
             style={{ transform: 'rotate(327deg)' }}
           />
+        ) : (
+          <MdOutlineWbSunny color={isLightTheme ? '#000' : '#FFF'} />
         )}
       </ActionIcon>
     </PopoverHint>

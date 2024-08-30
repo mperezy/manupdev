@@ -49,7 +49,9 @@ export default ({ children, totallyCentered }: Props) => {
       <AppShell.Header>
         <Flex h='100%' align='center' justify='space-between' px='2rem'>
           <Flex align='center' gap='lg'>
-            <PopoverHint text='⌘ + B'>
+            <PopoverHint
+              text={`${navbarOpened ? 'Close' : 'Open'} navigation bar - ⌘ + B`}
+            >
               <Burger
                 color='#FFF'
                 opened={navbarOpened}
