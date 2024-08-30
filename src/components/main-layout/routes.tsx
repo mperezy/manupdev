@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react';
-import { MdOutlineHome, MdOutlineFolder } from 'react-icons/md';
-
-export type Path = '/' | '/portfolio';
+import { MdOutlineHome, MdOutlineFolder, MdOutlineLink } from 'react-icons/md';
+import routesObj from 'router/routes';
 
 type Route = {
   href: Path;
@@ -11,14 +10,19 @@ type Route = {
 
 const routes: Route[] = [
   {
-    href: '/',
-    title: 'Home',
+    href: routesObj.home.path,
+    title: routesObj.home.name,
     icon: <MdOutlineHome size='1.5rem' />,
   },
   {
-    href: '/portfolio',
-    title: 'Portfolio',
+    href: routesObj.portfolio.path,
+    title: routesObj.portfolio.name,
     icon: <MdOutlineFolder size='1.5rem' />,
+  },
+  {
+    href: routesObj.links.path,
+    title: routesObj.links.name,
+    icon: <MdOutlineLink size='1.5rem' />,
   },
 ];
 

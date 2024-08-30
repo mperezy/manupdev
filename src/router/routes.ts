@@ -9,6 +9,10 @@ const routes: Routes<RouteEnum> = {
     path: '/portfolio',
     name: 'Portfolio',
   },
+  links: {
+    path: '/links',
+    name: 'Links',
+  },
 };
 
 export default routes;

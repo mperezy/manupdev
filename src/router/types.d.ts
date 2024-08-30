@@ -1,5 +1,7 @@
+type Path = '/' | '/portfolio' | '/links';
+
 type RouteI = {
-  path: string;
+  path: Path;
   name: string;
 };
 
