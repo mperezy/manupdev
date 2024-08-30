@@ -1,11 +1,13 @@
 import { MdOutlineHome } from 'react-icons/md';
 import { useLocation } from 'react-router-dom';
-import { Center, em, Flex, Image, Stack, Text, Title } from '@mantine/core';
+import { Center, em, Flex, Stack, Text, Title } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
+import Icon404 from 'components/icons/404';
 import Link from 'components/link';
 
 export default () => {
   const location = useLocation();
+  const isBaseMaxWidth = useMediaQuery(`(max-width: ${em(575)})`);
   const isMobile = useMediaQuery(`(max-width: ${em(768)})`);
 
   return (
@@ -32,18 +34,24 @@ export default () => {
               order={1}
               fz={{ base: '3rem', md: '5rem' }}
               ta={{ base: 'center', md: 'left' }}
+              style={{ transition: 'all 0.5s' }}
             >
               Page not found
             </Title>
 
             <Text
               fz='xl'
-              w={{ base: '80%', md: '60%' }}
+              w={{ base: 'auto', md: '60%' }}
               ta={{ base: 'center', md: 'left' }}
+              style={{ transition: 'all 0.5s' }}
             >
               Looks like you are lost. We could not find the resource you are
               trying to get:{' '}
-              <Text truncate title={`${location.pathname}${location.search}`}>
+              <Text
+                component='span'
+                truncate
+                title={`${location.pathname}${location.search}`}
+              >
                 <code>
                   `{location.pathname}
                   {location.search}`
@@ -52,17 +60,22 @@ export default () => {
             </Text>
 
             <Link to='/' fz='lg'>
-              <Flex align='center' gap='xs'>
+              <Flex
+                align='center'
+                justify={{ base: 'center', md: 'left' }}
+                gap='xs'
+              >
                 <MdOutlineHome size='1.5rem' />
                 Go back to home
               </Flex>
             </Link>
           </Stack>
 
-          <Flex w={{ base: '80%', sm: '70%', md: '40%', lg: '30%' }}>
-            {/* TODO: This next must be a SVG image */}
-            <Image src='/images/404.jpg' />
-          </Flex>
+          <Icon404
+            width={isBaseMaxWidth ? '60%' : 400}
+            height={isBaseMaxWidth ? '60%' : 400}
+            style={{ transition: 'all 0.5s' }}
+          />
         </Flex>
       </Center>
     </Flex>

@@ -22,6 +22,7 @@ const Heading = ({ as, color, children, fontWeight }: HeadingProps) => (
     c={color}
     component={as}
     fw={fontWeight}
+    style={{ transition: 'all 0.5s' }}
   >
     {children}
   </Title>
@@ -74,6 +75,7 @@ export default () => {
                 fontSize: isMobile ? '1.5em' : '2rem',
                 textAlign: isMobile || isTablet ? 'center' : 'left',
                 margin: isMobile ? '1rem 0' : '',
+                transition: 'all 0.5s',
               }}
               repeat={Infinity}
             />
@@ -97,6 +99,7 @@ export default () => {
             style={{
               boxShadow: '2px 2px 57px 7px rgba(20,20,20,0.99)',
               border: '.25rem #F5F5F5 solid',
+              transition: 'all 0.5s',
             }}
           />
         </Flex>

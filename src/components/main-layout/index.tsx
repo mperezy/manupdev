@@ -116,7 +116,7 @@ export default ({ children, fullyCentered }: Props) => {
         h='calc(100dvh - var(--app-shell-header-height))'
       >
         <Flex
-          p={{ base: 'md', md: 'xl' }}
+          p='2.15rem'
           w='100%'
           h={fullyCentered ? '100%' : 'auto'}
           align={fullyCentered ? 'center' : 'flex-start'}
