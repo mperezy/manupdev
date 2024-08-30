@@ -13,22 +13,19 @@ type HeadingProps = {
   fontWeight?: TitleProps['fw'];
 };
 
-const Heading = ({ as, color, children, fontWeight }: HeadingProps) => {
-  const isMobile = useMediaQuery(`(max-width: ${em(768)})`);
-
-  return (
-    <Title
-      order={1}
-      size={isMobile ? '2rem' : '5rem'}
-      c={color}
-      component={as}
-      fw={fontWeight}
-      style={{ textAlign: isMobile ? 'center' : 'left' }}
-    >
-      {children}
-    </Title>
-  );
-};
+const Heading = ({ as, color, children, fontWeight }: HeadingProps) => (
+  <Title
+    variant='heading'
+    order={1}
+    fz={{ base: '2rem', md: '5rem' }}
+    ta={{ base: 'center', md: 'left' }}
+    c={color}
+    component={as}
+    fw={fontWeight}
+  >
+    {children}
+  </Title>
+);
 
 export default () => {
   const { isLightTheme } = useTheme();
@@ -40,7 +37,7 @@ export default () => {
         <Flex
           w='100%'
           direction={{ base: 'column-reverse', md: 'row' }}
-          gap={isMobile ? '2rem' : 'lg'}
+          gap={{ base: '2rem', md: 'lg' }}
           align='center'
           justify='space-evenly'
         >
@@ -67,20 +64,23 @@ export default () => {
                 'a sort of Devops engineer',
                 1500,
                 'a code lover',
-                1500,
+                3000,
               ]}
-              wrapper='span'
+              // @ts-expect-error code tag
+              wrapper='code'
               speed={30}
               style={{
-                fontSize: '2em',
-                textAlign: 'center',
                 display: isMobile ? 'block' : 'flex',
+                fontSize: isMobile ? '1.5em' : '2rem',
+                textAlign: 'center',
+                margin: isMobile ? '1rem 0' : '',
               }}
               repeat={Infinity}
             />
             <Text
-              w={isMobile ? 'auto' : '95%'}
-              style={{ textAlign: isMobile ? 'center' : 'left' }}
+              w={{ base: '100%', md: '95%' }}
+              ta={{ base: 'center', md: 'left' }}
+              fz={{ base: 'lg', md: 'xl' }}
             >
               Welcome to my website! you will find some information about me and
               my professional work. I'm a software engineer who truly loves

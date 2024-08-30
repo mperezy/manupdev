@@ -385,10 +385,20 @@
   resolved "https://registry.yarnpkg.com/@floating-ui/utils/-/utils-0.2.7.tgz#d0ece53ce99ab5a8e37ebdfe5e32452a2bfc073e"
   integrity sha512-X8R8Oj771YRl/w+c1HqAC1szL8zWQRwFvgDwT129k9ACdBoud/+/rX9V0qiMl6LWUdP9voC2nDVZYPMQQsb6eA==
 
+"@fontsource/anton-sc@^5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/anton-sc/-/anton-sc-5.0.2.tgz#29de33103dcf75d5163627849a382399b8bcc2f9"
+  integrity sha512-6b6Ro/OkuujoH9NEKSmYAVfMCDIFh1+n+ks2L8rYDJjO1GWhoJFReGqN/S3ts7rD8j43JQG2SwxCKAXkzLjnCA==
+
 "@fontsource/cabin@^5.0.19":
   version "5.0.19"
   resolved "https://registry.yarnpkg.com/@fontsource/cabin/-/cabin-5.0.19.tgz#76ba308143d5dd8c14b2e39022f0d0ba6f4d63ac"
   integrity sha512-g53TXjHw9fOeJ4lSSMda+eYvjG173uPHjtlNsikNOYE/LqnBDgY1hWjobmjVUHpizmp9miv/aw2XvygZYyA04w==
+
+"@fontsource/graduate@^5.0.20":
+  version "5.0.20"
+  resolved "https://registry.yarnpkg.com/@fontsource/graduate/-/graduate-5.0.20.tgz#96a23c861c917ebf4d1cdd9fc79d66b188aab7f9"
+  integrity sha512-/dowb3Y7LwCZKc+F4MSQsV2xuWWIC4Eo7wdFXMu2hrtMJX7fMWIJ2J1IyXNmV2UOuqRkgFZ2d8ivCAbQgC0TQA==
 
 "@humanwhocodes/module-importer@^1.0.1":
   version "1.0.1"

@@ -7,7 +7,6 @@ import Link from 'components/link';
 export default () => {
   const location = useLocation();
   const isMobile = useMediaQuery(`(max-width: ${em(768)})`);
-  console.log({ location, isMobile });
 
   return (
     <Flex w='100%' justify='center'>
@@ -28,12 +27,16 @@ export default () => {
             w={{ base: '100%', sm: '60%', md: '55%', lg: '50%', xl: '40%' }}
             align={isMobile ? 'center' : 'left'}
           >
-            <Title order={1} fz={isMobile ? '3rem' : '5rem'}>
+            <Title
+              variant='heading'
+              order={1}
+              fz={{ base: '3rem', md: '5rem' }}
+              ta={{ base: 'center', md: 'left' }}
+            >
               Page not found
             </Title>
 
             <Text
-              display=''
               fz='xl'
               w={{ base: '80%', md: '60%' }}
               ta={{ base: 'center', md: 'left' }}

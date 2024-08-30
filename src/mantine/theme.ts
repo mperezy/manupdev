@@ -1,7 +1,6 @@
 import type { MantineTheme } from '@mantine/core';
 import { NavLink } from '@mantine/core';
-import { AppShell } from '@mantine/core';
-import { Anchor, createTheme } from '@mantine/core';
+import { Anchor, AppShell, Title, createTheme } from '@mantine/core';
 import cssVariables from 'mantine/css-variables';
 
 const { appShell, anchor, navLink } = cssVariables;
@@ -150,6 +149,21 @@ const mainTheme = createTheme({
         },
         children: {},
       }),
+    }),
+
+    Title: Title.extend({
+      styles: (_, { variant }) => {
+        if (variant === 'heading') {
+          return {
+            root: {
+              fontFamily: 'Graduate',
+              letterSpacing: '2px',
+            },
+          };
+        }
+
+        return {};
+      },
     }),
   },
 }) as MainTheme;

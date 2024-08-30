@@ -117,14 +117,17 @@ export default ({ children, totallyCentered }: Props) => {
         mih='calc(100dvh - var(--app-shell-header-height))'
         h='calc(100dvh - var(--app-shell-header-height))'
       >
-        <Box w='100%' h='100%' p='xl' style={{ overflow: 'auto' }}>
+        <Box
+          w='100%'
+          h='100%'
+          p={{ base: 'md', md: 'xl' }}
+          style={{ overflow: 'auto' }}
+        >
           <Flex w='100%' h='100%' justify='center'>
             <Center
               h='100%'
               w='100%'
               maw='95em'
-              px={{ base: 'md' }}
-              pb={{ base: 'md' }}
               style={{
                 alignItems: totallyCentered ? 'center' : 'flex-start',
               }}
