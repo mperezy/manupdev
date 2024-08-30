@@ -115,9 +115,6 @@ const mainTheme = createTheme({
           },
           main: {
             background: `var(${appShell.main.background})`,
-            position: 'absolute',
-            right: 0,
-            top: 0,
           },
         };
       },

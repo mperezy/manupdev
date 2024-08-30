@@ -30,10 +30,11 @@ const Heading = ({ as, color, children, fontWeight }: HeadingProps) => (
 export default () => {
   const { isLightTheme } = useTheme();
   const isMobile = useMediaQuery(`(max-width: ${em(768)})`);
+  const isTablet = useMediaQuery(`(max-width: ${em(991)})`);
 
   return (
-    <MainLayout totallyCentered>
-      <Stack w='100%' align='center' py='xl'>
+    <MainLayout fullyCentered>
+      <Stack w='100%' align='center' mt={{ base: '4rem', xs: 0 }} py='xl'>
         <Flex
           w='100%'
           direction={{ base: 'column-reverse', md: 'row' }}
@@ -54,7 +55,7 @@ export default () => {
             </Heading>
 
             <TypeAnimation
-              key={`type-animation-key-${isMobile}`}
+              key={`type-animation-key-${isMobile}-${isTablet}`}
               sequence={[
                 // Same substring at the start will only be typed out once, initially
                 'a frontend developer',
@@ -70,9 +71,8 @@ export default () => {
               wrapper='code'
               speed={30}
               style={{
-                display: isMobile ? 'block' : 'flex',
                 fontSize: isMobile ? '1.5em' : '2rem',
-                textAlign: 'center',
+                textAlign: isMobile || isTablet ? 'center' : 'left',
                 margin: isMobile ? '1rem 0' : '',
               }}
               repeat={Infinity}
@@ -92,7 +92,7 @@ export default () => {
           <Image
             src='/images/manu-profile.png'
             display='flex'
-            w={{ base: '90%', xs: '60%', sm: '20rem', md: '27rem' }}
+            w={{ base: '75%', xs: '60%', sm: '20rem', md: '27rem' }}
             radius='50rem'
             style={{
               boxShadow: '2px 2px 57px 7px rgba(20,20,20,0.99)',

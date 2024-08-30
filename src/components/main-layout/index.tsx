@@ -2,9 +2,7 @@ import type { ReactNode } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import {
   AppShell,
-  Box,
   Burger,
-  Center,
   Divider,
   em,
   Flex,
@@ -21,10 +19,10 @@ import useTheme from 'hooks/use-theme';
 
 type Props = {
   children: ReactNode;
-  totallyCentered?: boolean;
+  fullyCentered?: boolean;
 };
 
-export default ({ children, totallyCentered }: Props) => {
+export default ({ children, fullyCentered }: Props) => {
   const { pathname: route } = useLocation();
   const { isLightTheme, handleToggleColorTheme } = useTheme();
   const isMobile = useMediaQuery(`(max-width: ${em(768)})`);
@@ -117,25 +115,18 @@ export default ({ children, totallyCentered }: Props) => {
         mih='calc(100dvh - var(--app-shell-header-height))'
         h='calc(100dvh - var(--app-shell-header-height))'
       >
-        <Box
-          w='100%'
-          h='100%'
+        <Flex
           p={{ base: 'md', md: 'xl' }}
+          w='100%'
+          h={fullyCentered ? '100%' : 'auto'}
+          align={fullyCentered ? 'center' : 'flex-start'}
+          justify='center'
           style={{ overflow: 'auto' }}
         >
-          <Flex w='100%' h='100%' justify='center'>
-            <Center
-              h='100%'
-              w='100%'
-              maw='95em'
-              style={{
-                alignItems: totallyCentered ? 'center' : 'flex-start',
-              }}
-            >
-              {children}
-            </Center>
+          <Flex w='100%' maw='95rem' justify='center'>
+            {children}
           </Flex>
-        </Box>
+        </Flex>
       </AppShell.Main>
     </AppShell>
   );
