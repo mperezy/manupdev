@@ -1,6 +1,6 @@
 import type { MantineTheme } from '@mantine/core';
 import { NavLink } from '@mantine/core';
-import { Anchor, AppShell, Title, createTheme } from '@mantine/core';
+import { Accordion, Anchor, AppShell, Title, createTheme } from '@mantine/core';
 import cssVariables from 'mantine/css-variables';
 
 const { appShell, anchor, navLink } = cssVariables;
@@ -94,6 +94,14 @@ const mainTheme = createTheme({
   },
   other,
   components: {
+    Accordion: Accordion.extend({
+      styles: {
+        item: {
+          border: 0,
+        },
+      },
+    }),
+
     AppShell: AppShell.extend({
       styles: (_, { navbar }) => {
         const isNavbarOpened = !(
