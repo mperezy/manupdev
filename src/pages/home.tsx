@@ -35,66 +35,66 @@ export default () => {
 
   return (
     <MainLayout fullyCentered>
-      <Stack w='100%' align='center' mt={{ base: '4rem', xs: 0 }} py='xl'>
-        <Flex
-          w='100%'
-          direction={{ base: 'column-reverse', md: 'row' }}
-          gap={{ base: '2rem', md: 'lg' }}
-          align='center'
-          justify='space-evenly'
-        >
-          <Stack gap='sm'>
-            <Heading>
-              Hi, I'm{' '}
-              <Heading
-                color={isLightTheme ? '#3FB25F' : '#6dca86'}
-                as='span'
-                fontWeight='900'
-              >
-                Manuel Perez
-              </Heading>
-            </Heading>
-
-            <TypeAnimation
-              key={`type-animation-key-${isMobile}-${isTablet}`}
-              sequence={[
-                // Same substring at the start will only be typed out once, initially
-                'a frontend developer',
-                1500, // wait 1s before replacing "Mice" with "Hamsters"
-                'a backend developer',
-                1500,
-                'a sort of Devops engineer',
-                1500,
-                'a code lover',
-                3000,
-              ]}
-              // @ts-expect-error code tag
-              wrapper='code'
-              speed={30}
-              style={{
-                fontSize: isMobile ? '1.5em' : '2rem',
-                textAlign: isMobile || isTablet ? 'center' : 'left',
-                margin: isMobile ? '1rem 0' : '',
-                transition: 'all 0.5s',
-              }}
-              repeat={Infinity}
-            />
-            <Text
-              w={{ base: '100%', md: '95%' }}
-              ta={{ base: 'center', md: 'left' }}
-              fz={{ base: 'lg', md: 'xl' }}
+      <Flex
+        data-test-id='HOME_PAGE'
+        w='100%'
+        direction={{ base: 'column-reverse', md: 'row' }}
+        gap={{ base: '2rem', md: 'lg' }}
+        align='center'
+        justify='space-evenly'
+      >
+        <Stack gap='sm'>
+          <Heading>
+            Hi, I'm{' '}
+            <Heading
+              color={isLightTheme ? '#3FB25F' : '#6dca86'}
+              as='span'
+              fontWeight='900'
             >
-              Welcome to my website! you will find some information about me and
-              my professional work. I'm a software engineer who truly loves
-              writing code and diving into new technologies to explore in order
-              to deliver a great product to my consultee.
-            </Text>
-          </Stack>
+              Manuel Perez
+            </Heading>
+          </Heading>
 
+          <TypeAnimation
+            key={`type-animation-key-${isMobile}-${isTablet}`}
+            sequence={[
+              // Same substring at the start will only be typed out once, initially
+              'a frontend developer',
+              1500, // wait 1s before replacing "Mice" with "Hamsters"
+              'a backend developer',
+              1500,
+              'a sort of Devops engineer',
+              1500,
+              'a code lover',
+              3000,
+            ]}
+            // @ts-expect-error code tag
+            wrapper='code'
+            speed={30}
+            style={{
+              fontSize: isMobile ? '1.5em' : '2rem',
+              textAlign: isMobile || isTablet ? 'center' : 'left',
+              margin: isMobile ? '1rem 0' : '',
+              transition: 'all 0.5s',
+            }}
+            repeat={Infinity}
+          />
+          <Text
+            w={{ base: '100%', md: '95%' }}
+            ta={{ base: 'center', md: 'left' }}
+            fz={{ base: 'lg', md: 'xl' }}
+          >
+            Welcome to my website! you will find some information about me and
+            my professional work. I'm a software engineer who truly loves
+            writing code and diving into new technologies to explore in order to
+            deliver a great product to my consultee.
+          </Text>
+        </Stack>
+
+        <Flex w={{ base: '75%', xs: '60%', sm: '20rem', md: '40rem' }}>
           <Image
             src='/images/manu-profile.png'
             display='flex'
-            w={{ base: '75%', xs: '60%', sm: '20rem', md: '27rem' }}
             radius='50rem'
             style={{
               boxShadow: '2px 2px 57px 7px rgba(20,20,20,0.99)',
@@ -103,7 +103,7 @@ export default () => {
             }}
           />
         </Flex>
-      </Stack>
+      </Flex>
     </MainLayout>
   );
 };
