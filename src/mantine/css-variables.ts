@@ -3,6 +3,15 @@ export default {
     textColor: '--mantine-color-text',
   },
 
+  accordion: {
+    control: {
+      hover: {
+        textColor: '--mantine-accordion-control-hover-text-color',
+        background: '--mantine-accordion-control-hover-background',
+      },
+    },
+  },
+
   anchor: {
     textColor: '--mantine-anchor-color-text',
   },

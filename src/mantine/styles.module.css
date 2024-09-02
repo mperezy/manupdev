@@ -1,0 +1,7 @@
+.accordion-control {
+  &:hover,
+  &[data-active] {
+    color: var(--mantine-accordion-control-hover-text-color) !important;
+    background: var(--mantine-accordion-control-hover-background) !important;
+  }
+}

@@ -1,15 +1,29 @@
-import { Accordion, Anchor, Flex, Stack, Timeline, Title } from '@mantine/core';
+import { useState } from 'react';
+import {
+  Accordion,
+  Anchor,
+  em,
+  Flex,
+  Stack,
+  Timeline,
+  Title,
+} from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 import MainLayout from 'components/main-layout';
 import portfolio from 'constants/portfolio';
-import { useState } from 'react';
 
 export default () => {
+  const isBaseWidth = useMediaQuery(`(max-width: ${em(425)})`);
   const [professionalItem, setProfessionalItem] = useState<string>('');
   const [personalItem, setPersonalItem] = useState<string>('');
 
   return (
-    <MainLayout fullyCentered>
+    <MainLayout
+      fullyCentered
+      minHeight={isBaseWidth ? 'calc(50rem + 10dvh)' : undefined}
+    >
       <Flex
+        data-test-id='PORTFOLIO_PAGE'
         w='100%'
         direction={{ base: 'column', xs: 'row' }}
         gap='xl'
@@ -80,8 +94,12 @@ export default () => {
               <Timeline.Item key={index} title={year}>
                 <Accordion
                   chevronPosition='left'
-                  value={personalItem}
-                  onChange={(value) => setPersonalItem(value || '')}
+                  value={isBaseWidth ? professionalItem : personalItem}
+                  onChange={(value) =>
+                    isBaseWidth
+                      ? setProfessionalItem(value || '')
+                      : setPersonalItem(value || '')
+                  }
                 >
                   {work.map(({ title, description }, index) => (
                     <Accordion.Item key={index} value={title}>

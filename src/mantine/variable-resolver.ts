@@ -7,17 +7,19 @@ import type { MainTheme } from 'mantine/theme';
 
 type MyCSSVariablesResolver = (theme: MainTheme) => ConvertCSSVariablesInput;
 
-const { mantine, anchor, appShell, loader, navLink } = cssVariables;
+const { mantine, accordion, anchor, appShell, loader, navLink } = cssVariables;
 
 const variableResolver: MyCSSVariablesResolver = (mantineTheme) => {
   const { light: lightVariables, dark: darkVariables } = mantineTheme.other;
   const {
+    accordion: lightAccordion,
     anchor: lightAnchor,
     appShell: lightAppShell,
     navLink: lightNavLink,
     textColor: lightTextColor,
   } = lightVariables;
   const {
+    accordion: darkAccordion,
     anchor: darkAnchor,
     appShell: darkAppShell,
     navLink: darkNavLink,
@@ -29,6 +31,12 @@ const variableResolver: MyCSSVariablesResolver = (mantineTheme) => {
 
     light: {
       [mantine.textColor]: lightTextColor,
+
+      // Accordion
+      [accordion.control.hover.textColor]:
+        lightAccordion.control.hover.textColor,
+      [accordion.control.hover.background]:
+        lightAccordion.control.hover.background,
 
       // Anchor
       [anchor.textColor]: lightAnchor.textColor,
@@ -54,6 +62,12 @@ const variableResolver: MyCSSVariablesResolver = (mantineTheme) => {
 
     dark: {
       [mantine.textColor]: darkTextColor,
+
+      // Accordion
+      [accordion.control.hover.textColor]:
+        darkAccordion.control.hover.textColor,
+      [accordion.control.hover.background]:
+        darkAccordion.control.hover.background,
 
       // Anchor
       [anchor.textColor]: darkAnchor.textColor,

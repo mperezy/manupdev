@@ -1,13 +1,30 @@
 import type { MantineTheme } from '@mantine/core';
 import { NavLink } from '@mantine/core';
-import { Accordion, Anchor, AppShell, Title, createTheme } from '@mantine/core';
+import {
+  Accordion,
+  Anchor,
+  AppShell,
+  Timeline,
+  Title,
+  createTheme,
+} from '@mantine/core';
 import cssVariables from 'mantine/css-variables';
+import styles from 'mantine/styles.module.css';
 
 const { appShell, anchor, navLink } = cssVariables;
 
 const other = {
   light: {
     textColor: '#323232',
+
+    accordion: {
+      control: {
+        hover: {
+          textColor: '#323232',
+          background: '#d1d1d1',
+        },
+      },
+    },
 
     anchor: {
       textColor: '#4DABF7',
@@ -46,6 +63,15 @@ const other = {
 
   dark: {
     textColor: '#E7E7E7',
+
+    accordion: {
+      control: {
+        hover: {
+          textColor: '#E7E7E7',
+          background: '#6c6c6c',
+        },
+      },
+    },
 
     anchor: {
       textColor: '#62b7ff',
@@ -96,9 +122,20 @@ const mainTheme = createTheme({
   components: {
     Accordion: Accordion.extend({
       styles: {
+        control: {
+          borderRadius: '.5rem',
+        },
+
+        label: {
+          fontWeight: '500',
+        },
+
         item: {
           border: 0,
         },
+      },
+      classNames: {
+        control: `${styles['accordion-control']}`,
       },
     }),
 
@@ -154,6 +191,14 @@ const mainTheme = createTheme({
         },
         children: {},
       }),
+    }),
+
+    Timeline: Timeline.extend({
+      styles: {
+        itemTitle: {
+          fontWeight: 900,
+        },
+      },
     }),
 
     Title: Title.extend({
