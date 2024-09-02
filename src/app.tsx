@@ -4,6 +4,7 @@ import { MantineProvider } from '@mantine/core';
 import mainTheme from 'mantine/theme';
 import variableResolver from 'mantine/variable-resolver';
 import '@mantine/core/styles.css';
+import ModalProvider from 'providers/modal/index';
 
 export default () => (
   <>
@@ -26,7 +27,9 @@ export default () => (
       cssVariablesResolver={variableResolver}
       defaultColorScheme='light'
     >
-      <RouterProvider router={router} />
+      <ModalProvider>
+        <RouterProvider router={router} />
+      </ModalProvider>
     </MantineProvider>
   </>
 );
