@@ -8,109 +8,14 @@ import {
   Title,
   createTheme,
 } from '@mantine/core';
+import colorSchemeValues from 'mantine/color-scheme-values';
 import cssVariables from 'mantine/css-variables';
 import styles from 'mantine/styles.module.css';
 
-const { appShell, anchor, navLink } = cssVariables;
-
-const other = {
-  light: {
-    textColor: '#323232',
-
-    accordion: {
-      control: {
-        hover: {
-          textColor: '#323232',
-          background: '#d1d1d1',
-        },
-      },
-    },
-
-    anchor: {
-      textColor: '#4DABF7',
-    },
-
-    appShell: {
-      navbar: {
-        background: '#E7E7E7',
-      },
-      main: {
-        background: '#F5F5F5',
-      },
-    },
-
-    loader: {
-      color: '#717171',
-    },
-
-    navLink: {
-      active: {
-        textColor: '#209aff',
-        background: {
-          default: '#a4d7ff',
-          hover: '#b5defd',
-        },
-      },
-      inactive: {
-        textColor: '#E7E7E7',
-        background: {
-          default: 'transparent',
-          hover: '#B7B7B7',
-        },
-      },
-    },
-  },
-
-  dark: {
-    textColor: '#E7E7E7',
-
-    accordion: {
-      control: {
-        hover: {
-          textColor: '#E7E7E7',
-          background: '#6c6c6c',
-        },
-      },
-    },
-
-    anchor: {
-      textColor: '#62b7ff',
-    },
-
-    appShell: {
-      navbar: {
-        background: '#353535',
-      },
-      main: {
-        background: '#464646',
-      },
-    },
-
-    loader: {
-      color: '#CDCDCD',
-    },
-
-    navLink: {
-      active: {
-        textColor: '#F5F5F5',
-        background: {
-          default: '#2FA6FF',
-          hover: '#4DABF7',
-        },
-      },
-      inactive: {
-        textColor: '#b7b7b7',
-        background: {
-          default: 'transparent',
-          hover: '#dbf2ff',
-        },
-      },
-    },
-  },
-};
+const { appShell, anchor, navLink, timeline } = cssVariables;
 
 export type MainTheme = Omit<MantineTheme, 'other'> & {
-  other: typeof other;
+  other: typeof colorSchemeValues;
 };
 
 const mainTheme = createTheme({
@@ -118,7 +23,7 @@ const mainTheme = createTheme({
   headings: {
     fontFamily: 'Cabin',
   },
-  other,
+  other: colorSchemeValues,
   components: {
     Accordion: Accordion.extend({
       styles: {
@@ -180,6 +85,7 @@ const mainTheme = createTheme({
       },
       styles: {
         body: {
+          fontWeight: '700',
           borderRadius: '.5rem',
         },
       },
@@ -191,9 +97,15 @@ const mainTheme = createTheme({
         },
         children: {},
       }),
+      classNames: (_, { active }) => ({
+        root: !active ? `${styles.navlink}` : undefined,
+      }),
     }),
 
     Timeline: Timeline.extend({
+      defaultProps: {
+        color: `var(${timeline.color})`,
+      },
       styles: {
         itemTitle: {
           fontWeight: 900,

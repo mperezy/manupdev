@@ -5,3 +5,9 @@
     background: var(--mantine-accordion-control-hover-background) !important;
   }
 }
+
+.navlink {
+  &:hover {
+    background: var(--mantine-nav-link-inactive-background-hover) !important;
+  }
+}

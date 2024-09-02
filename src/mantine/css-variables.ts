@@ -1,4 +1,4 @@
-export default {
+const cssVariables: CSSVariables = {
   mantine: {
     textColor: '--mantine-color-text',
   },
@@ -46,4 +46,10 @@ export default {
       },
     },
   },
-} as const;
+
+  timeline: {
+    color: '--mantine-timeline-color',
+  },
+};
+
+export default cssVariables;
