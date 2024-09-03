@@ -67,7 +67,7 @@ jobs:
 
             const message = `
             :white_check_mark: ${commits.length > 1 ? "New commits" : "New commit"}! by *_${authorName}_* on branch *${branch}* :tada:
-            ${commits.map((commit) => `> *\`${commit.id.slice(0, 7)}\`* - *\"${commit.message.split('\n\n')[0]}\"*`)}
+            >${commits.map((commit) => `*\`${commit.id.slice(0, 7)}\`* - *\"${commit.message.split('\n\n')[0]}\"*\n`)}
             • Updates are available at https://manup.dev :rocket:
             `;
 
