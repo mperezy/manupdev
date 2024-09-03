@@ -1,8 +1,9 @@
-import { Accordion, Flex, Stack, Text } from '@mantine/core';
+import { TbExternalLink } from 'react-icons/tb';
+import { Anchor, Accordion, Flex, Stack, Text } from '@mantine/core';
 import BaseModal from 'components/base-modal';
-import type { ModalBaseProps } from 'providers/modal/types';
+import TechBadge from 'components/tech-badge';
 import type { Job } from 'constants/portfolio';
-import TechBadge from './tech-badge';
+import type { ModalBaseProps } from 'providers/modal/types';
 
 type Props = ModalBaseProps & Job;
 
@@ -11,6 +12,7 @@ export default ({
   verbose,
   roles,
   technologiesUsed,
+  url,
   ...rest
 }: Props) => (
   <BaseModal {...rest} size='xl' title={title}>
@@ -22,13 +24,15 @@ export default ({
         </Accordion.Item>
       </Accordion>
 
-      <Stack px='md' pb='.75rem' gap='sm'>
-        <Text fw='500'>Roles:</Text>
+      <Stack px='md' gap='sm'>
+        <Text variant='label' component='span'>
+          Roles:
+        </Text>
         <Text pl='.5rem'>{roles.join(', ')}</Text>
       </Stack>
 
       <Stack px='md' gap='sm'>
-        <Text fw='500' component='span'>
+        <Text variant='label' component='span'>
           Technologies used:
         </Text>
         <Flex pl='.5rem' w='100%' style={{ flexWrap: 'wrap' }} gap='xs'>
@@ -39,6 +43,15 @@ export default ({
           ))}
         </Flex>
       </Stack>
+
+      <Flex px='md'>
+        <Anchor href={url} target={url === '#' ? '_self' : '_blank'}>
+          <Flex align='center' gap='.25rem'>
+            Visit website{' '}
+            <TbExternalLink style={{ position: 'relative', top: '-1px' }} />
+          </Flex>
+        </Anchor>
+      </Flex>
     </Stack>
   </BaseModal>
 );

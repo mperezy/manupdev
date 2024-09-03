@@ -2,6 +2,7 @@
 
 export type Job = {
   title: string;
+  url: string;
   roles: ('Frontend' | 'Backend' | 'Fullstack Dev' | 'Devops')[];
   description: string;
   verbose: string;
@@ -22,6 +23,7 @@ const portfolio: Portfolio = {
       work: [
         {
           title: 'Jemstep',
+          url: 'https://invesco.com',
           roles: ['Fullstack Dev'],
           description:
             'By using Scala as main language I collaborated with team mates to solve bugs and implementing new features.',
@@ -51,6 +53,7 @@ const portfolio: Portfolio = {
       work: [
         {
           title: 'Positon',
+          url: 'https://positon.ai',
           roles: ['Fullstack Dev'],
           description:
             'I was involved, alongside with a team mate, in the implementation of the main application from scratch.',
@@ -73,6 +76,7 @@ const portfolio: Portfolio = {
       work: [
         {
           title: 'Blockdaemon',
+          url: 'https://blockdaemon.com/wallet/institutional-wallet',
           roles: ['Frontend'],
           description:
             'I collaborated by fixing bugs, made several improvements and implemented a whole new platform for offline crypto transactions in the project I was assigned.',
@@ -98,6 +102,7 @@ const portfolio: Portfolio = {
       work: [
         {
           title: 'RCX Sports',
+          url: 'https://go.playrcx.com',
           roles: ['Frontend', 'Devops'],
           description:
             "Alongside with two team mates, we are working in the implementation of bunch of applications and, implemented the repo's CI/CD myself.",
@@ -121,6 +126,7 @@ const portfolio: Portfolio = {
       work: [
         {
           title: 'Passvault',
+          url: 'https://passvault.manup.dev',
           roles: ['Frontend', 'Backend', 'Devops'],
           description:
             'In order to fix a personal problem, I developed a mobile/web application to create safe and secure passwords and store them in the cloud (Firebase)',
@@ -142,6 +148,7 @@ const portfolio: Portfolio = {
       work: [
         {
           title: 'Next Role Based App',
+          url: '#',
           roles: ['Frontend', 'Backend', 'Devops'],
           description:
             'As a personal challenge I created a web application so an authenticated user, depending of the roles assigned, this user can consume (or not) certain resources and make (or not) actions.',
