@@ -26,29 +26,58 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: 📥 Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Node
+      - name: 🔧 Set up Node
         uses: actions/setup-node@v4
 
-      - name: Install dependencies
+      - name: 📥 Install dependencies
         run: yarn
 
-      - name: Build
+      - name: 🛠️ Build
         run: yarn build
 
-      - name: Setup Pages
+      - name: 🌎 Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Upload artifact
+      - name: 📤 Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload dist folder
           path: './dist'
 
-      - name: Deploy to GitHub Pages
+      - name: 🚀 Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # Reference to send messages to Slack from Github Actions:
+      - name: ✍🏻 Build Slack message
+        id: build_slack_message
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { payload } = context;
+            const { commits } = payload;
+            const { name: authorName } = payload.head_commit.author;
+            const branch = payload.ref.replace("refs/heads/", "");
+
+            const message = `
+            :white_check_mark: ${commits.length > 1 ? "New commits" : "New commit"}! by *_${authorName}_* on branch *${branch}* :tada:
+            ${commits.map((commit) => `> *\`${commit.id.slice(0, 7)}\`* - *\"${commit.message.split('\n\n')[0]}\"*`)}
+            • Updates are available at https://manup.dev :rocket:
+            `;
+
+            core.setOutput('slack_message', message);
+
+      - name: ✉️ Send message to Slack
+        id: slack
+        uses: slackapi/slack-github-action@v1.27.0
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        with:
+          channel-id: '${{ secrets.SLACK_CHANNEL_ID }}'
+          slack-message: ${{ steps.build_slack_message.outputs.slack_message }}

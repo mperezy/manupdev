@@ -19,17 +19,12 @@ export default tseslint.config(
       'react-refresh': reactRefresh,
     },
     rules: {
-      ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': [
-        'off',
-        { allowConstantExport: true },
-      ],
+      'react-refresh/only-export-components': ['off', { allowConstantExport: true }],
       'linebreak-style': ['error', 'unix'],
       '@typescript-eslint/ban-types': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/consistent-type-imports': 'error',
-      quotes: ['error', 'single'],
       semi: ['error', 'always'],
       eqeqeq: ['error', 'always'],
 
@@ -54,5 +49,5 @@ export default tseslint.config(
       'react/react-in-jsx-scope': 'off',
       'react/display-name': 'off',
     },
-  },
+  }
 );
