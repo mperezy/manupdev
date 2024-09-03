@@ -1,9 +1,10 @@
 import type { MantineTheme } from '@mantine/core';
-import { NavLink } from '@mantine/core';
 import {
   Accordion,
   Anchor,
   AppShell,
+  Modal,
+  NavLink,
   Timeline,
   Title,
   createTheme,
@@ -75,6 +76,18 @@ const mainTheme = createTheme({
         root: {
           color: `var(${anchor.textColor})`,
           fontWeight: '700',
+        },
+      },
+    }),
+
+    Modal: Modal.extend({
+      styles: {
+        content: {
+          borderRadius: '1rem',
+        },
+        title: {
+          fontSize: '2rem',
+          fontWeight: '500',
         },
       },
     }),

@@ -6,7 +6,7 @@ type BadgeColors = {
 
 const colors: Record<Tech, BadgeColors> = {
   Auth0: {
-    background: '#A53B19',
+    background: '#EB5424B3',
   },
 
   'AWS Lambda': {
@@ -44,13 +44,13 @@ const colors: Record<Tech, BadgeColors> = {
   },
 
   Expo: {
-    background: '#FFFFFFB3',
+    background: '#FFF',
     textColor: '#464646',
     borderColor: '#000',
   },
 
   Express: {
-    background: '#FFFFFFB3',
+    background: '#FFF',
     textColor: '#464646',
     borderColor: '#000',
   },
@@ -60,7 +60,7 @@ const colors: Record<Tech, BadgeColors> = {
   },
 
   Github: {
-    background: '#FFFFFFB3',
+    background: '#FFF',
     textColor: '#464646',
     borderColor: '#000',
   },
@@ -88,7 +88,7 @@ const colors: Record<Tech, BadgeColors> = {
   },
 
   'Next.js': {
-    background: '#FFFFFFB3',
+    background: '#FFF',
     textColor: '#464646',
     borderColor: '#000',
   },
@@ -103,11 +103,11 @@ const colors: Record<Tech, BadgeColors> = {
   },
 
   'React.js': {
-    background: '#00B1D1',
+    background: '#0A97B0CC',
   },
 
   'React Native': {
-    background: '#00B1D1',
+    background: '#0A97B0CC',
   },
 
   'Redux Toolkit': {
@@ -127,7 +127,7 @@ const colors: Record<Tech, BadgeColors> = {
   },
 
   'SQL Server': {
-    background: '#FFFFFFB3',
+    background: '#FFF',
     textColor: '#464646',
     borderColor: '#000',
   },

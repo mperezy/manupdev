@@ -3,12 +3,12 @@ import type { SVGProps } from 'react';
 export default ({ width = 20, height = 20 }: SVGProps<SVGElement>) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
-    clip-rule='evenodd'
-    fill-rule='evenodd'
+    clipRule='evenodd'
+    fillRule='evenodd'
     width={width} // '2500'
     height={height} // '2500'
-    stroke-linejoin='round'
-    stroke-miterlimit='2'
+    strokeLinejoin='round'
+    strokeMiterlimit='2'
     viewBox='-.00220702 -.00220702 50.00441404 50.00441404'
   >
     <path

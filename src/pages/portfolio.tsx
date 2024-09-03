@@ -10,12 +10,17 @@ import {
 } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 import MainLayout from 'components/main-layout';
-import portfolio from 'constants/portfolio';
+import portfolio, { type Job } from 'constants/portfolio';
+import JobModal from 'components/job-modal';
+import useModal from 'providers/modal/use-modal';
 
 export default () => {
   const isBaseWidth = useMediaQuery(`(max-width: ${em(425)})`);
   const [professionalItem, setProfessionalItem] = useState<string>('');
   const [personalItem, setPersonalItem] = useState<string>('');
+  const [openJobModal] = useModal(JobModal);
+
+  const handleMoreDetails = (job: Job) => openJobModal(job);
 
   return (
     <MainLayout
@@ -54,14 +59,17 @@ export default () => {
                   value={professionalItem}
                   onChange={(value) => setProfessionalItem(value || '')}
                 >
-                  {work.map(({ title, description }, index) => (
-                    <Accordion.Item key={index} value={title}>
-                      <Accordion.Control children={title} />
+                  {work.map((job, index) => (
+                    <Accordion.Item key={index} value={job.title}>
+                      <Accordion.Control children={job.title} />
                       <Accordion.Panel
                         children={
                           <Stack gap='xs'>
-                            {description}
-                            <Anchor children='See more details' />
+                            {job.description}
+                            <Anchor
+                              children='See more details'
+                              onClick={() => handleMoreDetails(job)}
+                            />
                           </Stack>
                         }
                       />
@@ -101,14 +109,17 @@ export default () => {
                       : setPersonalItem(value || '')
                   }
                 >
-                  {work.map(({ title, description }, index) => (
-                    <Accordion.Item key={index} value={title}>
-                      <Accordion.Control children={title} />
+                  {work.map((job, index) => (
+                    <Accordion.Item key={index} value={job.title}>
+                      <Accordion.Control children={job.title} />
                       <Accordion.Panel
                         children={
                           <Stack gap='xs'>
-                            {description}
-                            <Anchor children='See more details' />
+                            {job.description}
+                            <Anchor
+                              children='See more details'
+                              onClick={() => handleMoreDetails(job)}
+                            />
                           </Stack>
                         }
                       />

@@ -7,11 +7,11 @@ export default ({ width = 20, height = 20 }: SVGProps<SVGElement>) => (
     xmlns='http://www.w3.org/2000/svg'
     height={height} // '2500'
     width={width} // '2136'
-    clip-rule='evenodd'
-    fill-rule='evenodd'
-    image-rendering='optimizeQuality'
-    shape-rendering='geometricPrecision'
-    text-rendering='geometricPrecision'
+    clipRule='evenodd'
+    fillRule='evenodd'
+    imageRendering='optimizeQuality'
+    shapeRendering='geometricPrecision'
+    textRendering='geometricPrecision'
     viewBox='-9 -27 5310 6303'
   >
     <path

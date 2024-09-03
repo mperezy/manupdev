@@ -12,12 +12,12 @@ export default ({ width = 20, height = 20 }: SVGProps<SVGElement>) => (
     viewBox='0 0 256 416'
   >
     <linearGradient id='a' x1='0%' x2='100%' y1='50%' y2='50%'>
-      <stop offset='0' stop-color='#4f4f4f' />
+      <stop offset='0' stopColor='#4f4f4f' />
       <stop offset='1' />
     </linearGradient>
     <linearGradient id='b' x1='0%' x2='100%' y1='50%' y2='50%'>
-      <stop offset='0' stop-color='#c40000' />
-      <stop offset='1' stop-color='#f00' />
+      <stop offset='0' stopColor='#c40000' />
+      <stop offset='1' stopColor='#f00' />
     </linearGradient>
     <path
       d='m0 288v-32c0-5.393778 116.376889-14.428444 192.199111-32 36.629333 8.490667 63.800889 18.968889 63.800889 32v32c0 13.024-27.171556 23.509333-63.800889 32-75.822222-17.575111-192.199111-26.609778-192.199111-32'

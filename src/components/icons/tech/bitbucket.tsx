@@ -11,8 +11,8 @@ export default ({ width = 20, height = 20 }: SVGProps<SVGElement>) => (
     viewBox='-0.9662264221278978 -0.5824607696358868 257.93281329857973 230.8324730411935'
   >
     <linearGradient id='a' x1='108.633%' x2='46.927%' y1='13.818%' y2='78.776%'>
-      <stop offset='.18' stop-color='#0052cc' />
-      <stop offset='1' stop-color='#2684ff' />
+      <stop offset='.18' stopColor='#0052cc' />
+      <stop offset='1' stopColor='#2684ff' />
     </linearGradient>
     <g fill='none'>
       <path d='M101.272 152.561h53.449l12.901-75.32H87.06z' />

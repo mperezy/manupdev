@@ -11,6 +11,7 @@ export default ({ techName }: Props) => {
 
   return (
     <Badge
+      autoContrast
       display='flex'
       radius='md'
       leftSection={<TechIcon name={techName} width={17} height={17} />}
