@@ -1,6 +1,7 @@
 type BadgeColors = {
   background: string;
   textColor?: string;
+  darkTextColor?: string;
   borderColor?: string;
 };
 
@@ -33,6 +34,7 @@ const colors: Record<Tech, BadgeColors> = {
   Cypress: {
     background: '#38ef7dB3',
     textColor: '#464646',
+    darkTextColor: '#FFF',
   },
 
   Docker: {
@@ -68,6 +70,7 @@ const colors: Record<Tech, BadgeColors> = {
   Gitlab: {
     background: '#FCA326B3',
     textColor: '#464646',
+    darkTextColor: '#FFF',
   },
 
   GraphQL: {
@@ -77,6 +80,7 @@ const colors: Record<Tech, BadgeColors> = {
   jQuery: {
     background: '#7ACEF4B3',
     textColor: '#464646',
+    darkTextColor: '#FFF',
   },
 
   Mantine: {
@@ -95,11 +99,14 @@ const colors: Record<Tech, BadgeColors> = {
 
   'Node.js': {
     background: '#6CC24A',
+    textColor: '#464646',
+    darkTextColor: '#FFF',
   },
 
   'Play Framework': {
     background: '#A5DB5CB2',
     textColor: '#464646',
+    darkTextColor: '#FFF',
   },
 
   'React.js': {
@@ -139,6 +146,7 @@ const colors: Record<Tech, BadgeColors> = {
   Vite: {
     background: '#FFA800B3',
     textColor: '#464646',
+    darkTextColor: '#FFF',
   },
 };
 

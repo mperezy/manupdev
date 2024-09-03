@@ -1,12 +1,14 @@
 import { Badge } from '@mantine/core';
 import TechIcon from 'components/icons/tech';
 import colors from 'components/tech-badge/colors';
+import useTheme from 'hooks/use-theme';
 
 type Props = {
   techName: Tech;
 };
 
 export default ({ techName }: Props) => {
+  const { isLightTheme } = useTheme();
   const color = colors[techName];
 
   return (
@@ -18,7 +20,11 @@ export default ({ techName }: Props) => {
       size='lg'
       style={{
         background: color.background,
-        color: color.textColor,
+        color: isLightTheme
+          ? color.textColor
+          : color.darkTextColor
+            ? color.darkTextColor
+            : color.textColor,
         borderColor: color.borderColor ?? 'transparent',
         textTransform: 'none',
         alignItems: 'center',

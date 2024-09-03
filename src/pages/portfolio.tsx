@@ -15,7 +15,7 @@ import JobModal from 'components/job-modal';
 import useModal from 'providers/modal/use-modal';
 
 export default () => {
-  const isBaseWidth = useMediaQuery(`(max-width: ${em(425)})`);
+  const isBaseWidth = useMediaQuery(`(max-width: ${em(575)})`);
   const [professionalItem, setProfessionalItem] = useState<string>('');
   const [personalItem, setPersonalItem] = useState<string>('');
   const [openJobModal] = useModal(JobModal);

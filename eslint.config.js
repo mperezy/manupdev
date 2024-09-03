@@ -19,7 +19,10 @@ export default tseslint.config(
       'react-refresh': reactRefresh,
     },
     rules: {
-      'react-refresh/only-export-components': ['off', { allowConstantExport: true }],
+      'react-refresh/only-export-components': [
+        'off',
+        { allowConstantExport: true },
+      ],
       'linebreak-style': ['error', 'unix'],
       '@typescript-eslint/ban-types': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
@@ -31,7 +34,7 @@ export default tseslint.config(
       'max-len': [
         'error',
         {
-          code: 200,
+          code: 80,
         },
       ],
 
