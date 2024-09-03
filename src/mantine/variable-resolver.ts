@@ -7,8 +7,16 @@ import type { MainTheme } from 'mantine/theme';
 
 type MyCSSVariablesResolver = (theme: MainTheme) => ConvertCSSVariablesInput;
 
-const { mantine, accordion, anchor, appShell, loader, navLink, timeline } =
-  cssVariables;
+const {
+  mantine,
+  accordion,
+  anchor,
+  appShell,
+  loader,
+  navLink,
+  text,
+  timeline,
+} = cssVariables;
 
 const variableResolver: MyCSSVariablesResolver = (mantineTheme) => {
   const { light: lightVariables, dark: darkVariables } = mantineTheme.other;
@@ -18,6 +26,7 @@ const variableResolver: MyCSSVariablesResolver = (mantineTheme) => {
     appShell: lightAppShell,
     navLink: lightNavLink,
     mantine: { textColor: lightTextColor },
+    text: { textLabelVariantColor: lightTextLabelVariantColor },
     timeline: lightTimeline,
   } = lightVariables;
   const {
@@ -26,6 +35,7 @@ const variableResolver: MyCSSVariablesResolver = (mantineTheme) => {
     appShell: darkAppShell,
     navLink: darkNavLink,
     mantine: { textColor: darkTextColor },
+    text: { textLabelVariantColor: darkTextLabelVariantColor },
     timeline: darkTimeline,
   } = darkVariables;
 
@@ -62,6 +72,9 @@ const variableResolver: MyCSSVariablesResolver = (mantineTheme) => {
       [navLink.inactive.background.hover]:
         lightNavLink.inactive.background.hover,
 
+      // Text
+      [text.textLabelVariantColor]: lightTextLabelVariantColor,
+
       // Timeline
       [timeline.color]: lightTimeline.color,
     },
@@ -95,6 +108,9 @@ const variableResolver: MyCSSVariablesResolver = (mantineTheme) => {
         darkNavLink.inactive.background.default,
       [navLink.inactive.background.hover]:
         darkNavLink.inactive.background.hover,
+
+      // Text
+      [text.textLabelVariantColor]: darkTextLabelVariantColor,
 
       // Timeline
       [timeline.color]: darkTimeline.color,

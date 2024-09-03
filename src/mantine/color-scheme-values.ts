@@ -48,6 +48,10 @@ const other: Record<'light' | 'dark', CSSVariables> = {
       },
     },
 
+    text: {
+      textLabelVariantColor: '#000',
+    },
+
     timeline: {
       color: '#2FA6FF',
     },
@@ -100,6 +104,10 @@ const other: Record<'light' | 'dark', CSSVariables> = {
           hover: '#6C6C6C',
         },
       },
+    },
+
+    text: {
+      textLabelVariantColor: '#E7E7E7',
     },
 
     timeline: {

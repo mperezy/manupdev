@@ -44,5 +44,9 @@ type CSSVariables = {
     };
   };
 
+  text: {
+    textLabelVariantColor: string;
+  };
+
   timeline: Color;
 };

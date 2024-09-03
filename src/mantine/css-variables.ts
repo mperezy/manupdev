@@ -47,6 +47,10 @@ const cssVariables: CSSVariables = {
     },
   },
 
+  text: {
+    textLabelVariantColor: '--mantine-text-label-variant-color',
+  },
+
   timeline: {
     color: '--mantine-timeline-color',
   },

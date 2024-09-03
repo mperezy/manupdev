@@ -6,6 +6,7 @@ import {
   Modal,
   NavLink,
   Timeline,
+  Text,
   Title,
   createTheme,
 } from '@mantine/core';
@@ -13,7 +14,7 @@ import colorSchemeValues from 'mantine/color-scheme-values';
 import cssVariables from 'mantine/css-variables';
 import styles from 'mantine/styles.module.css';
 
-const { appShell, anchor, navLink, timeline } = cssVariables;
+const { appShell, anchor, navLink, text, timeline } = cssVariables;
 
 export type MainTheme = Omit<MantineTheme, 'other'> & {
   other: typeof colorSchemeValues;
@@ -86,8 +87,10 @@ const mainTheme = createTheme({
           borderRadius: '1rem',
         },
         title: {
+          fontFamily: 'Graduate',
           fontSize: '2rem',
-          fontWeight: '500',
+          fontWeight: '800',
+          letterSpacing: '1.5px',
         },
       },
     }),
@@ -113,6 +116,21 @@ const mainTheme = createTheme({
       classNames: (_, { active }) => ({
         root: !active ? `${styles.navlink}` : undefined,
       }),
+    }),
+
+    Text: Text.extend({
+      styles: (_, { variant }) => {
+        if (variant === 'label') {
+          return {
+            root: {
+              fontWeight: '500',
+              color: `var(${text.textLabelVariantColor})`,
+            },
+          };
+        }
+
+        return {};
+      },
     }),
 
     Timeline: Timeline.extend({
