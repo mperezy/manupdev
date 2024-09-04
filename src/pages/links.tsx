@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
-import { em, Anchor, Flex, List, Stack, Text } from '@mantine/core';
-import { useMediaQuery, useOrientation } from '@mantine/hooks';
+import { Anchor, Flex, List, Stack, Text } from '@mantine/core';
+import { useOrientation } from '@mantine/hooks';
 import Heading from 'components/heading';
 import Icon from 'components/icons/tech';
 import MainLayout from 'components/main-layout';
@@ -15,7 +15,6 @@ type SocialMedia = {
 export default () => {
   const { isLightTheme } = useTheme();
   const { type: orientation } = useOrientation();
-  const isTabletWidth = useMediaQuery(`(max-width: ${em(991)})`);
 
   const SOCIAL_MEDIA: SocialMedia[] = [
     {
@@ -47,10 +46,7 @@ export default () => {
           Get more about me!
         </Heading>
 
-        <Stack
-          w={{ base: '100%', md: '40%' }}
-          align={isTabletWidth ? 'center' : 'flex-start'}
-        >
+        <Stack w={{ base: '100%', md: '40%' }} align='center'>
           <Text
             variant='label'
             fz={{ base: 'lg', md: 'xl' }}

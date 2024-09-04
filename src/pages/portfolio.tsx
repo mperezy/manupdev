@@ -12,9 +12,11 @@ import { useMediaQuery } from '@mantine/hooks';
 import MainLayout from 'components/main-layout';
 import portfolio, { type Job } from 'constants/portfolio';
 import JobModal from 'components/job-modal';
+import useWidthBreakpoints from 'hooks/use-width-breakpoints';
 import useModal from 'providers/modal/use-modal';
 
 export default () => {
+  const { lg } = useWidthBreakpoints();
   const isBaseWidth = useMediaQuery(`(max-width: ${em(575)})`);
   const [professionalItem, setProfessionalItem] = useState<string>('');
   const [personalItem, setPersonalItem] = useState<string>('');
@@ -35,7 +37,11 @@ export default () => {
         align='flex-start'
         justify='space-around'
       >
-        <Stack gap='lg' w={{ base: '100%', xs: '50%' }}>
+        <Stack
+          gap='lg'
+          align={lg ? 'center' : 'flex-start'}
+          w={{ base: '100%', xs: '50%' }}
+        >
           <Title
             variant='heading'
             order={2}
@@ -81,7 +87,11 @@ export default () => {
           </Timeline>
         </Stack>
 
-        <Stack gap='lg' w={{ base: '100%', xs: '50%' }}>
+        <Stack
+          gap='lg'
+          align={lg ? 'center' : 'flex-start'}
+          w={{ base: '100%', xs: '50%' }}
+        >
           <Title
             variant='heading'
             order={2}
