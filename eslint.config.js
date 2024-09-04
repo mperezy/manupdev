@@ -35,6 +35,7 @@ export default tseslint.config(
         'error',
         {
           code: 80,
+          ignoreComments: true,
         },
       ],
 

@@ -84,10 +84,10 @@ export default () => {
             ta={{ base: 'center', md: 'left' }}
             fz={{ base: 'lg', md: 'xl' }}
           >
-            Welcome to my website! you will find some information about me and
-            my professional work. I'm a software engineer who truly loves
-            writing code and diving into new technologies to explore in order to
-            deliver a great product to my consultee.
+            Welcome to my website! you will get a sneak peek my professional
+            work. I'm a software engineer who truly loves writing code and
+            diving into new technologies to explore in order to deliver a great
+            product to my consultee.
           </Text>
         </Stack>
 
