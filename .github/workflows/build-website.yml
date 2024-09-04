@@ -62,13 +62,13 @@ jobs:
           script: |
             const { payload } = context;
             const { commits } = payload;
-            const commitsParsed = commits.map((commit) => `>*\`${commit.id.slice(0, 7)}\`* - *\"${commit.message.split('\n\n')[0]}\"*` + '\n');
+            const commitsParsed = commits.map((commit) => `*\`${commit.id.slice(0, 7)}\`* - *"${commit.message.split('\n\n')[0]}"*`).join("\n");
             const { name: authorName } = payload.head_commit.author;
             const branch = payload.ref.replace("refs/heads/", "");
 
             const message = `
             :white_check_mark: ${commits.length > 1 ? "New commits" : "New commit"}! by *_${authorName}_* on branch *${branch}* :tada:
-            ${commitsParsed}
+            >${commitsParsed}
             • Updates are available at https://manup.dev :rocket:
             `;
 
