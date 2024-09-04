@@ -15,6 +15,7 @@ type Tech =
   | 'Gitlab'
   | 'GraphQL'
   | 'jQuery'
+  | 'LinkedIn'
   | 'Mantine'
   | 'MongoDB'
   | 'Next.js'

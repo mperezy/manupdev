@@ -15,6 +15,7 @@ import Github from 'components/icons/tech/github';
 import Gitlab from 'components/icons/tech/gitlab';
 import GraphQL from 'components/icons/tech/graphql';
 import Jquery from 'components/icons/tech/jquery';
+import LinkedIn from 'components/icons/tech/linked-in';
 import Mantine from 'components/icons/tech/mantine';
 import MongoDB from 'components/icons/tech/mongodb';
 import NextJS from 'components/icons/tech/nextjs';
@@ -45,6 +46,7 @@ const techIcons: Record<Tech, ComponentType<SVGProps<SVGElement>>> = {
   Gitlab,
   GraphQL,
   jQuery: Jquery,
+  LinkedIn,
   Mantine,
   MongoDB,
   'Next.js': NextJS,

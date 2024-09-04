@@ -1,32 +1,9 @@
-import type { ElementType, ReactNode } from 'react';
 import { TypeAnimation } from 'react-type-animation';
-import type { TitleProps } from '@mantine/core';
-import { em, Flex, Image, Stack, Text, Title } from '@mantine/core';
+import { em, Flex, Image, Stack, Text } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
+import Heading from 'components/heading';
 import MainLayout from 'components/main-layout';
 import useTheme from 'hooks/use-theme';
-
-type HeadingProps = {
-  as?: ElementType;
-  color?: TitleProps['c'];
-  children: ReactNode;
-  fontWeight?: TitleProps['fw'];
-};
-
-const Heading = ({ as, color, children, fontWeight }: HeadingProps) => (
-  <Title
-    variant='heading'
-    order={1}
-    fz={{ base: '2rem', md: '5rem' }}
-    ta={{ base: 'center', md: 'left' }}
-    c={color}
-    component={as}
-    fw={fontWeight}
-    style={{ transition: 'all 0.5s' }}
-  >
-    {children}
-  </Title>
-);
 
 export default () => {
   const { isLightTheme } = useTheme();
@@ -83,6 +60,7 @@ export default () => {
             w={{ base: '100%', md: '95%' }}
             ta={{ base: 'center', md: 'left' }}
             fz={{ base: 'lg', md: 'xl' }}
+            style={{ transition: 'all 0.5s' }}
           >
             Welcome to my website! you will get a sneak peek my professional
             work. I'm a software engineer who truly loves writing code and
@@ -98,7 +76,7 @@ export default () => {
             radius='50rem'
             style={{
               boxShadow: '2px 2px 57px 7px rgba(20,20,20,0.99)',
-              border: '.25rem #F5F5F5 solid',
+              border: '.45rem #F5F5F5 solid',
               transition: 'all 0.5s',
             }}
           />
