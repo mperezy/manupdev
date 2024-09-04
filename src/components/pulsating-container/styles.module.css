@@ -1,0 +1,37 @@
+.pulse-animation {
+  animation: pulse 3s infinite;
+}
+
+.scale-animation {
+  animation: scale 3s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  10% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  80% {
+    opacity: 0.7;
+    transform: scale(1.01, 1.05);
+  }
+  81%,
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  35%,
+  80% {
+    transform: scale(1.01, 1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
