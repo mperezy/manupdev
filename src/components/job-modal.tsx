@@ -1,5 +1,5 @@
 import { TbExternalLink } from 'react-icons/tb';
-import { Anchor, Accordion, Flex, Stack, Text } from '@mantine/core';
+import { Anchor, Accordion, Flex, Stack, Text, List } from '@mantine/core';
 import BaseModal from 'components/base-modal';
 import TechBadge from 'components/tech-badge';
 import type { Job } from 'constants/portfolio';
@@ -10,6 +10,7 @@ type Props = ModalBaseProps & Job;
 export default ({
   title,
   verbose,
+  verbose2,
   roles,
   technologiesUsed,
   url,
@@ -20,7 +21,18 @@ export default ({
       <Accordion>
         <Accordion.Item value={title}>
           <Accordion.Control>Experience</Accordion.Control>
-          <Accordion.Panel pl='.5rem'>{verbose}</Accordion.Panel>
+          <Accordion.Panel pl='.5rem'>
+            <Stack>
+              {verbose}
+              {verbose2 && (
+                <List size='sm'>
+                  {verbose2.map((item, index) => (
+                    <List.Item key={index}>{item}</List.Item>
+                  ))}
+                </List>
+              )}
+            </Stack>
+          </Accordion.Panel>
         </Accordion.Item>
       </Accordion>
 
@@ -35,7 +47,12 @@ export default ({
         <Text variant='label' component='span'>
           Technologies used:
         </Text>
-        <Flex pl='.5rem' w='100%' style={{ flexWrap: 'wrap' }} gap='xs'>
+        <Flex
+          pl='.5rem'
+          w='100%'
+          style={{ flexWrap: 'wrap', transition: 'all 0.5s' }}
+          gap='xs'
+        >
           {technologiesUsed.map((value) => (
             <Flex key={value}>
               <TechBadge techName={value} />

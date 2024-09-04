@@ -6,6 +6,7 @@ export type Job = {
   roles: ('Frontend' | 'Backend' | 'Fullstack Dev' | 'Devops')[];
   description: string;
   verbose: string;
+  verbose2?: string[];
   technologiesUsed: Tech[];
 };
 
@@ -27,12 +28,15 @@ const portfolio: Portfolio = {
           roles: ['Fullstack Dev'],
           description:
             'By using Scala as main language I collaborated with team mates to solve bugs and implementing new features.',
-          verbose: `Jemstep is a Fintech company based in South Africa and the U.S. to help customers grow their wealth by investing their money based on goals.
-\n- First helping and collaborating with some Bonzzu partners in the fixing of bugs and implementing new features.
-\n- I was involved in a feature improvement that allowed the creation/update of goal investments along with a joint user pulling out and setting their data to the investment.
-\n- I helped to implement a new feature that allowed the clients to create and improve their investments based on recommended allocations by the bank, in this case, Citibank.
-\n- I helped in an improvement proposed by a Jemptep's client, Citibank, to solve some security issues where some sensitive data were exposed in the web app across the whole HTML and in some Javascript files.
-\n- I leaded the implementation of an improvement on the connection from the app to Docusign, this service is used to handle investment documentation and confidentiality agreements with the bank. The goal of this improvement was to implement the way how the app will send documents to DocuSign, previously this connection was made only with a user and password authentication, but given DocuSign's new documentation, a new authentication based on JWT was required.`,
+          verbose:
+            'Jemstep was a fintech company based in South Africa and the U.S. to help customers grow their wealth by investing their money based on goals.',
+          verbose2: [
+            'First helping and collaborating with Bonzzu team mates in the fixing of bugs and implementing new features.',
+            'I was involved in a feature improvement that allowed the creation/update of goal investments along with a joint user pulling out and setting their data to the investment.',
+            'I helped to implement a new feature that allowed the clients to create and improve their investments based on recommended allocations by the bank, in this case, Citibank.',
+            "I helped in an improvement proposed by a Jemptep's client, Citibank, to solve some security issues where some sensitive data were exposed in the web app across the whole HTML and in some Javascript files.",
+            "I leaded the implementation of an improvement on the connection from the app to Docusign, this service is used to handle investment documentation and confidentiality agreements with the bank. The goal of this improvement was to implement the way how the app will send documents to DocuSign, previously this connection was made only with a user and password authentication, but given DocuSign's new documentation, a new authentication based on JWT was required.",
+          ],
           technologiesUsed: [
             'Play Framework',
             'Scala',
@@ -57,7 +61,14 @@ const portfolio: Portfolio = {
           roles: ['Fullstack Dev'],
           description:
             'I was involved, alongside with a team mate, in the implementation of the main application from scratch.',
-          verbose: '',
+          verbose:
+            'Positon is a company that offers a programmatic M&A (Mergers and Acquisitions) application powered by AI to boost startups to achieve their goals.',
+          verbose2: [
+            'I was involved at the first implementation of the entire application alongside with a team mate from Bonzzu.',
+            'I collaborated to define the entire DB based on the client requirements.',
+            'I collaborated to define the DB connections and DB queries using GraphQL to consume data into the the app.',
+            'The webapp was implemented by using Next.js with Typescript as main language.',
+          ],
           technologiesUsed: [
             'Typescript',
             'React.js',
@@ -80,11 +91,13 @@ const portfolio: Portfolio = {
           roles: ['Frontend'],
           description:
             'I collaborated by fixing bugs, made several improvements and implemented a whole new platform for offline crypto transactions in the project I was assigned.',
-          verbose: `
-- Assisting to fix bugs and implement new features in a focused project inside Blockdaemon company.
-- Worked in a UI migration by moving all UI components made with Material-UI (License paid) to Mantine (No license paid required).
-- Collaborated in an offline web app implementation, to help users to make crypto transfers without the use of the main web app.
-- Techonologies used: Vite, ReactJs, Cypress, pnpm, GitLab`,
+          verbose:
+            'Blockdaemon, from their website, is the leading provider to support the growing market for blockchain services.',
+          verbose2: [
+            'Assisting to fix bugs and implement new features in their Wallet project.',
+            'Worked in a UI migration by moving all UI components made using Material-UI (License paid) to Mantine (No license paid required).',
+            'Collaborated in an offline web app (Cold Storage) implementation, to help users to make crypto transfers without the use of the main web app.',
+          ],
           technologiesUsed: [
             'Auth0',
             'Typescript',
@@ -106,7 +119,13 @@ const portfolio: Portfolio = {
           roles: ['Frontend', 'Devops'],
           description:
             "Alongside with two team mates, we are working in the implementation of bunch of applications and, implemented the repo's CI/CD myself.",
-          verbose: '',
+          verbose:
+            'RCX Sports is a company based on the U.S. involved on youth sports by enhancing and provider required equipment for their sport players.',
+          verbose2: [
+            'Collaborating in the implementation of an entire web application to handle the creation of leagues, seasons and many other stuff related of youth sports.',
+            'Collaborating in the implementation of an entire public web application where users can visualize upcoming seasons and dates when matches will occur.',
+            'Implement and built the CI/CD on Bitbucket pipelines for or all the applications my team collaborate for.',
+          ],
           technologiesUsed: [
             'Typescript',
             'React.js',
@@ -130,7 +149,16 @@ const portfolio: Portfolio = {
           roles: ['Frontend', 'Backend', 'Devops'],
           description:
             'In order to fix a personal problem, I developed a mobile/web application to create safe and secure passwords and store them in the cloud (Firebase)',
-          verbose: '',
+          verbose:
+            'As a personal challenge I adventure myself in the implementation of a mobile/web application to create secure password and store them in the cloud.',
+          verbose2: [
+            'Using Expo as React-Native framework to easily implement the application in order to maintain one code base and deploy for web and Android.',
+            "By using Typescript, creating well typed components to safely treat the information coming from Firebase's Firestore database",
+            'For deployments to the web and Play Store, I implement the required workflows for Github Actions so whenever I push/merge changes they can be automatically delivered.',
+            'Created a custom Node.js server by using AWS Lambda functions as endpoints to properly encrypt new or existing passwords so no plain text as passwords are stored in the database.',
+            'The app supports authenticated or not authenticated users. For authenticated users, they can create/edit/delete passwords. For non authenticated users, they can only create passwords and save them in the clipboard, nothing will be stored on database.',
+            'The application is available for install on Play Store searching by mperezy:passvault. Also it is available for web hosted by using Github Pages.',
+          ],
           technologiesUsed: [
             'Typescript',
             'React Native',
@@ -148,11 +176,18 @@ const portfolio: Portfolio = {
       work: [
         {
           title: 'Next Role Based App',
-          url: '#',
+          url: 'https://github.com/mperezy/next-app-role-based',
           roles: ['Frontend', 'Backend', 'Devops'],
           description:
             'As a personal challenge I created a web application so an authenticated user, depending of the roles assigned, this user can consume (or not) certain resources and make (or not) actions.',
-          verbose: '',
+          verbose:
+            'Based on a conversation with a team mate, it is too hard to implement a web application that support user roles so, based on role assigned block/hide any content or action?',
+          verbose2: [
+            'Based on my experience on Blockdaemon, the implementation of rules based on roles was easy to implement.',
+            'Used Auth0 to add an authentication layout so user can login on it.',
+            'As a first implementation, the roles are stored in a dockerized MongoDB.',
+            'The application was not deployed (yet), but the code base can be visited to educational purpose.',
+          ],
           technologiesUsed: [
             'Typescript',
             'Next.js',
