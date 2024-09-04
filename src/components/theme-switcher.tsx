@@ -1,14 +1,17 @@
 import { ActionIcon } from '@mantine/core';
+import { useOs } from '@mantine/hooks';
 import { MdOutlineNightlight, MdOutlineWbSunny } from 'react-icons/md';
 import PopoverHint from 'components/popover-hint';
 import useTheme from 'hooks/use-theme';
 
 export default () => {
+  const os = useOs();
   const { isLightTheme, handleToggleColorTheme } = useTheme();
 
   return (
     <PopoverHint
-      text={`Switch to ${isLightTheme ? 'dark' : 'light'} mode - mod+J`}
+      // eslint-disable-next-line max-len
+      text={`Switch to ${isLightTheme ? 'dark' : 'light'} mode - ${os === 'macos' ? '⌘' : 'Ctrl'} + J`}
     >
       <ActionIcon
         variant='theme-toggler'

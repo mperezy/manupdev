@@ -11,7 +11,12 @@ import {
   Stack,
   Title,
 } from '@mantine/core';
-import { useHotkeys, useLocalStorage, useMediaQuery } from '@mantine/hooks';
+import {
+  useHotkeys,
+  useLocalStorage,
+  useMediaQuery,
+  useOs,
+} from '@mantine/hooks';
 import routes from 'components/main-layout/routes';
 import PopoverHint from 'components/popover-hint';
 import ThemeSwitcher from 'components/theme-switcher';
@@ -25,6 +30,7 @@ type Props = {
 
 export default ({ children, minHeight = '40rem', fullyCentered }: Props) => {
   const { pathname: route } = useLocation();
+  const os = useOs();
   const { isLightTheme, handleToggleColorTheme } = useTheme();
   const isMobile = useMediaQuery(`(max-width: ${em(768)})`);
   const [navbarOpened, setNavbarOpened] = useLocalStorage({
@@ -49,7 +55,8 @@ export default ({ children, minHeight = '40rem', fullyCentered }: Props) => {
         <Flex h='100%' align='center' justify='space-between' px='2rem'>
           <Flex align='center' gap='lg'>
             <PopoverHint
-              text={`${navbarOpened ? 'Close' : 'Open'} navigation bar - ⌘ + B`}
+              // eslint-disable-next-line max-len
+              text={`${navbarOpened ? 'Close' : 'Open'} navigation bar - ${os === 'macos' ? '⌘' : 'Ctrl'} + B`}
             >
               <Burger
                 color='#FFF'
