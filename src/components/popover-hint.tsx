@@ -24,6 +24,7 @@ export default ({ children, disabled, text }: Props) => {
         <Box
           onMouseEnter={() => setOpened(true)}
           onMouseLeave={() => setOpened(false)}
+          onClick={() => setOpened(false)}
         >
           {children}
         </Box>
