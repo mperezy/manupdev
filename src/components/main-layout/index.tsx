@@ -7,7 +7,6 @@ import {
   em,
   Flex,
   NavLink,
-  Select,
   Stack,
   Title,
 } from '@mantine/core';
@@ -18,8 +17,8 @@ import {
   useOs,
 } from '@mantine/hooks';
 import routes from 'components/main-layout/routes';
+import NavbarMenu from 'components/navbar-menu';
 import PopoverHint from 'components/popover-hint';
-import ThemeSwitcher from 'components/theme-switcher';
 import useTheme from 'hooks/use-theme';
 
 type Props = {
@@ -72,15 +71,7 @@ export default ({ children, minHeight = '40rem', fullyCentered }: Props) => {
             </PopoverHint>
           </Flex>
 
-          <Flex align='center' gap='lg'>
-            <ThemeSwitcher />
-            <Select
-              w='5rem'
-              defaultValue='ES'
-              placeholder='Language'
-              data={['EN', 'ES']}
-            />
-          </Flex>
+          <NavbarMenu />
         </Flex>
       </AppShell.Header>
 
