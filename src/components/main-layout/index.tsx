@@ -16,6 +16,7 @@ import {
   useMediaQuery,
   useOs,
 } from '@mantine/hooks';
+import { HoverAnimated } from 'components/animated';
 import routes from 'components/main-layout/routes';
 import NavbarMenu from 'components/navbar-menu';
 import PopoverHint from 'components/popover-hint';
@@ -84,21 +85,23 @@ export default ({ children, minHeight = '40rem', fullyCentered }: Props) => {
         <Stack gap='xs'>
           {routes.map(({ href, title, icon }, index, arr) => (
             <Stack gap='xs' key={index}>
-              <NavLink
-                // data-active={href === route}
-                active={href === route}
-                component={Link}
-                to={href}
-                label={title}
-                leftSection={icon}
-                py='sm'
-                style={{ borderRadius: '.5rem' }}
-                onClick={() => {
-                  if (isMobile) {
-                    setNavbarOpened(false);
-                  }
-                }}
-              />
+              <HoverAnimated active={href === route}>
+                <NavLink
+                  // data-active={href === route}
+                  active={href === route}
+                  component={Link}
+                  to={href}
+                  label={title}
+                  leftSection={icon}
+                  py='sm'
+                  style={{ borderRadius: '.5rem' }}
+                  onClick={() => {
+                    if (isMobile) {
+                      setNavbarOpened(false);
+                    }
+                  }}
+                />
+              </HoverAnimated>
               {index < arr.length - 1 && (
                 <Divider color={isLightTheme ? '#CDCDCD' : '#424242'} />
               )}
