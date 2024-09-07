@@ -8,7 +8,7 @@ const other: Record<'light' | 'dark', CSSVariables> = {
       control: {
         hover: {
           textColor: '#323232',
-          background: '#D1D1D1',
+          background: '#B7B7B7',
         },
       },
     },
@@ -22,7 +22,9 @@ const other: Record<'light' | 'dark', CSSVariables> = {
         background: '#E7E7E7',
       },
       main: {
-        background: '#F5F5F5',
+        background:
+          // eslint-disable-next-line max-len
+          'radial-gradient(circle, rgba(221,221,221,1) 0%, rgba(245,245,245,1) 100%)',
       },
     },
 
@@ -80,7 +82,8 @@ const other: Record<'light' | 'dark', CSSVariables> = {
         background: '#353535',
       },
       main: {
-        background: '#464646',
+        background:
+          'radial-gradient(circle, rgba(53,53,53,1) 0%, rgba(80,80,80,1) 100%)',
       },
     },
 
