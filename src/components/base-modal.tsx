@@ -5,7 +5,7 @@ import { Modal } from '@mantine/core';
 import type { ModalBaseProps } from 'providers/modal/types';
 
 type Props = Omit<ModalProps, 'opened' | 'onClose'> &
-  ModalBaseProps & { title: string; children: ReactNode };
+  ModalBaseProps & { title: string | ReactNode; children: ReactNode };
 
 export default ({ children, title, ...rest }: Props) => (
   <Modal
