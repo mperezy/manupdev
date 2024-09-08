@@ -10,6 +10,7 @@ import Heading from 'components/heading';
 import Icon from 'components/icons/tech';
 import MainLayout from 'components/main-layout';
 import useTheme from 'hooks/use-theme';
+import { TbExternalLink } from 'react-icons/tb';
 import useWidthBreakpoints from '../hooks/use-width-breakpoints';
 
 type SocialMedia = {
@@ -85,7 +86,13 @@ export default () => {
                         fz={{ base: 'lg', md: 'xl' }}
                         style={{ transition: 'all 0.5s' }}
                       >
-                        {text}
+                        <Flex align='center' gap='.25rem'>
+                          {text}{' '}
+                          <TbExternalLink
+                            size='1rem'
+                            style={{ position: 'relative' }}
+                          />
+                        </Flex>
                       </Anchor>
                     </Flex>
                   </HoverAnimated>

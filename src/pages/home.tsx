@@ -1,8 +1,9 @@
 import { TypeAnimation } from 'react-type-animation';
-import { em, Flex, Image, Stack, Text } from '@mantine/core';
+import { Anchor, em, Flex, Image, Stack, Text } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 import {
   FallDownAnimated,
+  HoverAnimated,
   ParentWrapper,
   ScaleOutAnimated,
 } from 'components/animated';
@@ -85,6 +86,20 @@ export default () => {
                 great product to my consultee.
               </Text>
             </FallDownAnimated>
+
+            <Flex w='100%' mt='md' justify={{ base: 'center', md: 'left' }}>
+              <FallDownAnimated>
+                <HoverAnimated scaleOut={1.07}>
+                  <Anchor
+                    href='/portfolio'
+                    fz={{ base: 'lg', md: 'xl' }}
+                    style={{ transition: 'all 0.5s' }}
+                  >
+                    Check my portfolio
+                  </Anchor>
+                </HoverAnimated>
+              </FallDownAnimated>
+            </Flex>
           </Stack>
         </ParentWrapper>
 
