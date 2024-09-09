@@ -27,7 +27,7 @@ const portfolio: Portfolio = {
           url: 'https://invesco.com',
           roles: ['Fullstack Dev'],
           description:
-            'By using Scala as main language I collaborated with team mates to solve bugs and implementing new features.',
+            'Until 2022, by using Scala as main language I collaborated with team mates to solve bugs and implementing new features.',
           verbose:
             'Jemstep was a fintech company based in South Africa and the U.S. to help customers grow their wealth by investing their money based on goals.',
           verbose2: [
@@ -40,8 +40,10 @@ const portfolio: Portfolio = {
           technologiesUsed: [
             'Play Framework',
             'Scala',
+            'Javascript',
             'jQuery',
             'Backbone.js',
+            'React.js',
             'Cypress',
             'Selenium',
             'MongoDB',
@@ -56,11 +58,51 @@ const portfolio: Portfolio = {
       year: 2021,
       work: [
         {
+          title: "Bonzzu's Website",
+          url: 'https://bonzzu.com',
+          roles: ['Frontend'],
+          description:
+            'Since November to December I collaborated in the already existing website by fixing minor bugs.',
+          verbose:
+            'Bonzzu is a tech company which provides multiple tech engineers to companies to help build/maintain their software based applications around the world.',
+          verbose2: [
+            'Collaborated in the fix of minor bugs.',
+            'Made changes in the CSS code to update styling.',
+            'Explore the Greenhouse widget to add it in the website to publish job openings.',
+          ],
+          technologiesUsed: ['Javascript', 'React.js', 'Bitbucket'],
+        },
+      ],
+    },
+    {
+      year: 2022,
+      work: [
+        {
+          title: "Bonzzu's Blog",
+          url: 'https://bonzzu.com/blog',
+          roles: ['Frontend'],
+          description:
+            'Since January to August I collaborated in the implementation of own blog site for Bonzzu Inc.',
+          verbose:
+            'Bonzzu is a tech company which provides multiple tech engineers to companies to help build/maintain their software based applications around the world.',
+          verbose2: [
+            'Alongside with other two team-mates we implemented a blog site from scratch so the Content Team of Bonzzu can publish posts for the public.',
+            'The entire web application was built by using Javascript as main programming language.',
+          ],
+          technologiesUsed: [
+            'Javascript',
+            'React.js',
+            'Next.js',
+            'TailwindCSS',
+            'Bitbucket',
+          ],
+        },
+        {
           title: 'Positon',
           url: 'https://positon.ai',
           roles: ['Fullstack Dev'],
           description:
-            'I was involved, alongside with a team mate, in the implementation of the main application from scratch.',
+            'Since August to December I was involved, alongside with a team mate, in the implementation of the main application from scratch.',
           verbose:
             'Positon is a company that offers a programmatic M&A (Mergers and Acquisitions) application powered by AI to boost startups to achieve their goals.',
           verbose2: [

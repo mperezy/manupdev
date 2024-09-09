@@ -8,6 +8,7 @@ import {
   ScaleOutAnimated,
 } from 'components/animated';
 import BaseModal from 'components/base-modal';
+import CompanyIcon from 'components/company-icon';
 import Pulsating from 'components/pulsating-container';
 import TechBadge from 'components/tech-badge';
 import type { Job } from 'constants/portfolio';
@@ -35,7 +36,10 @@ export default ({
       size='xl'
       title={
         <ScaleOutAnimated>
-          <Box px={{ base: 'xs', md: 'md' }}>{title}</Box>
+          <Flex align='center' gap='xs' px={{ base: 'xs', md: 'md' }}>
+            <CompanyIcon company={title} size='xl' />
+            <Box>{title}</Box>
+          </Flex>
         </ScaleOutAnimated>
       }
     >

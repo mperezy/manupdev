@@ -16,6 +16,7 @@ import {
   PendulumFallAnimated,
   ScaleOutAnimated,
 } from 'components/animated';
+import CompanyIcon from 'components/company-icon';
 import MainLayout from 'components/main-layout';
 import JobModal from 'components/job-modal';
 import portfolio, { type Job } from 'constants/portfolio';
@@ -86,7 +87,14 @@ export default () => {
                           activeWithMarginTop
                         >
                           <Accordion.Item value={job.title}>
-                            <Accordion.Control children={job.title} />
+                            <Accordion.Control
+                              children={
+                                <Flex align='center' gap='xs'>
+                                  <CompanyIcon company={job.title} />
+                                  {job.title}
+                                </Flex>
+                              }
+                            />
                             <Accordion.Panel
                               children={
                                 <Stack gap='xs'>
@@ -155,7 +163,14 @@ export default () => {
                           activeWithMarginTop
                         >
                           <Accordion.Item value={job.title}>
-                            <Accordion.Control children={job.title} />
+                            <Accordion.Control
+                              children={
+                                <Flex align='center' gap='xs'>
+                                  <CompanyIcon company={job.title} />
+                                  {job.title}
+                                </Flex>
+                              }
+                            />
                             <Accordion.Panel
                               children={
                                 <Stack gap='xs'>
