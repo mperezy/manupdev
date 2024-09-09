@@ -147,6 +147,9 @@ const colors: Record<Tech, BadgeColors> = {
     textColor: '#464646',
     borderColor: '#000',
   },
+  TailwindCSS: {
+    background: '',
+  },
 
   Typescript: {
     background: '#3178C6B3',

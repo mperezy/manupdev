@@ -27,6 +27,7 @@ import ReduxToolkit from 'components/icons/tech/redux-toolkit';
 import Scala from 'components/icons/tech/scala';
 import Selenium from 'components/icons/tech/selenium';
 import SqlServer from 'components/icons/tech/sql-server';
+import TailwindCss from 'components/icons/tech/tailwind-css';
 import Typescript from 'components/icons/tech/typescript';
 import Vite from 'components/icons/tech/vite';
 
@@ -61,6 +62,7 @@ const techIcons: Record<Tech, ComponentType<SVGProps<SVGElement>>> = {
   Selenium,
   'Shell scripting': Bash,
   'SQL Server': SqlServer,
+  TailwindCSS: TailwindCss,
   Typescript,
   Vite,
 };

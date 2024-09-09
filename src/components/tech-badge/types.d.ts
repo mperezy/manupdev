@@ -29,5 +29,6 @@ type Tech =
   | 'Selenium'
   | 'Shell scripting'
   | 'SQL Server'
+  | 'TailwindCSS'
   | 'Typescript'
   | 'Vite';
