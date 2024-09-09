@@ -14,6 +14,7 @@ type Tech =
   | 'Github'
   | 'Gitlab'
   | 'GraphQL'
+  | 'Javascript'
   | 'jQuery'
   | 'LinkedIn'
   | 'Mantine'

@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 import type { SVGProps } from 'react';
 
 export default ({ width = 20, height = 20 }: SVGProps<SVGElement>) => (

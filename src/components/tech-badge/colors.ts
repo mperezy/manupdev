@@ -77,10 +77,19 @@ const colors: Record<Tech, BadgeColors> = {
     background: '#E1009866',
   },
 
+  Javascript: {
+    background: '#f7df1eB3',
+    textColor: '#464646',
+  },
+
   jQuery: {
     background: '#7ACEF4B3',
     textColor: '#464646',
     darkTextColor: '#FFF',
+  },
+
+  LinkedIn: {
+    background: '',
   },
 
   Mantine: {

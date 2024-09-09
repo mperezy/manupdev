@@ -14,6 +14,7 @@ import Firebase from 'components/icons/tech/firebase';
 import Github from 'components/icons/tech/github';
 import Gitlab from 'components/icons/tech/gitlab';
 import GraphQL from 'components/icons/tech/graphql';
+import Javascript from 'components/icons/tech/javascript';
 import Jquery from 'components/icons/tech/jquery';
 import LinkedIn from 'components/icons/tech/linked-in';
 import Mantine from 'components/icons/tech/mantine';
@@ -45,6 +46,7 @@ const techIcons: Record<Tech, ComponentType<SVGProps<SVGElement>>> = {
   Github,
   Gitlab,
   GraphQL,
+  Javascript,
   jQuery: Jquery,
   LinkedIn,
   Mantine,

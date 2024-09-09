@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 import type { MantineTheme } from '@mantine/core';
 import {
   Accordion,
