@@ -24,7 +24,6 @@ export default ({
   url,
   ...rest
 }: Props) => {
-  const techCount = technologiesUsed.length;
   const [accordionOpened, setAccordionOpened] = useState<boolean>(false);
 
   const handleClickAccordionControl = () =>
@@ -147,7 +146,7 @@ export default ({
             animate='visible'
             transition={{
               duration: 0.5,
-              delay: (techCount % 2 === 0 ? techCount : techCount + 1) * 0.5,
+              delay: 3 + (technologiesUsed.length - 1) * 0.2,
             }}
           >
             <HoverAnimated scaleOut={1.07}>
