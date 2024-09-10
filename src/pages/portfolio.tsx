@@ -19,11 +19,14 @@ import {
 import CompanyIcon from 'components/company-icon';
 import MainLayout from 'components/main-layout';
 import JobModal from 'components/job-modal';
-import portfolio, { type Job } from 'constants/portfolio';
+import usePortfolio from 'hooks/language/use-portfolio';
+import usePortfolioPage from 'hooks/language/use-portfolio-page';
 import useWidthBreakpoints from 'hooks/use-width-breakpoints';
 import useModal from 'providers/modal/use-modal';
 
 export default () => {
+  const portfolioPage = usePortfolioPage();
+  const portfolio = usePortfolio();
   const { md, lg } = useWidthBreakpoints();
   const isBaseWidth = useMediaQuery(`(max-width: ${em(575)})`);
   const [professionalItem, setProfessionalItem] = useState<string>('');
@@ -55,7 +58,7 @@ export default () => {
               ta={{ base: 'left', xs: 'center', md: 'left' }}
               style={{ transition: 'all 0.5s' }}
             >
-              Professional work
+              {portfolioPage.professionalWork}
             </Title>
           </ScaleOutAnimated>
 
@@ -97,7 +100,7 @@ export default () => {
                                 <Stack gap='xs'>
                                   {job.description}
                                   <Anchor
-                                    children='See more details'
+                                    children={portfolioPage.moreDetails}
                                     onClick={() => handleMoreDetails(job)}
                                   />
                                 </Stack>
@@ -127,7 +130,7 @@ export default () => {
               ta={{ base: 'left', xs: 'center', md: 'left' }}
               style={{ transition: 'all 0.5s' }}
             >
-              Personal projects
+              {portfolioPage.personalProjects}
             </Title>
           </ScaleOutAnimated>
           <PendulumFallAnimated style={{ width: md ? '75%' : '100%' }}>

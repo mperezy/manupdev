@@ -9,9 +9,11 @@ import {
 } from 'components/animated';
 import Heading from 'components/heading';
 import MainLayout from 'components/main-layout';
+import useHomePage from 'hooks/language/use-home-page';
 import useTheme from 'hooks/use-theme';
 
 export default () => {
+  const homePage = useHomePage();
   const { isLightTheme } = useTheme();
   const isMobile = useMediaQuery(`(max-width: ${em(768)})`);
   const isTablet = useMediaQuery(`(max-width: ${em(991)})`);
@@ -30,7 +32,7 @@ export default () => {
           <Stack gap='sm'>
             <FallDownAnimated>
               <Heading>
-                Hi, I'm{' '}
+                {`${homePage.iAm} `}
                 <Heading
                   color={isLightTheme ? '#3FB25F' : '#6dca86'}
                   as='span'
@@ -48,18 +50,9 @@ export default () => {
               }}
             >
               <TypeAnimation
-                key={`type-animation-key-${isMobile}-${isTablet}`}
-                sequence={[
-                  // Same substring at the start will only be typed out once, initially
-                  'a frontend developer',
-                  1500, // wait 1s before replacing "Mice" with "Hamsters"
-                  'a backend developer',
-                  1500,
-                  'a sort of Devops engineer',
-                  1500,
-                  'a code lover',
-                  3000,
-                ]}
+                // eslint-disable-next-line max-len
+                key={`type-animation-key-${isMobile}-${isTablet}-${homePage.iAm}`}
+                sequence={homePage.typings}
                 // @ts-expect-error code tag
                 wrapper='code'
                 speed={30}
@@ -80,10 +73,7 @@ export default () => {
                 fz={{ base: 'lg', md: 'xl' }}
                 style={{ transition: 'all 0.5s' }}
               >
-                Welcome to my website! you will get a sneak peek my professional
-                work. I'm a software engineer who truly loves writing code and
-                diving into new technologies to explore in order to deliver a
-                great product to my consultee.
+                {homePage.description}
               </Text>
             </FallDownAnimated>
 
@@ -95,7 +85,7 @@ export default () => {
                     fz={{ base: 'lg', md: 'xl' }}
                     style={{ transition: 'all 0.5s' }}
                   >
-                    Check my portfolio
+                    {homePage.portfolioLink}
                   </Anchor>
                 </HoverAnimated>
               </FallDownAnimated>

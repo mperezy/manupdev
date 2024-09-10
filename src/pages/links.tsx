@@ -9,6 +9,7 @@ import {
 import Heading from 'components/heading';
 import Icon from 'components/icons/tech';
 import MainLayout from 'components/main-layout';
+import useLinksPage from 'hooks/language/use-links-page';
 import useTheme from 'hooks/use-theme';
 import useWidthBreakpoints from 'hooks/use-width-breakpoints';
 
@@ -19,8 +20,9 @@ type SocialMedia = {
 };
 
 export default () => {
-  const { md } = useWidthBreakpoints();
+  const linksPage = useLinksPage();
   const { isLightTheme } = useTheme();
+  const { md } = useWidthBreakpoints();
 
   const SOCIAL_MEDIA: SocialMedia[] = [
     {
@@ -46,7 +48,7 @@ export default () => {
         justify='space-evenly'
       >
         <ScaleOutAnimated style={{ width: md ? '60%' : '100%' }}>
-          <Heading>Get more about me!</Heading>
+          <Heading>{linksPage.getMore}</Heading>
         </ScaleOutAnimated>
 
         <Stack w={{ base: '100%', md: '40%' }} align='center'>
@@ -56,7 +58,7 @@ export default () => {
               fz={{ base: 'lg', md: 'xl' }}
               style={{ transition: 'all 0.5s' }}
             >
-              Follow me on:
+              {linksPage.followMe}
             </Text>
           </ScaleOutAnimated>
 

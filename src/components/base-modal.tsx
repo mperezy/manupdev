@@ -5,11 +5,19 @@ import { Modal } from '@mantine/core';
 import type { ModalBaseProps } from 'providers/modal/types';
 
 type Props = Omit<ModalProps, 'opened' | 'onClose'> &
-  ModalBaseProps & { title: string | ReactNode; children: ReactNode };
+  ModalBaseProps & {
+    title: string | ReactNode;
+    children: ReactNode;
+    onCloseCallback?: () => void;
+  };
 
-export default ({ children, title, ...rest }: Props) => (
+export default ({ children, title, onCloseCallback, ...rest }: Props) => (
   <Modal
     {...rest}
+    onClose={() => {
+      onCloseCallback?.();
+      rest.onClose();
+    }}
     centered
     keepMounted={false}
     title={

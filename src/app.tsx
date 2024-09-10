@@ -1,6 +1,7 @@
 import { RouterProvider } from 'react-router-dom';
 import router from 'router';
 import { MantineProvider } from '@mantine/core';
+import { Provider as JotaiProvider } from 'jotai';
 import mainTheme from 'mantine/theme';
 import variableResolver from 'mantine/variable-resolver';
 import '@mantine/core/styles.css';
@@ -22,14 +23,16 @@ export default () => (
         }
       `}
     </style>
-    <MantineProvider
-      theme={mainTheme}
-      cssVariablesResolver={variableResolver}
-      defaultColorScheme='light'
-    >
-      <ModalProvider>
-        <RouterProvider router={router} />
-      </ModalProvider>
-    </MantineProvider>
+    <JotaiProvider>
+      <MantineProvider
+        theme={mainTheme}
+        cssVariablesResolver={variableResolver}
+        defaultColorScheme='light'
+      >
+        <ModalProvider>
+          <RouterProvider router={router} />
+        </ModalProvider>
+      </MantineProvider>
+    </JotaiProvider>
   </>
 );

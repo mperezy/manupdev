@@ -11,7 +11,7 @@ import BaseModal from 'components/base-modal';
 import CompanyIcon from 'components/company-icon';
 import Pulsating from 'components/pulsating-container';
 import TechBadge from 'components/tech-badge';
-import type { Job } from 'constants/portfolio';
+import usePortfolioPage from 'hooks/language/use-portfolio-page';
 import type { ModalBaseProps } from 'providers/modal/types';
 
 type Props = ModalBaseProps & Job;
@@ -25,6 +25,7 @@ export default ({
   url,
   ...rest
 }: Props) => {
+  const portfolioPage = usePortfolioPage();
   const [accordionOpened, setAccordionOpened] = useState<boolean>(false);
 
   const handleClickAccordionControl = () =>
@@ -34,6 +35,7 @@ export default ({
     <BaseModal
       {...rest}
       size='xl'
+      onCloseCallback={() => setAccordionOpened(false)}
       title={
         <ScaleOutAnimated>
           <Flex align='center' gap='xs' px={{ base: 'xs', md: 'md' }}>
@@ -67,7 +69,7 @@ export default ({
                   borderColor='var(--mantine-accordion-control-hover-background)'
                 >
                   <Accordion.Control onClick={handleClickAccordionControl}>
-                    Experience
+                    {portfolioPage.experience}
                   </Accordion.Control>
                 </Pulsating>
               </HoverAnimated>
@@ -98,7 +100,7 @@ export default ({
             }}
           >
             <Text variant='label' component='span'>
-              Roles:
+              {portfolioPage.roles}
             </Text>
           </FallDownAnimated>
 
@@ -117,7 +119,7 @@ export default ({
             }}
           >
             <Text variant='label' component='span'>
-              Technologies used:
+              {portfolioPage.techsUsed}
             </Text>
           </FallDownAnimated>
 
@@ -156,7 +158,7 @@ export default ({
             <HoverAnimated scaleOut={1.07}>
               <Anchor href={url} target={url === '#' ? '_self' : '_blank'}>
                 <Flex align='center' gap='.25rem'>
-                  Visit website{' '}
+                  {portfolioPage.websiteLink}{' '}
                   <TbExternalLink
                     style={{ position: 'relative', top: '-1px' }}
                   />

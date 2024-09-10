@@ -4,10 +4,16 @@ import { ActionIcon, Flex, Menu, Select } from '@mantine/core';
 import ThemeSwitcher from 'components/theme-switcher';
 import useTheme from 'hooks/use-theme';
 import useWidthBreakpoints from 'hooks/use-width-breakpoints';
+import { useLanguageActions, useLanguageState } from 'store/language-atom';
 
 export default () => {
   const { isLightTheme, handleToggleColorTheme } = useTheme();
   const breakpoint = useWidthBreakpoints();
+  const language = useLanguageState();
+  const { updateLanguage } = useLanguageActions();
+
+  const handleLanguageSelect = (value: string | null) =>
+    updateLanguage((value as Language) ?? 'EN');
 
   if (breakpoint.base) {
     return (
@@ -44,7 +50,9 @@ export default () => {
             rightSection={
               <Select
                 w='5rem'
-                defaultValue='ES'
+                defaultValue={language}
+                value={language}
+                onChange={handleLanguageSelect}
                 placeholder='Language'
                 data={['EN', 'ES']}
               />
@@ -62,7 +70,9 @@ export default () => {
       <ThemeSwitcher />
       <Select
         w='5rem'
-        defaultValue='ES'
+        defaultValue={language}
+        value={language}
+        onChange={handleLanguageSelect}
         placeholder='Language'
         data={['EN', 'ES']}
       />
