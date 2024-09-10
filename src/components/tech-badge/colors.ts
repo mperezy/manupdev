@@ -45,6 +45,11 @@ const colors: Record<Tech, BadgeColors> = {
     background: '#E42815B3',
   },
 
+  'Electron.js': {
+    background: '#1B1C26',
+    textColor: '#9fEAF9',
+  },
+
   Expo: {
     background: '#FFF',
     textColor: '#464646',

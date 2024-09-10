@@ -8,6 +8,7 @@ type Tech =
   | 'Cypress'
   | 'Docker'
   | 'Docusign'
+  | 'Electron.js'
   | 'Expo'
   | 'Express'
   | 'Firebase'

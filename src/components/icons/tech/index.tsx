@@ -8,6 +8,7 @@ import Chakra from 'components/icons/tech/chakra';
 import Cypress from 'components/icons/tech/cypress';
 import Docker from 'components/icons/tech/docker';
 import Docusign from 'components/icons/tech/docusign';
+import Electron from 'components/icons/tech/electron';
 import Expo from 'components/icons/tech/expo';
 import Express from 'components/icons/tech/express';
 import Firebase from 'components/icons/tech/firebase';
@@ -41,6 +42,7 @@ const techIcons: Record<Tech, ComponentType<SVGProps<SVGElement>>> = {
   Cypress,
   Docker,
   Docusign,
+  'Electron.js': Electron,
   Expo,
   Express,
   Firebase,
