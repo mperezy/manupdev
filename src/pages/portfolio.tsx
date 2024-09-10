@@ -33,10 +33,7 @@ export default () => {
   const handleMoreDetails = (job: Job) => openJobModal(job);
 
   return (
-    <MainLayout
-      fullyCentered
-      minHeight={isBaseWidth ? 'calc(50rem + 10dvh)' : undefined}
-    >
+    <MainLayout fullyCentered>
       <Flex
         data-test-id='PORTFOLIO_PAGE'
         w='100%'

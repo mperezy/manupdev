@@ -1,4 +1,4 @@
-import type { CSSProperties, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import {
   AppShell,
@@ -24,11 +24,10 @@ import useTheme from 'hooks/use-theme';
 
 type Props = {
   children: ReactNode;
-  minHeight?: CSSProperties['minHeight'];
   fullyCentered?: boolean;
 };
 
-export default ({ children, minHeight = '40rem', fullyCentered }: Props) => {
+export default ({ children, fullyCentered }: Props) => {
   const { pathname: route } = useLocation();
   const os = useOs();
   const { isLightTheme, handleToggleColorTheme } = useTheme();
@@ -110,20 +109,20 @@ export default ({ children, minHeight = '40rem', fullyCentered }: Props) => {
         </Stack>
       </AppShell.Navbar>
 
-      <AppShell.Main w='100%' pt='var(--app-shell-header-height)'>
-        <Stack w='100%' p='2.15rem' align='center' justify='center'>
-          <Stack
-            data-test-id='PAGE_WRAPPER'
-            w='100%'
-            h='calc(100dvh - var(--app-shell-header-height) - 4.3rem)'
-            mih={minHeight}
-            maw='95rem'
-            py='xl'
-            justify={fullyCentered ? 'center' : 'flex-start'}
-          >
-            {children}
-          </Stack>
-        </Stack>
+      <AppShell.Main
+        display='flex'
+        w='100%'
+        pt='var(--app-shell-header-height)'
+        style={{ justifyContent: 'center' }}
+      >
+        <Flex
+          w='100%'
+          maw='95rem'
+          align={fullyCentered ? 'center' : 'flex-start'}
+          p='2.15rem'
+        >
+          {children}
+        </Flex>
       </AppShell.Main>
     </AppShell>
   );

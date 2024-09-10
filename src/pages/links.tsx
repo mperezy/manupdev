@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
+import { TbExternalLink } from 'react-icons/tb';
 import { Anchor, Flex, List, Stack, Text } from '@mantine/core';
-import { useOrientation } from '@mantine/hooks';
 import {
   FallDownAnimated,
   HoverAnimated,
@@ -10,8 +10,7 @@ import Heading from 'components/heading';
 import Icon from 'components/icons/tech';
 import MainLayout from 'components/main-layout';
 import useTheme from 'hooks/use-theme';
-import { TbExternalLink } from 'react-icons/tb';
-import useWidthBreakpoints from '../hooks/use-width-breakpoints';
+import useWidthBreakpoints from 'hooks/use-width-breakpoints';
 
 type SocialMedia = {
   text: string;
@@ -22,7 +21,6 @@ type SocialMedia = {
 export default () => {
   const { md } = useWidthBreakpoints();
   const { isLightTheme } = useTheme();
-  const { type: orientation } = useOrientation();
 
   const SOCIAL_MEDIA: SocialMedia[] = [
     {
@@ -38,10 +36,7 @@ export default () => {
   ];
 
   return (
-    <MainLayout
-      fullyCentered
-      minHeight={orientation === 'landscape-primary' ? 'none' : ''}
-    >
+    <MainLayout fullyCentered>
       <Flex
         data-test-id='LINKS_PAGE'
         w='100%'
