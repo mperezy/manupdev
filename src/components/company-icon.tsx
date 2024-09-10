@@ -7,7 +7,11 @@ type Props = Pick<ThemeIconProps, 'size'> & {
 
 export default ({ company, size }: Props) => {
   const companySlug = company.toLowerCase().replaceAll(' ', '-');
-  const _company = companySlug.includes('bonzzu') ? 'bonzzu' : companySlug;
+  const _company = companySlug.includes('bonzzu')
+    ? 'bonzzu'
+    : companySlug.includes('google-drive')
+      ? 'google-drive'
+      : companySlug;
 
   return (
     <ThemeIcon color='#FFF' size={size}>

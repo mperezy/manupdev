@@ -190,7 +190,7 @@ const portfolio: Portfolio = {
           url: 'https://passvault.manup.dev',
           roles: ['Frontend', 'Backend', 'Devops'],
           description:
-            'In order to fix a personal problem, I developed a mobile/web application to create safe and secure passwords and store them in the cloud (Firebase)',
+            'In order to solve a personal problem, I developed a mobile/web application to create safe and secure passwords and store them in the cloud (Firebase)',
           verbose:
             'As a personal challenge I adventure myself in the implementation of a mobile/web application to create secure password and store them in the cloud.',
           verbose2: [
@@ -205,11 +205,32 @@ const portfolio: Portfolio = {
             'Typescript',
             'React Native',
             'Redux Toolkit',
+            'Electron.js',
             'Expo',
             'Firebase',
             'AWS Lambda',
+            'Node.js',
             'Github',
           ],
+        },
+      ],
+    },
+    {
+      year: 2023,
+      work: [
+        {
+          title: 'Google Drive Client',
+          url: '#',
+          roles: ['Frontend', 'Backend'],
+          description:
+            'Just for fun! I made a desktop application to load the Google Drive web app to manage the files/folders uploaded to the Cloud.',
+          verbose:
+            'I made a desktop application for Ubuntu (Debian based), Windows and macOS to load the Google Drive web app URL.',
+          verbose2: [
+            'Used the framework Electron Forge.',
+            'This application was meant for personal use, not published.',
+          ],
+          technologiesUsed: ['Typescript', 'Electron.js', 'Node.js', 'Github'],
         },
       ],
     },
