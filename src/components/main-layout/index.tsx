@@ -17,7 +17,7 @@ import {
   useOs,
 } from '@mantine/hooks';
 import { HoverAnimated } from 'components/animated';
-import routes from 'components/main-layout/routes';
+import useNavbarRoutes from 'components/main-layout/use-navbar-routes';
 import NavbarMenu from 'components/navbar-menu';
 import PopoverHint from 'components/popover-hint';
 import useTheme from 'hooks/use-theme';
@@ -28,6 +28,7 @@ type Props = {
 };
 
 export default ({ children, fullyCentered }: Props) => {
+  const routes = useNavbarRoutes();
   const { pathname: route } = useLocation();
   const os = useOs();
   const { isLightTheme, handleToggleColorTheme } = useTheme();
