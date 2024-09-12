@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
 import { useEffect } from 'react';
+import ReactGA from 'react-ga4';
+import { useLocation } from 'react-router-dom';
 import type RouteEnum from 'router/enum';
 import useRoutes from 'router/use-routes';
 import { useLanguageState } from 'store/language-atom';
@@ -10,8 +12,18 @@ type Props = {
 };
 
 export default ({ title, children }: Props) => {
+  const location = useLocation();
   const language = useLanguageState();
   const routes = useRoutes();
+
+  useEffect(() => {
+    if (import.meta.env.PROD) {
+      ReactGA.send({
+        hitType: 'pageView',
+        page: location.pathname,
+      });
+    }
+  }, []);
 
   useEffect(() => {
     if (title === 'not-found') {

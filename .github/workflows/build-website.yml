@@ -39,6 +39,8 @@ jobs:
         run: yarn
 
       - name: 🛠️ Build
+        env:
+          VITE_GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
         run: yarn build
 
       - name: 🌎 Setup Pages

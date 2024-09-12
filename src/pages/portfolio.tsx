@@ -23,6 +23,7 @@ import usePortfolio from 'hooks/language/use-portfolio';
 import usePortfolioPage from 'hooks/language/use-portfolio-page';
 import useWidthBreakpoints from 'hooks/use-width-breakpoints';
 import useModal from 'providers/modal/use-modal';
+import { analyticsEvent } from 'utils/analytics';
 
 export default () => {
   const portfolioPage = usePortfolioPage();
@@ -33,7 +34,37 @@ export default () => {
   const [personalItem, setPersonalItem] = useState<string>('');
   const [openJobModal] = useModal(JobModal);
 
-  const handleMoreDetails = (job: Job) => openJobModal(job);
+  const handleMoreDetails = (job: Job) => {
+    openJobModal(job);
+
+    analyticsEvent({
+      action: 'Job full details modal opened',
+      category: 'click',
+      label: `"${job.title}" details viewed`,
+    });
+  };
+
+  const handleProfessionalJobChange = (item: string) => {
+    analyticsEvent({
+      action: `Professional job selected`,
+      category: 'click',
+      label: `"${item}" details viewed`,
+    });
+
+    setProfessionalItem(item || '');
+  };
+
+  const handlePersonalJobChange = (item: string) => {
+    analyticsEvent({
+      action: `${isBaseWidth ? 'Professional' : 'Personal'} job selected`,
+      category: 'click',
+      label: `"${item}" details viewed`,
+    });
+
+    return isBaseWidth
+      ? setProfessionalItem(item || '')
+      : setPersonalItem(item || '');
+  };
 
   return (
     <MainLayout fullyCentered>
@@ -75,11 +106,7 @@ export default () => {
                     }}
                   >
                     <Text fw={900}>{year}</Text>
-                    <Accordion
-                      chevronPosition='left'
-                      value={professionalItem}
-                      onChange={(value) => setProfessionalItem(value || '')}
-                    >
+                    <Accordion chevronPosition='left' value={professionalItem}>
                       {work.map((job, index) => (
                         <HoverAnimated
                           key={index}
@@ -88,6 +115,9 @@ export default () => {
                         >
                           <Accordion.Item value={job.title}>
                             <Accordion.Control
+                              onClick={() =>
+                                handleProfessionalJobChange(job.title)
+                              }
                               children={
                                 <Flex align='center' gap='xs'>
                                   <CompanyIcon company={job.title} />
@@ -150,11 +180,6 @@ export default () => {
                       w='100%'
                       chevronPosition='left'
                       value={isBaseWidth ? professionalItem : personalItem}
-                      onChange={(value) =>
-                        isBaseWidth
-                          ? setProfessionalItem(value || '')
-                          : setPersonalItem(value || '')
-                      }
                     >
                       {work.map((job, index) => (
                         <HoverAnimated
@@ -164,6 +189,7 @@ export default () => {
                         >
                           <Accordion.Item value={job.title}>
                             <Accordion.Control
+                              onClick={() => handlePersonalJobChange(job.title)}
                               children={
                                 <Flex align='center' gap='xs'>
                                   <CompanyIcon company={job.title} />
