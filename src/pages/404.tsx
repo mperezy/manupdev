@@ -4,8 +4,10 @@ import { Center, em, Flex, Stack, Text, Title } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 import Icon404 from 'components/icons/404';
 import Link from 'components/link';
+import useNotPageFoundPage from 'hooks/language/use-not-page-found-page';
 
 export default () => {
+  const notFoundPage = useNotPageFoundPage();
   const location = useLocation();
   const isBaseMaxWidth = useMediaQuery(`(max-width: ${em(575)})`);
   const isMobile = useMediaQuery(`(max-width: ${em(768)})`);
@@ -36,7 +38,7 @@ export default () => {
               ta={{ base: 'center', md: 'left' }}
               style={{ transition: 'all 0.5s' }}
             >
-              Page not found
+              {notFoundPage.title}
             </Title>
 
             <Text
@@ -45,8 +47,7 @@ export default () => {
               ta={{ base: 'center', md: 'left' }}
               style={{ transition: 'all 0.5s' }}
             >
-              Looks like you are lost. We could not find the resource you are
-              trying to get:{' '}
+              {notFoundPage.message}:{' '}
               <Text
                 component='span'
                 truncate
@@ -66,7 +67,7 @@ export default () => {
                 gap='xs'
               >
                 <MdOutlineHome size='1.5rem' />
-                Go back to home
+                {notFoundPage.goBackLink}
               </Flex>
             </Link>
           </Stack>
