@@ -11,7 +11,9 @@ export default ({ company, size }: Props) => {
     ? 'bonzzu'
     : companySlug.includes('google-drive')
       ? 'google-drive'
-      : companySlug;
+      : companySlug.includes('manup.dev')
+        ? 'vite'
+        : companySlug;
 
   return (
     <ThemeIcon color='#FFF' size={size}>
