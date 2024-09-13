@@ -16,11 +16,11 @@ const portfolio: Portfolio = {
           verbose:
             'Jemstep era una empresa fintech con sede en Sudáfrica y EE.UU., que ayudaba a los clientes a hacer crecer su patrimonio invirtiendo su dinero en función de sus objetivos.',
           verbose2: [
-            'Primero ayudando y colaborando con los compañeros del equipo de Bonzzu en la solución de errores e implementación de nuevas características.',
+            'Ayudé y colaboré junto con un sólido equipo de desarrollo de Bonzzu en la solución de errores e implementación de nuevas características.',
             'Estuve involucrado en la mejora de una funcionalidad que permitía la creación/actualización de inversiones de objetivos junto con un usuario conjunto, extrayendo y configurando sus datos para la inversión.',
-            'Ayudé a implementar una nueva funcionalidad que permitía a los clientes crear y mejorar sus inversiones en función de las asignaciones recomendadas por el banco, en este caso, Citibank.',
-            'Colaboré en una mejora propuesta por un cliente de Jemptep, Citibank, para resolver problemas de seguridad donde algunos datos sensibles estaban expuestos en la aplicación web en todo el HTML y en algunos archivos de JavaScript.',
-            'Lideré la implementación de una mejora en la conexión de la aplicación con Docusign, un servicio utilizado para gestionar la documentación de inversiones y acuerdos de confidencialidad con el banco. El objetivo de esta mejora era implementar la forma en que la aplicación enviaría documentos a DocuSign; anteriormente, esta conexión se hacía solo con autenticación de usuario y contraseña, pero, según la nueva documentación de DocuSign, se requería una nueva autenticación basada en JWT.',
+            'Ayudé a implementar una nueva funcionalidad que permitía a los clientes crear y mejorar sus inversiones basadas en las asignaciones recomendadas proporcionadas por el banco, en este caso, Citibank.',
+            'Colaboré en una mejora propuesta por Citibank, un cliente de Jemptep, para resolver algunos problemas de seguridad donde se exponían datos sensibles en la aplicación web, tanto en el HTML como en algunos archivos de Javascript.',
+            'Lideré la implementación de una mejora para la autenticación entre la aplicación principal y Docusign, un servicio utilizado para manejar/almacenar la documentación de inversiones y acuerdos de confidencialidad con el banco. El objetivo de esta mejora era mejorar la autenticación con DocuSign, ya que anteriormente se realizaba utilizando usuario/contraseña, pero según la nueva documentación de DocuSign, se requería una nueva autenticación basada en JWT.',
           ],
           technologiesUsed: [
             'Play Framework',
@@ -53,9 +53,9 @@ const portfolio: Portfolio = {
           verbose:
             'Bonzzu es una empresa de tecnología que proporciona múltiples ingenieros a empresas para ayudar a construir/mantener aplicaciones basadas en software en todo el mundo.',
           verbose2: [
-            'Colaboré en la corrección de errores menores.',
-            'Hice cambios en el código CSS para actualizar el estilo.',
-            'Exploré el widget de Greenhouse para agregarlo en el sitio web y publicar ofertas de empleo.',
+            'Ayudé en la solución de algunos errores, mejorando algunos componentes de React y estilos CSS.',
+            'Realicé cambios en el c%C3%B3digo CSS para actualizar el estilo.',
+            'Exploré el widget de Greenhouse para agregarlo al sitio web y publicar ofertas de trabajo.',
           ],
           technologiesUsed: ['Javascript', 'React.js', 'Bitbucket'],
         },
@@ -75,8 +75,10 @@ const portfolio: Portfolio = {
           verbose:
             'Bonzzu es una empresa de tecnología que proporciona múltiples ingenieros a empresas para ayudar a construir/mantener aplicaciones basadas en software en todo el mundo.',
           verbose2: [
-            'Junto con otros dos compañeros, implementamos un sitio de blog desde cero para que el equipo de contenido de Bonzzu pudiera publicar artículos para el público.',
-            'Toda la aplicación web fue construida utilizando Javascript como lenguaje principal.',
+            'Junto con otros dos compañeros de equipo implementamos un sitio de blog desde cero para que el equipo de contenido de Bonzzu pudiera publicar artículos para el público.',
+            'Para facilitar la forma en que se implementan los estilos y hacerlos más mantenibles en el futuro, utilizamos el framework TailwindCSS y también el enfoque de módulos CSS, de modo que las clases CSS solo estén disponibles en el componente donde las invocamos.',
+            'Para gestionar cómo se publicaban los artículos, utilizamos Contentful, de esa manera, todos los artículos podían ser creados, actualizados y ocultos sin necesidad de la aplicación, y el equipo de contenido de Bonzzu podía publicar fácilmente los artículos en el sitio del blog.',
+            'Toda la aplicación web fue construida utilizando Javascript como lenguaje principal de programación.',
           ],
           technologiesUsed: [
             'Javascript',
@@ -129,9 +131,9 @@ const portfolio: Portfolio = {
           verbose:
             'Blockdaemon, según su sitio web, es el proveedor líder para apoyar el creciente mercado de servicios blockchain.',
           verbose2: [
-            'Asistiendo en la corrección de errores e implementación de nuevas funcionalidades en su proyecto Wallet.',
-            'Trabajé en una migración de UI moviendo todos los componentes de Material-UI (licencia paga) a Mantine (no requiere licencia paga).',
-            'Colaboré en la implementación de una aplicación web offline (Cold Storage), para ayudar a los usuarios a realizar transferencias de criptomonedas sin utilizar la aplicación web principal.',
+            'Trabajé solucionando errores e implementando nuevas funcionalidades en un proyecto específico de la empresa.',
+            'Trabajé en la migración de todos los componentes de la interfaz de usuario hechos con Material-UI (con licencia de pago) a Mantine (sin necesidad de licencia de pago).',
+            'Lideré la implementación de una aplicación web offline, para ayudar a los usuarios a realizar transferencias de criptomonedas sin utilizar la aplicación web principal.',
           ],
           technologiesUsed: [
             'Auth0',
@@ -159,9 +161,9 @@ const portfolio: Portfolio = {
           verbose:
             'RCX Sports es una empresa con sede en EE.UU. que se dedica a los deportes juveniles proporcionando el equipo necesario para los jugadores.',
           verbose2: [
-            'Colaborando en la implementación de una aplicación web completa para gestionar la creación de ligas, temporadas y otros aspectos relacionados con los deportes juveniles.',
-            'Colaborando en la implementación de una aplicación web pública donde los usuarios pueden visualizar las próximas temporadas y las fechas en que se llevarán a cabo los partidos.',
-            'Implementé y construí el CI/CD en Bitbucket Pipelines para todas las aplicaciones en las que colabora mi equipo.',
+            'Colaborando en la implementación de una aplicación web completa para gestionar la creación de ligas, temporadas y muchas otras cosas relacionadas con deportes juveniles.',
+            'Colaborando en la implementación de una aplicación web pública donde los usuarios puedan visualizar las próximas temporadas y las fechas en que se llevarán a cabo los partidos.',
+            'Implementación y construcción el CI/CD en las pipelines de Bitbucket para todas nuestras aplicaciones existentes.',
           ],
           technologiesUsed: [
             'Typescript',

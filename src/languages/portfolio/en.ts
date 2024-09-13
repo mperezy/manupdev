@@ -16,11 +16,11 @@ const portfolio: Portfolio = {
           verbose:
             'Jemstep was a fintech company based in South Africa and the U.S. to help customers grow their wealth by investing their money based on goals.',
           verbose2: [
-            'First helping and collaborating with Bonzzu team mates in the fixing of bugs and implementing new features.',
-            'I was involved in a feature improvement that allowed the creation/update of goal investments along with a joint user pulling out and setting their data to the investment.',
-            'I helped to implement a new feature that allowed the clients to create and improve their investments based on recommended allocations by the bank, in this case, Citibank.',
-            "I helped in an improvement proposed by a Jemptep's client, Citibank, to solve some security issues where some sensitive data were exposed in the web app across the whole HTML and in some Javascript files.",
-            "I leaded the implementation of an improvement on the connection from the app to Docusign, this service is used to handle investment documentation and confidentiality agreements with the bank. The goal of this improvement was to implement the way how the app will send documents to DocuSign, previously this connection was made only with a user and password authentication, but given DocuSign's new documentation, a new authentication based on JWT was required.",
+            'Helped and collaborated alongside with a solid dev team from Bonzzu by fixing bugs and implementing new features.',
+            'I was involved in improving a feature that allowed the creation/update of goal investments along with a joint user pulling out and setting their data to the investment.',
+            'I helped to implement a new feature that allowed the clients to create and improve their investments based on recommended allocations provided by the bank, in this case, Citibank.',
+            'I helped in an improvement proposed by Citibank, a Jemptep client, to solve some security issues where some sensitive data were exposed in the web app across the whole HTML and some Javascript files.',
+            "I led an improvement implementation for the authentication between the main app and Docusign, this service was used to handle/store investment documentation and confidentiality agreements with the bank. The goal of this improvement was to improve the authentication to DocuSign since it was previously made using a user/password because according to DocuSign's new documentation, a new authentication based on JWT was required.",
           ],
           technologiesUsed: [
             'Play Framework',
@@ -53,9 +53,9 @@ const portfolio: Portfolio = {
           verbose:
             'Bonzzu is a tech company which provides multiple tech engineers to companies to help build/maintain their software based applications around the world.',
           verbose2: [
-            'Collaborated in the fix of minor bugs.',
+            'I helped by fixing some bugs, by improving some React components and CSS styles.',
             'Made changes in the CSS code to update styling.',
-            'Explore the Greenhouse widget to add it in the website to publish job openings.',
+            'Explored the Greenhouse widget to add it in the website to publish job openings.',
           ],
           technologiesUsed: ['Javascript', 'React.js', 'Bitbucket'],
         },
@@ -75,7 +75,9 @@ const portfolio: Portfolio = {
           verbose:
             'Bonzzu is a tech company which provides multiple tech engineers to companies to help build/maintain their software based applications around the world.',
           verbose2: [
-            'Alongside with other two team-mates we implemented a blog site from scratch so the Content Team of Bonzzu can publish posts for the public.',
+            'Alongside with other two teammates we implemented a blog site from scratch so the Content Team of Bonzzu can publish posts for the public.',
+            'To make easier the way how the styles are implemented and make them more maintainable in the future, we used the TailwindCSS framework and also used the CSS modules approach so the CSS classes can be available only in the component where we invoke them.',
+            "In order to handle how the posts were published we used Contentful, in that way, all the posts could be created, updated, and hidden without the app, and also Bonzzu's Content Team could easily publish the posts for the Blog site.",
             'The entire web application was built by using Javascript as main programming language.',
           ],
           technologiesUsed: [
@@ -97,7 +99,7 @@ const portfolio: Portfolio = {
           verbose:
             'Positon is a company that offers a programmatic M&A (Mergers and Acquisitions) application powered by AI to boost startups to achieve their goals.',
           verbose2: [
-            'I was involved at the first implementation of the entire application alongside with a team mate from Bonzzu.',
+            'I was involved at the first implementation of the entire application alongside with a teammate from Bonzzu.',
             'I collaborated to define the entire DB based on the client requirements.',
             'I collaborated to define the DB connections and DB queries using GraphQL to consume data into the the app.',
             'The webapp was implemented by using Next.js with Typescript as main language.',
@@ -129,9 +131,9 @@ const portfolio: Portfolio = {
           verbose:
             'Blockdaemon, from their website, is the leading provider to support the growing market for blockchain services.',
           verbose2: [
-            'Assisting to fix bugs and implement new features in their Wallet project.',
-            'Worked in a UI migration by moving all UI components made using Material-UI (License paid) to Mantine (No license paid required).',
-            'Collaborated in an offline web app (Cold Storage) implementation, to help users to make crypto transfers without the use of the main web app.',
+            'Worked by fixing bugs and implementing new features in a focused project from the company',
+            'Worked on the migration of all UI components made with Material-UI (License paid) to Mantine (No license paid required).',
+            'Led the implementation of an offline web app, to help users to make crypto transfers without usage of the main web app.',
           ],
           technologiesUsed: [
             'Auth0',
@@ -160,8 +162,8 @@ const portfolio: Portfolio = {
             'RCX Sports is a company based on the U.S. involved on youth sports by enhancing and provider required equipment for their sport players.',
           verbose2: [
             'Collaborating in the implementation of an entire web application to handle the creation of leagues, seasons and many other stuff related of youth sports.',
-            'Collaborating in the implementation of an entire public web application where users can visualize upcoming seasons and dates when matches will occur.',
-            'Implement and built the CI/CD on Bitbucket pipelines for or all the applications my team collaborate for.',
+            'Collaborating in the implementation of a public web application where users can visualize upcoming seasons and dates when matches will occur.',
+            'Implement and built the CI/CD on Bitbucket pipelines for or all our existing applications. ',
           ],
           technologiesUsed: [
             'Typescript',
