@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { MdDateRange } from 'react-icons/md';
 import { TbExternalLink } from 'react-icons/tb';
 import { Anchor, Accordion, Flex, Stack, Text, List, Box } from '@mantine/core';
 import {
@@ -13,11 +14,38 @@ import Pulsating from 'components/pulsating-container';
 import TechBadge from 'components/tech-badge';
 import usePortfolioPage from 'hooks/language/use-portfolio-page';
 import type { ModalBaseProps } from 'providers/modal/types';
+import { useLanguageState } from 'store/language-atom';
+
+const formatDate = (date: Date, locale: string): string => {
+  const currentDate = new Date();
+  const isCurrentMonthAndYear =
+    date.getMonth() === currentDate.getMonth() &&
+    date.getFullYear() === currentDate.getFullYear();
+
+  if (isCurrentMonthAndYear) {
+    return locale.startsWith('en') ? 'Now...' : 'Ahora...';
+  }
+
+  const monthFormatter = new Intl.DateTimeFormat(locale, {
+    month: 'long',
+  });
+
+  const yearFormatter = new Intl.DateTimeFormat(locale, {
+    year: 'numeric',
+  });
+
+  const month = monthFormatter.format(date);
+  const year = yearFormatter.format(date);
+
+  return `${month.charAt(0).toUpperCase() + month.slice(1)}, ${year}`;
+};
 
 type Props = ModalBaseProps & Job;
 
 export default ({
   title,
+  from,
+  to,
   verbose,
   verbose2,
   roles,
@@ -26,7 +54,10 @@ export default ({
   ...rest
 }: Props) => {
   const portfolioPage = usePortfolioPage();
+  const language = useLanguageState();
   const [accordionOpened, setAccordionOpened] = useState<boolean>(false);
+  const parsedFrom = formatDate(from, language === 'EN' ? 'en-US' : 'es-ES');
+  const parsedTo = formatDate(to, language === 'EN' ? 'en-US' : 'es-ES');
 
   const handleClickAccordionControl = () =>
     setAccordionOpened(!accordionOpened);
@@ -75,7 +106,13 @@ export default ({
               </HoverAnimated>
 
               <Accordion.Panel pl='.5rem'>
-                <Stack>
+                <Stack pt='md'>
+                  <Flex align='center' gap='xs'>
+                    <MdDateRange />
+                    <Text>
+                      {parsedFrom} - {parsedTo}
+                    </Text>
+                  </Flex>
                   {verbose}
                   {verbose2 && (
                     <List size='sm'>

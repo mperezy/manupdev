@@ -1,5 +1,7 @@
 type Job = {
   title: string;
+  from: Date;
+  to: Date;
   url: string;
   roles: ('Frontend' | 'Backend' | 'Fullstack Dev' | 'Devops')[];
   description: string;

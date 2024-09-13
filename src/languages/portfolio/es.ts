@@ -7,6 +7,8 @@ const portfolio: Portfolio = {
       work: [
         {
           title: 'Jemstep',
+          from: new Date('2018-03-12'),
+          to: new Date('2022-07-30'),
           url: 'https://invesco.com',
           roles: ['Fullstack Dev'],
           description:
@@ -42,6 +44,8 @@ const portfolio: Portfolio = {
       work: [
         {
           title: "Bonzzu's Website",
+          from: new Date('2020-11-01'),
+          to: new Date('2020-12-30'),
           url: 'https://bonzzu.com',
           roles: ['Frontend'],
           description:
@@ -62,6 +66,8 @@ const portfolio: Portfolio = {
       work: [
         {
           title: "Bonzzu's Blog",
+          from: new Date('2022-01-1'),
+          to: new Date('2022-07-30'),
           url: 'https://bonzzu.com/blog',
           roles: ['Frontend'],
           description:
@@ -82,6 +88,8 @@ const portfolio: Portfolio = {
         },
         {
           title: 'Positon',
+          from: new Date('2022-08-1'),
+          to: new Date('2022-12-30'),
           url: 'https://positon.ai',
           roles: ['Fullstack Dev'],
           description:
@@ -112,6 +120,8 @@ const portfolio: Portfolio = {
       work: [
         {
           title: 'Blockdaemon',
+          from: new Date('2023-06-12'),
+          to: new Date('2024-01-30'),
           url: 'https://blockdaemon.com/wallet/institutional-wallet',
           roles: ['Frontend'],
           description:
@@ -140,6 +150,8 @@ const portfolio: Portfolio = {
       work: [
         {
           title: 'RCX Sports',
+          from: new Date('2023-09-1'),
+          to: new Date(),
           url: 'https://go.playrcx.com',
           roles: ['Frontend', 'Devops'],
           description:
@@ -170,6 +182,8 @@ const portfolio: Portfolio = {
       work: [
         {
           title: 'Passvault',
+          from: new Date('2021-12-12'),
+          to: new Date(),
           url: 'https://passvault.manup.dev',
           roles: ['Frontend', 'Backend', 'Devops'],
           description:
@@ -203,6 +217,8 @@ const portfolio: Portfolio = {
       work: [
         {
           title: 'Google Drive Client',
+          from: new Date('2023-08-1'),
+          to: new Date(),
           url: '#',
           roles: ['Frontend', 'Backend'],
           description:
@@ -222,6 +238,8 @@ const portfolio: Portfolio = {
       work: [
         {
           title: 'Next Role Based App',
+          from: new Date('2024-07-1'),
+          to: new Date(),
           url: 'https://github.com/mperezy/next-app-role-based',
           roles: ['Frontend', 'Backend', 'Devops'],
           description:
