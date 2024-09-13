@@ -9,6 +9,7 @@ import Cypress from 'components/icons/tech/cypress';
 import Docker from 'components/icons/tech/docker';
 import Docusign from 'components/icons/tech/docusign';
 import Electron from 'components/icons/tech/electron';
+import ESLint from 'components/icons/tech/eslint';
 import Expo from 'components/icons/tech/expo';
 import Express from 'components/icons/tech/express';
 import Firebase from 'components/icons/tech/firebase';
@@ -23,6 +24,7 @@ import MongoDB from 'components/icons/tech/mongodb';
 import NextJS from 'components/icons/tech/nextjs';
 import NodeJS from 'components/icons/tech/nodejs';
 import PlayFramework from 'components/icons/tech/play-framework';
+import Prettier from 'components/icons/tech/prettier';
 import ReactJS from 'components/icons/tech/reactjs';
 import ReduxToolkit from 'components/icons/tech/redux-toolkit';
 import Scala from 'components/icons/tech/scala';
@@ -43,6 +45,7 @@ const techIcons: Record<Tech, ComponentType<SVGProps<SVGElement>>> = {
   Docker,
   Docusign,
   'Electron.js': Electron,
+  ESLint,
   Expo,
   Express,
   Firebase,
@@ -57,6 +60,7 @@ const techIcons: Record<Tech, ComponentType<SVGProps<SVGElement>>> = {
   'Next.js': NextJS,
   'Node.js': NodeJS,
   'Play Framework': PlayFramework,
+  Prettier,
   'React.js': ReactJS,
   'React Native': ReactJS,
   'Redux Toolkit': ReduxToolkit,

@@ -50,6 +50,12 @@ const colors: Record<Tech, BadgeColors> = {
     textColor: '#9fEAF9',
   },
 
+  ESLint: {
+    background: '#FFF',
+    textColor: '#8080F2',
+    borderColor: '#4B32C3',
+  },
+
   Expo: {
     background: '#FFF',
     textColor: '#464646',
@@ -121,6 +127,10 @@ const colors: Record<Tech, BadgeColors> = {
     background: '#A5DB5CB2',
     textColor: '#464646',
     darkTextColor: '#FFF',
+  },
+
+  Prettier: {
+    background: '#24292E',
   },
 
   'React.js': {
