@@ -13,6 +13,7 @@ import CompanyIcon from 'components/company-icon';
 import Pulsating from 'components/pulsating-container';
 import TechBadge from 'components/tech-badge';
 import usePortfolioPage from 'hooks/language/use-portfolio-page';
+import useWidthBreakpoints from 'hooks/use-width-breakpoints';
 import type { ModalBaseProps } from 'providers/modal/types';
 import { useLanguageState } from 'store/language-atom';
 
@@ -55,6 +56,7 @@ export default ({
 }: Props) => {
   const portfolioPage = usePortfolioPage();
   const language = useLanguageState();
+  const { md } = useWidthBreakpoints();
   const [accordionOpened, setAccordionOpened] = useState<boolean>(false);
   const parsedFrom = formatDate(from, language === 'EN' ? 'en-US' : 'es-ES');
   const parsedTo = formatDate(to, language === 'EN' ? 'en-US' : 'es-ES');
@@ -75,10 +77,17 @@ export default ({
           </Flex>
         </ScaleOutAnimated>
       }
+      styles={{
+        header: {
+          padding: md ? '2rem' : '1.75rem .75rem',
+        },
+        body: {
+          padding: md ? '0 2rem 2rem' : '0 .75rem 1.75rem',
+        },
+      }}
     >
       <Stack
         px={{ base: 'xs', md: 'md' }}
-        pb={{ base: 'xs', md: 'md' }}
         style={{
           overflowX: 'hidden',
         }}

@@ -30,7 +30,6 @@ export default ({ children, title, onCloseCallback, ...rest }: Props) => (
         {title}
       </Title>
     }
-    padding='xl'
     overlayProps={{
       backgroundOpacity: 0.55,
       blur: 4,
