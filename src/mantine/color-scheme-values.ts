@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 const other: Record<'light' | 'dark', CSSVariables> = {
   light: {
     mantine: {
@@ -23,8 +25,7 @@ const other: Record<'light' | 'dark', CSSVariables> = {
       },
       main: {
         background:
-          // eslint-disable-next-line max-len
-          'radial-gradient(circle, rgba(221,221,221,1) 0%, rgba(245,245,245,1) 100%)',
+          'linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(250, 250, 250, 1) 20%, rgba(245, 245, 245, 1) 47%, rgba(220, 220, 220, 1) 75%, rgba(185, 220, 255, 1) 100%)',
       },
     },
 
@@ -83,7 +84,7 @@ const other: Record<'light' | 'dark', CSSVariables> = {
       },
       main: {
         background:
-          'radial-gradient(circle, rgba(53,53,53,1) 0%, rgba(80,80,80,1) 100%)',
+          'linear-gradient(0deg, rgba(24, 24, 24, 1) 0%, rgba(32, 32, 32, 1) 20%, rgba(53, 53, 53, 1) 47%, rgba(85, 85, 85, 1) 75%, rgba(58, 120, 168, 1) 100%)',
       },
     },
 
