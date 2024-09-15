@@ -9,9 +9,10 @@ import {
 import Heading from 'components/heading';
 import Icon from 'components/icons/tech';
 import MainLayout from 'components/main-layout';
-import useLinksPage from 'hooks/language/use-links-page';
+import useLanguageVerbiage from 'hooks/use-language-verbiage';
 import useTheme from 'hooks/use-theme';
 import useWidthBreakpoints from 'hooks/use-width-breakpoints';
+import linksPageVerbiage from 'languages/links-page';
 
 type SocialMedia = {
   text: string;
@@ -20,7 +21,7 @@ type SocialMedia = {
 };
 
 export default () => {
-  const linksPage = useLinksPage();
+  const linksPage = useLanguageVerbiage(linksPageVerbiage);
   const { isLightTheme } = useTheme();
   const { md } = useWidthBreakpoints();
 

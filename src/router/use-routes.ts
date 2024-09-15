@@ -1,8 +1,9 @@
-import useNavbar from 'hooks/language/use-navbar';
+import useLanguageVerbiage from 'hooks/use-language-verbiage';
+import navbarVerbiage from 'languages/navbar';
 import type RouteEnum from 'router/enum';
 
 export default (): Routes<RouteEnum> => {
-  const navbar = useNavbar();
+  const navbar = useLanguageVerbiage(navbarVerbiage);
 
   return {
     home: {

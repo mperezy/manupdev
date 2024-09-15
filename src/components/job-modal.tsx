@@ -12,8 +12,9 @@ import BaseModal from 'components/base-modal';
 import CompanyIcon from 'components/company-icon';
 import Pulsating from 'components/pulsating-container';
 import TechBadge from 'components/tech-badge';
-import usePortfolioPage from 'hooks/language/use-portfolio-page';
+import useLanguageVerbiage from 'hooks/use-language-verbiage';
 import useWidthBreakpoints from 'hooks/use-width-breakpoints';
+import portfolioPageVerbiage from 'languages/portfolio-page';
 import type { ModalBaseProps } from 'providers/modal/types';
 import { useLanguageState } from 'store/language-atom';
 
@@ -54,7 +55,7 @@ export default ({
   url,
   ...rest
 }: Props) => {
-  const portfolioPage = usePortfolioPage();
+  const portfolioPage = useLanguageVerbiage(portfolioPageVerbiage);
   const language = useLanguageState();
   const { md } = useWidthBreakpoints();
   const [accordionOpened, setAccordionOpened] = useState<boolean>(false);

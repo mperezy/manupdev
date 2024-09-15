@@ -4,10 +4,11 @@ import { Center, em, Flex, Stack, Text, Title } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 import Icon404 from 'components/icons/404';
 import Link from 'components/link';
-import useNotPageFoundPage from 'hooks/language/use-not-page-found-page';
+import useLanguageVerbiage from 'hooks/use-language-verbiage';
+import notFoundVerbiage from 'languages/not-found-page';
 
 export default () => {
-  const notFoundPage = useNotPageFoundPage();
+  const notFoundPage = useLanguageVerbiage(notFoundVerbiage);
   const location = useLocation();
   const isBaseMaxWidth = useMediaQuery(`(max-width: ${em(575)})`);
   const isMobile = useMediaQuery(`(max-width: ${em(768)})`);

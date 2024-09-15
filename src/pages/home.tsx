@@ -9,11 +9,12 @@ import {
 } from 'components/animated';
 import Heading from 'components/heading';
 import MainLayout from 'components/main-layout';
-import useHomePage from 'hooks/language/use-home-page';
+import useLanguageVerbiage from 'hooks/use-language-verbiage';
 import useTheme from 'hooks/use-theme';
+import homePageVerbiage from 'languages/home-page';
 
 export default () => {
-  const homePage = useHomePage();
+  const homePage = useLanguageVerbiage(homePageVerbiage);
   const { isLightTheme } = useTheme();
   const isMobile = useMediaQuery(`(max-width: ${em(768)})`);
   const isTablet = useMediaQuery(`(max-width: ${em(991)})`);

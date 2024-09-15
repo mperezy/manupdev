@@ -1,8 +1,11 @@
-import en from 'languages/not-found-page/en';
-import es from 'languages/not-found-page/es';
 import { useLanguageState } from 'store/language-atom';
 
-export default (): NotFoundPage => {
+type Props<T> = {
+  en: T;
+  es: T;
+};
+
+export default <T>({ en, es }: Props<T>): T => {
   const language = useLanguageState();
 
   if (language === 'EN') {

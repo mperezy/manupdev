@@ -9,9 +9,10 @@ import {
 } from '@mantine/core';
 import { useLocalStorage } from '@mantine/hooks';
 import TechIcon from 'components/icons/tech';
-import useFooter from 'hooks/language/use-footer';
+import useLanguageVerbiage from 'hooks/use-language-verbiage';
 import useTheme from 'hooks/use-theme';
 import useWidthBreakpoints from 'hooks/use-width-breakpoints';
+import footerVerbiage from 'languages/footer';
 
 const techs: Tech[] = ['React.js', 'Typescript', 'Vite', 'Mantine'];
 
@@ -22,7 +23,7 @@ export default () => {
     key: 'navbar-opened',
   });
   const { md } = useWidthBreakpoints();
-  const footer = useFooter();
+  const footer = useLanguageVerbiage(footerVerbiage);
 
   return (
     <Box>

@@ -19,15 +19,16 @@ import {
 import CompanyIcon from 'components/company-icon';
 import MainLayout from 'components/main-layout';
 import JobModal from 'components/job-modal';
-import usePortfolio from 'hooks/language/use-portfolio';
-import usePortfolioPage from 'hooks/language/use-portfolio-page';
+import useLanguageVerbiage from 'hooks/use-language-verbiage';
 import useWidthBreakpoints from 'hooks/use-width-breakpoints';
+import portfolioVerbiage from 'languages/portfolio';
+import portfolioPageVerbiage from 'languages/portfolio-page';
 import useModal from 'providers/modal/use-modal';
 import { analyticsEvent } from 'utils/analytics';
 
 export default () => {
-  const portfolioPage = usePortfolioPage();
-  const portfolio = usePortfolio();
+  const portfolioPage = useLanguageVerbiage(portfolioPageVerbiage);
+  const portfolio = useLanguageVerbiage(portfolioVerbiage);
   const { md, lg } = useWidthBreakpoints();
   const isBaseWidth = useMediaQuery(`(max-width: ${em(575)})`);
   const [professionalItem, setProfessionalItem] = useState<string>('');
