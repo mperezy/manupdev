@@ -38,6 +38,9 @@ jobs:
       - name: 📥 Install dependencies
         run: yarn
 
+      - name: 🔍 Run ESLint
+        run: yarn lint
+
       - name: 🛠️ Build
         env:
           VITE_GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
