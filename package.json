@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check-types": "tsc --noemit",
+    "lint": "yarn check-types && eslint src/",
+    "lint:format": "prettier --write src/"
   },
   "dependencies": {
     "@fontsource/anton-sc": "^5.0.2",

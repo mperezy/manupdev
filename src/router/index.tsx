@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import useRoutes from 'router/use-routes';
 
 import Page from 'components/page';
-import { Home, Portfolio, Links, Page404 } from 'pages';
+import { Home, Portfolio, Page404 } from 'pages';
 
 export default () => {
   const routes = useRoutes();
@@ -34,14 +34,14 @@ export default () => {
         </Page>
       ),
     },
-    {
-      path: routes.links.path,
-      index: true,
-      element: (
-        <Page title='links'>
-          <Links />
-        </Page>
-      ),
-    },
+    // {
+    //   path: routes.links.path,
+    //   index: true,
+    //   element: (
+    //     <Page title='links'>
+    //       <Links />
+    //     </Page>
+    //   ),
+    // },
   ]);
 };

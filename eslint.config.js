@@ -25,7 +25,7 @@ export default tseslint.config(
       ],
       'linebreak-style': ['error', 'unix'],
       '@typescript-eslint/ban-types': 'off',
-      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'error',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/consistent-type-imports': 'error',
       semi: ['error', 'always'],
@@ -39,7 +39,7 @@ export default tseslint.config(
         },
       ],
 
-      // 'no-console': 'error',
+      'no-console': 'error',
 
       'no-trailing-spaces': [
         'error',
