@@ -9,6 +9,7 @@ import {
 } from '@mantine/core';
 import { useLocalStorage } from '@mantine/hooks';
 import TechIcon from 'components/icons/tech';
+import useFooter from 'hooks/language/use-footer';
 import useTheme from 'hooks/use-theme';
 import useWidthBreakpoints from 'hooks/use-width-breakpoints';
 
@@ -21,6 +22,7 @@ export default () => {
     key: 'navbar-opened',
   });
   const { md } = useWidthBreakpoints();
+  const footer = useFooter();
 
   return (
     <Box>
@@ -48,7 +50,7 @@ export default () => {
           justify='space-evenly'
         >
           <Text>
-            Made with ❤️ by{' '}
+            {footer.madeWith[0]} ❤️ {footer.madeWith[1]}{' '}
             <Text component='span' fw='bolder'>
               <Anchor
                 href='http://linkedin.com/in/manuel-pérez-600322157'
@@ -62,7 +64,7 @@ export default () => {
           </Text>
 
           <Stack align={md ? 'flex-start' : 'center'} gap='sm'>
-            <Text component='span'>Built with:</Text>
+            <Text component='span'>{footer.builtWith}:</Text>
             <Flex gap='md' style={{ flexWrap: 'wrap' }}>
               {techs.map((tech, index) => (
                 <Flex key={index} align='center' gap='.3rem'>
