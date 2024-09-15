@@ -106,7 +106,11 @@ export default () => {
                     }}
                   >
                     <Text fw={900}>{year}</Text>
-                    <Accordion chevronPosition='left' value={professionalItem}>
+                    <Accordion
+                      chevronPosition='left'
+                      value={professionalItem}
+                      onChange={(value) => setProfessionalItem(value || '')}
+                    >
                       {work.map((job, index) => (
                         <HoverAnimated
                           key={index}
@@ -180,6 +184,11 @@ export default () => {
                       w='100%'
                       chevronPosition='left'
                       value={isBaseWidth ? professionalItem : personalItem}
+                      onChange={(value) =>
+                        isBaseWidth
+                          ? setProfessionalItem(value || '')
+                          : setPersonalItem(value || '')
+                      }
                     >
                       {work.map((job, index) => (
                         <HoverAnimated
