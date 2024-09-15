@@ -1,6 +1,9 @@
 import type { ReactNode } from 'react';
+import { MdOutlineArrowUpward } from 'react-icons/md';
 import { useLocation, Link } from 'react-router-dom';
 import {
+  ActionIcon,
+  Affix,
   AppShell,
   Burger,
   Divider,
@@ -9,14 +12,15 @@ import {
   NavLink,
   Stack,
   Title,
+  Transition,
 } from '@mantine/core';
 import {
   useHotkeys,
   useLocalStorage,
   useMediaQuery,
   useOs,
+  useWindowScroll,
 } from '@mantine/hooks';
-import { HoverAnimated } from 'components/animated';
 import useNavbarRoutes from 'components/main-layout/use-navbar-routes';
 import NavbarMenu from 'components/navbar-menu';
 import PopoverHint from 'components/popover-hint';
@@ -31,6 +35,7 @@ export default ({ children, fullyCentered }: Props) => {
   const routes = useNavbarRoutes();
   const { pathname: route } = useLocation();
   const os = useOs();
+  const [scroll, scrollTo] = useWindowScroll();
   const { isLightTheme, handleToggleColorTheme } = useTheme();
   const isMobile = useMediaQuery(`(max-width: ${em(768)})`);
   const [navbarOpened, setNavbarOpened] = useLocalStorage({
@@ -85,23 +90,20 @@ export default ({ children, fullyCentered }: Props) => {
         <Stack gap='xs'>
           {routes.map(({ href, title, icon }, index, arr) => (
             <Stack gap='xs' key={index}>
-              <HoverAnimated active={href === route}>
-                <NavLink
-                  // data-active={href === route}
-                  active={href === route}
-                  component={Link}
-                  to={href}
-                  label={title}
-                  leftSection={icon}
-                  py='sm'
-                  style={{ borderRadius: '.5rem' }}
-                  onClick={() => {
-                    if (isMobile) {
-                      setNavbarOpened(false);
-                    }
-                  }}
-                />
-              </HoverAnimated>
+              <NavLink
+                active={href === route}
+                component={Link}
+                to={href}
+                label={title}
+                leftSection={icon}
+                py='sm'
+                style={{ borderRadius: '.5rem' }}
+                onClick={() => {
+                  if (isMobile) {
+                    setNavbarOpened(false);
+                  }
+                }}
+              />
               {index < arr.length - 1 && (
                 <Divider color={isLightTheme ? '#CDCDCD' : '#424242'} />
               )}
@@ -114,7 +116,8 @@ export default ({ children, fullyCentered }: Props) => {
         display='flex'
         w='100%'
         pt='var(--app-shell-header-height)'
-        style={{ justifyContent: 'center' }}
+        pos='relative'
+        style={{ justifyContent: 'center', zIndex: 20 }}
       >
         <Flex
           w='100%'
@@ -124,6 +127,20 @@ export default ({ children, fullyCentered }: Props) => {
         >
           {children}
         </Flex>
+        <Affix position={{ bottom: 20, right: 20 }} style={{ zIndex: 20 }}>
+          <Transition transition='scale' mounted={scroll.y > 0}>
+            {(transitionStyles) => (
+              <ActionIcon
+                style={transitionStyles}
+                radius='xl'
+                size='xl'
+                onClick={() => scrollTo({ y: 0 })}
+              >
+                <MdOutlineArrowUpward size='1.3rem' />
+              </ActionIcon>
+            )}
+          </Transition>
+        </Affix>
       </AppShell.Main>
     </AppShell>
   );

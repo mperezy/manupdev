@@ -11,7 +11,7 @@ export default () => {
     {
       path: '*',
       element: (
-        <Page title='not-found'>
+        <Page title='not-found' withFooter={false}>
           <Page404 />
         </Page>
       ),

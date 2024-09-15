@@ -69,6 +69,7 @@ const mainTheme = createTheme({
           },
           main: {
             background: `var(${appShell.main.background})`,
+            boxShadow: '9px 3px 25px -15px rgba(20, 20, 20, 0.75)',
           },
         };
       },
