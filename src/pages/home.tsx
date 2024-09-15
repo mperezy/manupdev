@@ -47,6 +47,8 @@ export default () => {
             <FallDownAnimated
               style={{
                 display: 'flex',
+                height: isMobile || isTablet ? '5rem' : 'auto',
+                alignItems: 'center',
                 justifyContent: isMobile || isTablet ? 'center' : 'left',
               }}
             >
