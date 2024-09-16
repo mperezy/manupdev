@@ -1,8 +1,18 @@
-type Path = '/' | '/portfolio' | '/links';
+enum routeEnum {
+  home = 'home',
+  portfolio = 'portfolio',
+  links = 'links',
+}
 
-type RouteI = {
+type RouteEnum = keyof typeof routeEnum;
+
+type AllPaths<T> = T extends `${routeEnum.home}` ? '/' : `/${T}`; // '/' | '/portfolio' | '/links';
+
+type Path = AllPaths<RouteEnum>;
+
+type RouteI<Rest> = {
   path: Path;
   name: string;
-};
+} & Rest;
 
-type Routes<T> = Record<T, RouteI>;
+type Routes<T, Rest> = Record<T, RouteI<Rest>>;

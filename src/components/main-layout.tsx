@@ -21,10 +21,10 @@ import {
   useOs,
   useWindowScroll,
 } from '@mantine/hooks';
-import useNavbarRoutes from 'components/main-layout/use-navbar-routes';
 import NavbarMenu from 'components/navbar-menu';
 import PopoverHint from 'components/popover-hint';
 import useTheme from 'hooks/use-theme';
+import { useRoutePageArray } from 'router/use-routes';
 
 type Props = {
   children: ReactNode;
@@ -32,7 +32,7 @@ type Props = {
 };
 
 export default ({ children, fullyCentered }: Props) => {
-  const routes = useNavbarRoutes();
+  const routes = useRoutePageArray();
   const { pathname: route } = useLocation();
   const os = useOs();
   const [scroll, scrollTo] = useWindowScroll();
@@ -71,7 +71,10 @@ export default ({ children, fullyCentered }: Props) => {
             </PopoverHint>
 
             <PopoverHint text='Go to home'>
-              <Link to='/' style={{ color: '#E7E7E7', textDecoration: 'none' }}>
+              <Link
+                to='/public'
+                style={{ color: '#E7E7E7', textDecoration: 'none' }}
+              >
                 <Title order={2}>manup.dev</Title>
               </Link>
             </PopoverHint>
@@ -88,13 +91,13 @@ export default ({ children, fullyCentered }: Props) => {
         style={{ justifyContent: 'space-between' }}
       >
         <Stack gap='xs'>
-          {routes.map(({ href, title, icon }, index, arr) => (
+          {routes.map(({ path, name, icon }, index, arr) => (
             <Stack gap='xs' key={index}>
               <NavLink
-                active={href === route}
+                active={path === route}
                 component={Link}
-                to={href}
-                label={title}
+                to={path}
+                label={name}
                 leftSection={icon}
                 py='sm'
                 style={{ borderRadius: '.5rem' }}

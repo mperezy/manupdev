@@ -1,11 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom';
-import useRoutes from 'router/use-routes';
+import { useRoutePageArray } from 'router/use-routes';
 
 import Page from 'components/page';
-import { Home, Portfolio, Page404 } from 'pages';
+import { Page404 } from 'pages';
 
 export default () => {
-  const routes = useRoutes();
+  const routes = useRoutePageArray();
 
   return createBrowserRouter([
     {
@@ -16,32 +16,10 @@ export default () => {
         </Page>
       ),
     },
-    {
-      path: routes.home.path,
+    ...routes.map(({ path, page }) => ({
+      path,
       index: true,
-      element: (
-        <Page title='home'>
-          <Home />
-        </Page>
-      ),
-    },
-    {
-      path: routes.portfolio.path,
-      index: true,
-      element: (
-        <Page title='portfolio'>
-          <Portfolio />
-        </Page>
-      ),
-    },
-    // {
-    //   path: routes.links.path,
-    //   index: true,
-    //   element: (
-    //     <Page title='links'>
-    //       <Links />
-    //     </Page>
-    //   ),
-    // },
+      element: page,
+    })),
   ]);
 };
