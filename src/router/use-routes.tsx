@@ -1,10 +1,10 @@
 import type { ReactNode } from 'react';
 import { useMemo } from 'react';
-import { MdOutlineFolder, MdOutlineHome } from 'react-icons/md';
+import { MdInfoOutline, MdOutlineFolder, MdOutlineHome } from 'react-icons/md';
 import Page from 'components/page';
 import useLanguageVerbiage from 'hooks/use-language-verbiage';
 import navbarVerbiage from 'languages/navbar';
-import { Home, Portfolio } from 'pages';
+import { Home, About, Portfolio } from 'pages';
 
 type RestPage = {
   page: ReactNode;
@@ -39,16 +39,16 @@ const useRoutePage = (): RoutePageObject => {
         ),
         icon: <MdOutlineFolder size='1.5rem' />,
       },
-      // links: {
-      //   path: '/links',
-      //   name: navbar.links,
-      //   page: (
-      //     <Page title='links'>
-      //       <Links />
-      //     </Page>
-      //   ),
-      //   icon: <MdOutlineLink size='1.5rem' />,
-      // },
+      about: {
+        path: '/about',
+        name: navbar.about,
+        page: (
+          <Page title='about'>
+            <About />
+          </Page>
+        ),
+        icon: <MdInfoOutline size='1.5rem' />,
+      },
     }),
     [navbar]
   );

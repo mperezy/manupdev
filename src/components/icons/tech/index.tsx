@@ -5,6 +5,7 @@ import Backbone from 'components/icons/tech/backbone';
 import Bash from 'components/icons/tech/bash';
 import Bitbucket from 'components/icons/tech/bitbucket';
 import Chakra from 'components/icons/tech/chakra';
+import Coursera from 'components/icons/tech/coursera';
 import Cypress from 'components/icons/tech/cypress';
 import Docker from 'components/icons/tech/docker';
 import Docusign from 'components/icons/tech/docusign';
@@ -32,6 +33,7 @@ import Selenium from 'components/icons/tech/selenium';
 import SqlServer from 'components/icons/tech/sql-server';
 import TailwindCss from 'components/icons/tech/tailwind-css';
 import Typescript from 'components/icons/tech/typescript';
+import Udemy from 'components/icons/tech/udemy';
 import Vite from 'components/icons/tech/vite';
 
 const techIcons: Record<Tech, ComponentType<SVGProps<SVGElement>>> = {
@@ -41,6 +43,7 @@ const techIcons: Record<Tech, ComponentType<SVGProps<SVGElement>>> = {
   'Bash scripting': Bash,
   Bitbucket,
   'Chakra-UI': Chakra,
+  Coursera,
   Cypress,
   Docker,
   Docusign,
@@ -70,6 +73,7 @@ const techIcons: Record<Tech, ComponentType<SVGProps<SVGElement>>> = {
   'SQL Server': SqlServer,
   TailwindCSS: TailwindCss,
   Typescript,
+  Udemy,
   Vite,
 };
 

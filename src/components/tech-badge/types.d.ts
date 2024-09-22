@@ -5,6 +5,7 @@ type Tech =
   | 'Bash scripting'
   | 'Bitbucket'
   | 'Chakra-UI'
+  | 'Coursera'
   | 'Cypress'
   | 'Docker'
   | 'Docusign'
@@ -34,4 +35,5 @@ type Tech =
   | 'SQL Server'
   | 'TailwindCSS'
   | 'Typescript'
+  | 'Udemy'
   | 'Vite';

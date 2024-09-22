@@ -5,6 +5,7 @@ import {
   Accordion,
   Anchor,
   AppShell,
+  Card,
   Modal,
   NavLink,
   Timeline,
@@ -82,6 +83,19 @@ const mainTheme = createTheme({
           fontWeight: '700',
         },
       },
+    }),
+
+    Card: Card.extend({
+      styles: (_, { variant }) => ({
+        root: {
+          alignItems:
+            variant === 'to-right'
+              ? 'flex-end !important'
+              : variant === 'to-left'
+                ? 'flex-start !important'
+                : '',
+        },
+      }),
     }),
 
     Modal: Modal.extend({
