@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { useEffect } from 'react';
 import { MdOutlineArrowUpward } from 'react-icons/md';
 import { useLocation, Link } from 'react-router-dom';
 import {
@@ -46,6 +47,8 @@ export default ({ children, fullyCentered }: Props) => {
 
   useHotkeys([['mod+J', handleToggleColorTheme]]);
   useHotkeys([['mod+B', () => setNavbarOpened((prevState) => !prevState)]]);
+
+  useEffect(() => scrollTo({ y: 0 }), []);
 
   return (
     <AppShell
