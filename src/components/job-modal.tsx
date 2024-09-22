@@ -17,8 +17,9 @@ import useWidthBreakpoints from 'hooks/use-width-breakpoints';
 import portfolioPageVerbiage from 'languages/portfolio-page';
 import type { ModalBaseProps } from 'providers/modal/types';
 import { useLanguageState } from 'store/language-atom';
+import formatDate from 'utils/format-date';
 
-const formatDate = (date: Date, locale: string): string => {
+const parseDate = (date: Date, locale: string): string => {
   const currentDate = new Date();
   const isCurrentMonthAndYear =
     date.getMonth() === currentDate.getMonth() &&
@@ -28,18 +29,7 @@ const formatDate = (date: Date, locale: string): string => {
     return locale.startsWith('en') ? 'Now...' : 'Ahora...';
   }
 
-  const monthFormatter = new Intl.DateTimeFormat(locale, {
-    month: 'long',
-  });
-
-  const yearFormatter = new Intl.DateTimeFormat(locale, {
-    year: 'numeric',
-  });
-
-  const month = monthFormatter.format(date);
-  const year = yearFormatter.format(date);
-
-  return `${month.charAt(0).toUpperCase() + month.slice(1)}, ${year}`;
+  return formatDate(date, locale);
 };
 
 type Props = ModalBaseProps & Job;
@@ -59,8 +49,8 @@ export default ({
   const language = useLanguageState();
   const { md } = useWidthBreakpoints();
   const [accordionOpened, setAccordionOpened] = useState<boolean>(false);
-  const parsedFrom = formatDate(from, language === 'EN' ? 'en-US' : 'es-ES');
-  const parsedTo = formatDate(to, language === 'EN' ? 'en-US' : 'es-ES');
+  const parsedFrom = parseDate(from, language === 'EN' ? 'en-US' : 'es-ES');
+  const parsedTo = parseDate(to, language === 'EN' ? 'en-US' : 'es-ES');
 
   const handleClickAccordionControl = () =>
     setAccordionOpened(!accordionOpened);
