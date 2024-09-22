@@ -10,6 +10,7 @@ import useTheme from 'hooks/use-theme';
 import useWidthBreakpoints from 'hooks/use-width-breakpoints';
 import certificationCardVerbiage from 'languages/certification-card';
 import { useLanguageState } from 'store/language-atom';
+import { analyticsEvent } from 'utils/analytics';
 import formatDate from 'utils/format-date';
 
 type CertificationCardProps = {
@@ -31,6 +32,13 @@ export default ({
     certification.issued,
     language === 'EN' ? 'en-US' : 'es-ES'
   );
+
+  const sendGAEvent = (event: 'certificate' | 'course') =>
+    analyticsEvent({
+      action: `Education course selected`,
+      category: 'click',
+      label: `"${certification.title}" ${event} viewed`,
+    });
 
   return (
     <HoverAnimated
@@ -110,6 +118,7 @@ export default ({
             color={
               platformBranding?.certificate[isLightTheme ? 'light' : 'dark']
             }
+            onClick={() => sendGAEvent('certificate')}
           >
             <Flex align='center' gap='.25rem'>
               {certificationCard.view}{' '}
@@ -125,6 +134,7 @@ export default ({
             variant='light'
             radius='md'
             color={platformBranding?.course[isLightTheme ? 'light' : 'dark']}
+            onClick={() => sendGAEvent('course')}
           >
             <Flex align='center' gap='.25rem'>
               {certificationCard.link}{' '}
