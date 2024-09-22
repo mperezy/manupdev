@@ -1,7 +1,7 @@
 const navbar: NavBar<RouteEnum> = {
   home: 'Inicio',
   portfolio: 'Portafolio',
-  links: 'Enlaces',
+  about: 'Acerca de mi',
 };
 
 export default navbar;

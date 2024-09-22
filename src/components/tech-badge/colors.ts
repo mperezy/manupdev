@@ -31,6 +31,12 @@ const colors: Record<Tech, BadgeColors> = {
     textColor: '#464646',
   },
 
+  Coursera: {
+    background: '#FFF',
+    textColor: '#0056D2',
+    borderColor: '#0056D2',
+  },
+
   Cypress: {
     background: '#38ef7dB3',
     textColor: '#464646',
@@ -168,6 +174,12 @@ const colors: Record<Tech, BadgeColors> = {
 
   Typescript: {
     background: '#3178C6B3',
+  },
+
+  Udemy: {
+    background: '#FFF',
+    textColor: '#000',
+    borderColor: '#A435f0',
   },
 
   Vite: {

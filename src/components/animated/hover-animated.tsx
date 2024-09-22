@@ -1,3 +1,4 @@
+import type { TargetAndTransition } from 'framer-motion';
 import type { CSSProperties, ReactNode } from 'react';
 import { MotionDiv } from 'components/animated';
 
@@ -6,6 +7,7 @@ type Props = {
   activeWithMarginTop?: boolean;
   children: ReactNode;
   scaleOut?: number;
+  whileHover?: TargetAndTransition;
   style?: CSSProperties;
 };
 
@@ -14,6 +16,7 @@ export default ({
   active,
   activeWithMarginTop,
   scaleOut = 1.04,
+  whileHover,
   style = { width: '100%' },
 }: Props) => (
   <MotionDiv
@@ -21,7 +24,7 @@ export default ({
       scale: active ? scaleOut : 1,
       marginTop: active && activeWithMarginTop ? '1rem' : 0,
     }}
-    whileHover={{ scale: scaleOut }}
+    whileHover={{ ...whileHover, scale: scaleOut }}
     style={style}
   >
     {children}

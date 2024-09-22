@@ -1,7 +1,7 @@
 enum routeEnum {
   home = 'home',
   portfolio = 'portfolio',
-  links = 'links',
+  about = 'about-me',
 }
 
 type RouteEnum = keyof typeof routeEnum;
