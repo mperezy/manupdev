@@ -12,15 +12,17 @@ import MainLayout from 'components/main-layout';
 import useLanguageVerbiage from 'hooks/use-language-verbiage';
 import useWidthBreakpoints from 'hooks/use-width-breakpoints';
 import aboutMePageVerbiage from 'languages/about-me-page';
-import certificationsVerbiage from 'languages/certifications';
 import getYearsAccurate from 'utils/get-years-accurate';
 
 const yearsExperience = getYearsAccurate(new Date('2018-03-12'), new Date());
 
-export default () => {
+type Props = {
+  certifications: CertificationNew[];
+};
+
+export default ({ certifications }: Props) => {
   const { md } = useWidthBreakpoints();
   const aboutMePage = useLanguageVerbiage(aboutMePageVerbiage);
-  const certifications = useLanguageVerbiage(certificationsVerbiage);
 
   return (
     <MainLayout pageTitle='about'>

@@ -14,7 +14,7 @@ import { analyticsEvent } from 'utils/analytics';
 import formatDate from 'utils/format-date';
 
 type CertificationCardProps = {
-  certification: Certification;
+  certification: CertificationNew;
   align?: CSSProperties['alignItems'];
 };
 
@@ -24,13 +24,14 @@ export default ({
 }: CertificationCardProps) => {
   const { sm, md } = useWidthBreakpoints();
   const language = useLanguageState();
+  const isEnglish = language === 'EN';
   const certificationCard = useLanguageVerbiage(certificationCardVerbiage);
   const { isLightTheme } = useTheme();
   const platformBranding = certificationCardColors[certification.issuedBy];
   const techBrandingColors = colors[certification.issuedBy];
   const issuedDate = formatDate(
     certification.issued,
-    language === 'EN' ? 'en-US' : 'es-ES'
+    isEnglish ? 'en-US' : 'es-ES'
   );
 
   const sendGAEvent = (event: 'certificate' | 'course') =>
@@ -105,7 +106,11 @@ export default ({
           {certificationCard.issued}: {issuedDate}
         </Text>
 
-        <Text mt='md'>{certification.description}</Text>
+        <Text mt='md'>
+          {isEnglish
+            ? certification.description.en
+            : certification.description.es}
+        </Text>
 
         <Group mt='lg' justify='flex-start'>
           <Button

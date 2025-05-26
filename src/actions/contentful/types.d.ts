@@ -29,3 +29,15 @@ type JobContentful = {
   roles: { items: RoleContentful[] };
   techs: { items: TechContentful[] };
 };
+
+type CertificationContentful = {
+  id: string;
+  title: string;
+  issued: string;
+  certificateLink: string;
+  courseLink: string;
+  description: MultiLanguageData<string>;
+  certificationIssuer: {
+    name: string;
+  };
+};
