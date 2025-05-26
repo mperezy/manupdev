@@ -31,7 +31,7 @@ type Tech =
   | 'Redux Toolkit'
   | 'Scala'
   | 'Selenium'
-  | 'Shell scripting'
+  | 'Shell Scripting'
   | 'SQL Server'
   | 'TailwindCSS'
   | 'Typescript'

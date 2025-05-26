@@ -159,7 +159,7 @@ const colors: Record<Tech, BadgeColors> = {
     background: '',
   },
 
-  'Shell scripting': {
+  'Shell Scripting': {
     background: '',
   },
 

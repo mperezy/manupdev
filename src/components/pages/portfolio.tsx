@@ -23,21 +23,26 @@ import MainLayout from 'components/main-layout';
 import JobModal from 'components/job-modal';
 import useLanguageVerbiage from 'hooks/use-language-verbiage';
 import useWidthBreakpoints from 'hooks/use-width-breakpoints';
-import portfolioVerbiage from 'languages/portfolio';
 import portfolioPageVerbiage from 'languages/portfolio-page';
 import useModal from 'providers/modal/use-modal';
 import { analyticsEvent } from 'utils/analytics';
+import { useLanguageState } from 'store/language-atom';
 
-export default () => {
+type Props = {
+  portfolio: PortfolioNew;
+};
+
+export default ({ portfolio }: Props) => {
+  const language = useLanguageState();
+  const isEnglish = language === 'EN';
   const portfolioPage = useLanguageVerbiage(portfolioPageVerbiage);
-  const portfolio = useLanguageVerbiage(portfolioVerbiage);
   const { md, lg } = useWidthBreakpoints();
   const isBaseWidth = useMediaQuery(`(max-width: ${em(575)})`);
   const [professionalItem, setProfessionalItem] = useState<string>('');
   const [personalItem, setPersonalItem] = useState<string>('');
   const [openJobModal] = useModal(JobModal);
 
-  const handleMoreDetails = (job: Job) => {
+  const handleMoreDetails = (job: JobNew) => {
     openJobModal(job);
 
     analyticsEvent({
@@ -135,7 +140,9 @@ export default () => {
                             <Accordion.Panel
                               children={
                                 <Stack gap='xs'>
-                                  {job.description}
+                                  {isEnglish
+                                    ? job.description.en
+                                    : job.description.es}
                                   <Anchor
                                     children={portfolioPage.moreDetails}
                                     onClick={() => handleMoreDetails(job)}
@@ -212,7 +219,9 @@ export default () => {
                             <Accordion.Panel
                               children={
                                 <Stack gap='xs'>
-                                  {job.description}
+                                  {isEnglish
+                                    ? job.description.en
+                                    : job.description.es}
                                   <Anchor
                                     children='See more details'
                                     onClick={() => handleMoreDetails(job)}
