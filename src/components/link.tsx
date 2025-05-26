@@ -1,12 +1,16 @@
-import type { LinkProps } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import type { ReactNode } from 'react';
+import type { LinkProps } from 'next/link';
+import Link from 'next/link';
 import type { AnchorProps } from '@mantine/core';
 import { Anchor } from '@mantine/core';
 
-type Props = LinkProps & Omit<AnchorProps, 'to'>;
+type Props = LinkProps &
+  AnchorProps & {
+    children: ReactNode;
+  };
 
 export default (props: Props) => (
-  <Anchor {...props} to={props.to} component={Link} underline='hover'>
+  <Anchor {...props} href={props.href} component={Link} underline='hover'>
     {props.children}
   </Anchor>
 );

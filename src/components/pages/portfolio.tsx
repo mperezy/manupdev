@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import {
   Accordion,
@@ -68,7 +70,7 @@ export default () => {
   };
 
   return (
-    <MainLayout fullyCentered>
+    <MainLayout pageTitle='portfolio' fullyCentered>
       <Flex
         data-test-id='PORTFOLIO_PAGE'
         w='100%'

@@ -1,4 +1,5 @@
 import ReactGA from 'react-ga4';
+import isProd from 'utils/is-prod';
 
 type AnalyticsEvent = {
   action: string;
@@ -7,7 +8,7 @@ type AnalyticsEvent = {
 };
 
 export const analyticsEvent = ({ action, category, label }: AnalyticsEvent) => {
-  if (import.meta.env.PROD) {
+  if (isProd()) {
     ReactGA.event({
       action,
       label,

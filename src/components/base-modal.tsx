@@ -1,8 +1,6 @@
 import type { ReactNode } from 'react';
 import type { ModalProps } from '@mantine/core';
-import { Paper } from '@mantine/core';
-import { Title } from '@mantine/core';
-import { Modal } from '@mantine/core';
+import { Modal, Paper, Title } from '@mantine/core';
 import type { ModalBaseProps } from 'providers/modal/types';
 
 type Props = Omit<ModalProps, 'opened' | 'onClose'> &
@@ -35,6 +33,9 @@ export default ({ children, title, onCloseCallback, ...rest }: Props) => (
       overlayProps={{
         backgroundOpacity: 0.55,
         blur: 4,
+        style: {
+          backdropFilter: 'var(--overlay-filter)',
+        },
       }}
     >
       {children}

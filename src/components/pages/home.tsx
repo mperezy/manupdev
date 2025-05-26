@@ -1,3 +1,5 @@
+'use client';
+
 import { TypeAnimation } from 'react-type-animation';
 import { Anchor, em, Flex, Image, Stack, Text } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
@@ -20,7 +22,7 @@ export default () => {
   const isTablet = useMediaQuery(`(max-width: ${em(991)})`);
 
   return (
-    <MainLayout fullyCentered>
+    <MainLayout pageTitle='home' fullyCentered>
       <Flex
         data-test-id='HOME_PAGE'
         w='100%'

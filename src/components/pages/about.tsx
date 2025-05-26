@@ -1,3 +1,5 @@
+'use client';
+
 import { Flex, Image, Stack, Text } from '@mantine/core';
 import {
   FallDownAnimated,
@@ -21,7 +23,7 @@ export default () => {
   const certifications = useLanguageVerbiage(certificationsVerbiage);
 
   return (
-    <MainLayout>
+    <MainLayout pageTitle='about'>
       <Stack
         data-test-id='ABOUT_ME_PAGE'
         w='100%'
