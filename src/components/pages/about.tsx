@@ -1,6 +1,7 @@
 'use client';
 
 import { Flex, Image, Stack, Text } from '@mantine/core';
+import NextImage from 'next/image';
 import {
   FallDownAnimated,
   HorizontalMoveAnimated,
@@ -13,15 +14,19 @@ import useLanguageVerbiage from 'hooks/use-language-verbiage';
 import useWidthBreakpoints from 'hooks/use-width-breakpoints';
 import aboutMePageVerbiage from 'languages/about-me-page';
 import getYearsAccurate from 'utils/get-years-accurate';
+import { useLanguageState } from 'store/language-atom';
 
 const yearsExperience = getYearsAccurate(new Date('2018-03-12'), new Date());
 
 type Props = {
+  aboutMeSection: AboutMeSection;
   certifications: Certification[];
 };
 
-export default ({ certifications }: Props) => {
+export default ({ aboutMeSection, certifications }: Props) => {
   const { md } = useWidthBreakpoints();
+  const language = useLanguageState();
+  const isEnglish = language === 'EN';
   const aboutMePage = useLanguageVerbiage(aboutMePageVerbiage);
 
   return (
@@ -36,16 +41,23 @@ export default ({ certifications }: Props) => {
       >
         <Flex direction={md ? 'row' : 'column'} gap='xl' align='center'>
           <Flex w={{ base: '90%', xs: '55%', md: '20rem' }}>
-            <ScaleOutAnimated>
+            <ScaleOutAnimated style={{ width: '100%', position: 'relative' }}>
               <Image
-                src='/images/manu-profile.png'
+                priority
+                component={NextImage}
+                width={250}
+                height={250}
+                src={aboutMeSection.profile}
                 display='flex'
                 radius='50rem'
                 style={{
+                  width: '100%',
+                  height: 'auto',
                   boxShadow: '2px 2px 57px 7px rgba(20,20,20,0.99)',
                   border: '.45rem #F5F5F5 solid',
                   transition: 'all 0.5s',
                 }}
+                alt='About me profile image'
               />
             </ScaleOutAnimated>
           </Flex>
@@ -61,10 +73,10 @@ export default ({ certifications }: Props) => {
                 fz={{ base: 'lg', md: 'xl' }}
                 ta={{ base: 'center', md: 'left' }}
               >
-                {aboutMePage.presentation.replaceAll(
-                  '&YEARS&',
-                  String(yearsExperience)
-                )}
+                {(isEnglish
+                  ? aboutMeSection.text.en
+                  : aboutMeSection.text.es
+                ).replaceAll('&YEARS&', String(yearsExperience))}
               </Text>
             </HorizontalMoveAnimated>
           </Flex>

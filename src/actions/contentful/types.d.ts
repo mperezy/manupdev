@@ -9,6 +9,20 @@ type MultiLanguageData<T> = {
   es: T;
 };
 
+type ImageAsset = {
+  url: string;
+};
+
+type HomeSectionContentful = {
+  text: MultiLanguageData<string>;
+  profile: ImageAsset;
+};
+
+type AboutMeSectionContentful = {
+  text: MultiLanguageData<string>;
+  profile: ImageAsset;
+};
+
 type RoleContentful = {
   label: string;
 };
