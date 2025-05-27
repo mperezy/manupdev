@@ -17,7 +17,7 @@ import getYearsAccurate from 'utils/get-years-accurate';
 const yearsExperience = getYearsAccurate(new Date('2018-03-12'), new Date());
 
 type Props = {
-  certifications: CertificationNew[];
+  certifications: Certification[];
 };
 
 export default ({ certifications }: Props) => {

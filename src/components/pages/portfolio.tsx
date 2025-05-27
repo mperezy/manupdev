@@ -29,7 +29,7 @@ import { analyticsEvent } from 'utils/analytics';
 import { useLanguageState } from 'store/language-atom';
 
 type Props = {
-  portfolio: PortfolioNew;
+  portfolio: Portfolio;
 };
 
 export default ({ portfolio }: Props) => {
@@ -42,7 +42,7 @@ export default ({ portfolio }: Props) => {
   const [personalItem, setPersonalItem] = useState<string>('');
   const [openJobModal] = useModal(JobModal);
 
-  const handleMoreDetails = (job: JobNew) => {
+  const handleMoreDetails = (job: Job) => {
     openJobModal(job);
 
     analyticsEvent({

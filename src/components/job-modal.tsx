@@ -32,7 +32,7 @@ const parseDate = (date: Date, locale: string): string => {
   return formatDate(date, locale);
 };
 
-type Props = ModalBaseProps & JobNew;
+type Props = ModalBaseProps & Job;
 
 export default ({
   title,

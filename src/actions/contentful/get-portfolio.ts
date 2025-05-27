@@ -35,7 +35,7 @@ const ACCESS_TOKEN = process.env.API_CONTENTFUL_ACCESS_TOKEN ?? '';
 // eslint-disable-next-line max-len
 const URL = `https://graphql.contentful.com/content/v1/spaces/${SPACE_ID}/environments/master`;
 
-const getJobsFlatDetailed = (jobs: JobContentful[]): WorkNew[] => {
+const getJobsFlatDetailed = (jobs: JobContentful[]): Work[] => {
   const arr = jobs
     .map(({ roles, techs, ...job }) => ({
       ...job,
@@ -43,7 +43,7 @@ const getJobsFlatDetailed = (jobs: JobContentful[]): WorkNew[] => {
       technologiesUsed: techs.items.map(({ label }) => label) as Tech[],
     }))
     // eslint-disable-next-line
-    .map<JobNew>(({ isProfessionalJob, ...job }) => ({
+    .map<Job>(({ isProfessionalJob, ...job }) => ({
       ...job,
       from: new Date(job.from),
       to: job.to ? new Date(job.to) : new Date(),
@@ -62,13 +62,13 @@ const getJobsFlatDetailed = (jobs: JobContentful[]): WorkNew[] => {
 
         return acc;
       },
-      {} as Record<number, { year: number; work: JobNew[] }>
+      {} as Record<number, { year: number; work: Job[] }>
     );
 
   return Object.values(arr);
 };
 
-export default async (): Promise<PortfolioNew> => {
+export default async (): Promise<Portfolio> => {
   const fetchResponse = await fetch(URL, {
     next: { revalidate: 3600 },
     method: 'POST',

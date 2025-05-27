@@ -14,7 +14,7 @@ import { analyticsEvent } from 'utils/analytics';
 import formatDate from 'utils/format-date';
 
 type CertificationCardProps = {
-  certification: CertificationNew;
+  certification: Certification;
   align?: CSSProperties['alignItems'];
 };
 
