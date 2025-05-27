@@ -5,5 +5,5 @@ type Certification = {
   issuedBy: Tech;
   certificateLink: string;
   courseLink: string;
-  description: string;
+  description: MultiLanguageData<string>;
 };

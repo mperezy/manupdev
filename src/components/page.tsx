@@ -1,10 +1,13 @@
 import type { ReactNode } from 'react';
 import { useEffect } from 'react';
 import ReactGA from 'react-ga4';
-import { useLocation } from 'react-router-dom';
+import { usePathname } from 'next/navigation';
 import Footer from 'components/footer';
 import useRoutes from 'router/use-routes';
 import { useLanguageState } from 'store/language-atom';
+import isProd from 'utils/is-prod';
+
+const MANUP_DEV = 'manup.dev';
 
 type Props = {
   title: RouteEnum | 'not-found';
@@ -13,15 +16,15 @@ type Props = {
 };
 
 export default ({ title, children, withFooter = true }: Props) => {
-  const location = useLocation();
+  const pathname = usePathname();
   const language = useLanguageState();
   const routes = useRoutes();
 
   useEffect(() => {
-    if (import.meta.env.PROD) {
+    if (isProd()) {
       ReactGA.send({
         hitType: 'pageView',
-        page: location.pathname,
+        page: pathname,
       });
     }
   }, []);
@@ -30,12 +33,12 @@ export default ({ title, children, withFooter = true }: Props) => {
     if (title === 'not-found') {
       const title =
         language === 'EN' ? 'Page not found' : 'Página no encontrada';
-      document.title = `Manup.dev | ${title}`;
+      document.title = `${MANUP_DEV} | ${title}`;
 
       return;
     }
 
-    document.title = `Manup.dev | ${routes[title]?.name}`;
+    document.title = `${MANUP_DEV} | ${routes[title]?.name}`;
   }, [language, title]);
 
   return (

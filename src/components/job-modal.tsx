@@ -45,12 +45,13 @@ export default ({
   url,
   ...rest
 }: Props) => {
-  const portfolioPage = useLanguageVerbiage(portfolioPageVerbiage);
   const language = useLanguageState();
+  const portfolioPage = useLanguageVerbiage(portfolioPageVerbiage);
+  const isEnglish = language === 'EN';
   const { md } = useWidthBreakpoints();
   const [accordionOpened, setAccordionOpened] = useState<boolean>(false);
-  const parsedFrom = parseDate(from, language === 'EN' ? 'en-US' : 'es-ES');
-  const parsedTo = parseDate(to, language === 'EN' ? 'en-US' : 'es-ES');
+  const parsedFrom = parseDate(from, isEnglish ? 'en-US' : 'es-ES');
+  const parsedTo = parseDate(to, isEnglish ? 'en-US' : 'es-ES');
 
   const handleClickAccordionControl = () =>
     setAccordionOpened(!accordionOpened);
@@ -113,12 +114,14 @@ export default ({
                       {parsedFrom} - {parsedTo}
                     </Text>
                   </Flex>
-                  {verbose}
+                  {isEnglish ? verbose.en : verbose.es}
                   {verbose2 && (
                     <List size='sm'>
-                      {verbose2.map((item, index) => (
-                        <List.Item key={index}>{item}</List.Item>
-                      ))}
+                      {(isEnglish ? verbose2.en : verbose2.es).map(
+                        (item, index) => (
+                          <List.Item key={index}>{item}</List.Item>
+                        )
+                      )}
                     </List>
                   )}
                 </Stack>

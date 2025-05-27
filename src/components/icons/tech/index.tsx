@@ -69,7 +69,7 @@ const techIcons: Record<Tech, ComponentType<SVGProps<SVGElement>>> = {
   'Redux Toolkit': ReduxToolkit,
   Scala,
   Selenium,
-  'Shell scripting': Bash,
+  'Shell Scripting': Bash,
   'SQL Server': SqlServer,
   TailwindCSS: TailwindCss,
   Typescript,

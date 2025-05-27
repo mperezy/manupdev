@@ -1,6 +1,9 @@
+'use client';
+
 import { TypeAnimation } from 'react-type-animation';
 import { Anchor, em, Flex, Image, Stack, Text } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
+import NextImage from 'next/image';
 import {
   FallDownAnimated,
   HoverAnimated,
@@ -12,15 +15,22 @@ import MainLayout from 'components/main-layout';
 import useLanguageVerbiage from 'hooks/use-language-verbiage';
 import useTheme from 'hooks/use-theme';
 import homePageVerbiage from 'languages/home-page';
+import { useLanguageState } from 'store/language-atom';
 
-export default () => {
+type Props = {
+  homeSection: HomeSection;
+};
+
+export default ({ homeSection }: Props) => {
+  const language = useLanguageState();
+  const isEnglish = language === 'EN';
   const homePage = useLanguageVerbiage(homePageVerbiage);
   const { isLightTheme } = useTheme();
   const isMobile = useMediaQuery(`(max-width: ${em(768)})`);
   const isTablet = useMediaQuery(`(max-width: ${em(991)})`);
 
   return (
-    <MainLayout fullyCentered>
+    <MainLayout pageTitle='home' fullyCentered>
       <Flex
         data-test-id='HOME_PAGE'
         w='100%'
@@ -76,7 +86,7 @@ export default () => {
                 fz={{ base: 'lg', md: 'xl' }}
                 style={{ transition: 'all 0.5s' }}
               >
-                {homePage.description}
+                {isEnglish ? homeSection.text.en : homeSection.text.es}
               </Text>
             </FallDownAnimated>
 
@@ -96,17 +106,27 @@ export default () => {
           </Stack>
         </ParentWrapper>
 
-        <Flex w={{ base: '75%', xs: '60%', sm: '20rem', md: '40rem' }}>
-          <ScaleOutAnimated>
+        <Flex
+          w={{ base: '75%', xs: '60%', sm: '20rem', md: '40rem' }}
+          pos='relative'
+        >
+          <ScaleOutAnimated style={{ width: '100%', position: 'relative' }}>
             <Image
-              src='/images/manu-profile.png'
+              priority
+              component={NextImage}
+              width={350}
+              height={350}
+              src={homeSection.profile}
               display='flex'
               radius='50rem'
               style={{
+                width: '100%',
+                height: 'auto',
                 boxShadow: '2px 2px 57px 7px rgba(20,20,20,0.99)',
                 border: '.45rem #F5F5F5 solid',
                 transition: 'all 0.5s',
               }}
+              alt='Home section profile image'
             />
           </ScaleOutAnimated>
         </Flex>

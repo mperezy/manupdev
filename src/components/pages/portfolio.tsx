@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import {
   Accordion,
@@ -21,14 +23,19 @@ import MainLayout from 'components/main-layout';
 import JobModal from 'components/job-modal';
 import useLanguageVerbiage from 'hooks/use-language-verbiage';
 import useWidthBreakpoints from 'hooks/use-width-breakpoints';
-import portfolioVerbiage from 'languages/portfolio';
 import portfolioPageVerbiage from 'languages/portfolio-page';
 import useModal from 'providers/modal/use-modal';
 import { analyticsEvent } from 'utils/analytics';
+import { useLanguageState } from 'store/language-atom';
 
-export default () => {
+type Props = {
+  portfolio: Portfolio;
+};
+
+export default ({ portfolio }: Props) => {
+  const language = useLanguageState();
+  const isEnglish = language === 'EN';
   const portfolioPage = useLanguageVerbiage(portfolioPageVerbiage);
-  const portfolio = useLanguageVerbiage(portfolioVerbiage);
   const { md, lg } = useWidthBreakpoints();
   const isBaseWidth = useMediaQuery(`(max-width: ${em(575)})`);
   const [professionalItem, setProfessionalItem] = useState<string>('');
@@ -68,7 +75,7 @@ export default () => {
   };
 
   return (
-    <MainLayout fullyCentered>
+    <MainLayout pageTitle='portfolio' fullyCentered>
       <Flex
         data-test-id='PORTFOLIO_PAGE'
         w='100%'
@@ -133,7 +140,9 @@ export default () => {
                             <Accordion.Panel
                               children={
                                 <Stack gap='xs'>
-                                  {job.description}
+                                  {isEnglish
+                                    ? job.description.en
+                                    : job.description.es}
                                   <Anchor
                                     children={portfolioPage.moreDetails}
                                     onClick={() => handleMoreDetails(job)}
@@ -210,7 +219,9 @@ export default () => {
                             <Accordion.Panel
                               children={
                                 <Stack gap='xs'>
-                                  {job.description}
+                                  {isEnglish
+                                    ? job.description.en
+                                    : job.description.es}
                                   <Anchor
                                     children='See more details'
                                     onClick={() => handleMoreDetails(job)}

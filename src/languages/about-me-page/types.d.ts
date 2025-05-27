@@ -1,6 +1,5 @@
-type AboutMePasge = {
+type AboutMePage = {
   hiAgain: string;
-  presentation: string;
   certificationsTitle: string;
   moreAboutMeTitle: string;
   moreAboutMe: string;

@@ -1,3 +1,5 @@
+'use client';
+
 import type { ComponentType, ReactNode } from 'react';
 import { createContext, useCallback, useMemo, useState } from 'react';
 import type { ModalBaseProps, ModalState } from 'providers/modal/types';
@@ -6,20 +8,20 @@ export const ModalContext = createContext<{
   showModal: <P extends ModalBaseProps>(
     key: string,
     component: ComponentType<P>,
-    componentProps: P,
+    componentProps: P
   ) => void;
   hideModal: (key: string) => void;
 } | null>(null);
 
 export default ({ children }: { children: ReactNode }) => {
   const [modalsConfig, setConfig] = useState<Record<string, ModalState<any>>>(
-    {},
+    {}
   );
 
   const showModal = useCallback(function <P extends object>(
     modalKey: string,
     component: ComponentType<P>,
-    modalData: P,
+    modalData: P
   ) {
     setConfig((prevConfig) => ({
       ...prevConfig,
@@ -38,7 +40,7 @@ export default ({ children }: { children: ReactNode }) => {
         [modalKey]: { ...prevConfig[modalKey], opened: false },
       }));
     },
-    [setConfig],
+    [setConfig]
   );
 
   const contextValue = useMemo(
@@ -46,7 +48,7 @@ export default ({ children }: { children: ReactNode }) => {
       showModal,
       hideModal,
     }),
-    [showModal, hideModal],
+    [showModal, hideModal]
   );
 
   return (

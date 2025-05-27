@@ -1,12 +1,15 @@
+type Role = 'Frontend' | 'Backend' | 'Fullstack Dev' | 'Devops';
+
 type Job = {
+  year: number;
   title: string;
+  description: MultiLanguageData<string>;
+  verbose: MultiLanguageData<string>;
+  verbose2: MultiLanguageData<string[]>;
   from: Date;
   to: Date;
   url: string;
-  roles: ('Frontend' | 'Backend' | 'Fullstack Dev' | 'Devops')[];
-  description: string;
-  verbose: string;
-  verbose2?: string[];
+  roles: Role[];
   technologiesUsed: Tech[];
 };
 
