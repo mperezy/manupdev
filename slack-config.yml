@@ -1,0 +1,39 @@
+text: |
+  *{{icon jobStatus}} <{{workflowRunUrl}}|Workflow #{{runNumber}}>* *{{jobStatus}}* for <{{refUrl}}|`{{ref}}`>
+  {{#if payload.commits}}
+  *Commits*
+  {{#each payload.commits}}
+  <{{this.url}}|`{{truncate this.id 8}}`> - {{this.message}}
+  {{/each}}
+  {{/if}}
+
+fallback: |-
+  [GitHub] {{workflow}} #{{runNumber}} {{jobName}} is {{jobStatus}}
+
+fields:
+  - title: Workflow
+    value: "<{{workflowUrl}}|{{workflow}}>"
+    short: true
+  - title: Run ID
+    value: |-
+      <{{workflowRunUrl}}|{{runId}}>
+    short: true
+  - title: Run Number
+    value: "{{runNumber}}"
+    short: true
+
+footer: >-
+  <{{repositoryUrl}}|{{repositoryName}}> {{workflow}} #{{runNumber}}
+
+colors:
+  success: '#45B888'
+  failure: '#f7603a'
+  cancelled: '#e6e3e2'
+  default: '#7D3C98'
+
+icons:
+  success: ':white_check_mark:'
+  failure: ':no_entry:'
+  cancelled: ':black_square_for_stop:'
+  skipped: ':heavy_minus_sign:'
+  default: ':interrobang:'
