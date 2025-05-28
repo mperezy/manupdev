@@ -24,7 +24,7 @@ type SocialMedia = {
 
 const MOBILE_HEIGHT = '23rem';
 const HEIGHT = '15rem';
-const techs: Tech[] = ['React.js', 'Typescript', 'Vite', 'Mantine'];
+const techs: Tech[] = ['React.js', 'Typescript', 'Next.js', 'Mantine'];
 
 export default () => {
   const { isLightTheme } = useTheme();

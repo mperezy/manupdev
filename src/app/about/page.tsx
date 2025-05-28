@@ -8,8 +8,10 @@ export const generateMetadata = async (): Promise<Metadata> => {
   const metadata = await getMetadata('about-me');
 
   return {
+    title: 'manup.dev | About me',
     description: 'Get more info about me!',
     openGraph: {
+      siteName: 'Manu Perez Portfolio website | About Me',
       title: 'manup.dev | About me',
       description: 'Get more info about me!',
       url: 'https://manup.dev/about',

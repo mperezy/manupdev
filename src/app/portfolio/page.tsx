@@ -7,8 +7,10 @@ export const generateMetadata = async (): Promise<Metadata> => {
   const metadata = await getMetadata('portfolio');
 
   return {
+    title: 'manup.dev | Portfolio',
     description: 'Checkout my experience!',
     openGraph: {
+      siteName: 'Manu Perez Portfolio website | Portfolio',
       title: 'manup.dev | Portfolio',
       description: 'Checkout my experience!',
       url: 'https://manup.dev/portfolio',
