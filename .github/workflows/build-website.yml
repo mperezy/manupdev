@@ -8,17 +8,18 @@ env:
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ['master']
+    branches:
+      - '**'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
   # Single deploy job since we're just deploying
-  deploy-to-github-pages:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  deploy-to-vercel:
+#    environment:
+#      name: github-pages
+#      url: ${{ steps.deployment.outputs.page_url }}
 
     runs-on: ubuntu-latest
     steps:
