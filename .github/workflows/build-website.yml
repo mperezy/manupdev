@@ -28,14 +28,22 @@ jobs:
       - name: 📥 Install Vercel CLI
         run: npm i -g vercel@latest
 
-      - name: 🔧 Pull and set up Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+      - name: 🔍 Determine environment
+        id: env
+        run: |
+          if [[ "${GITHUB_REF##*/}" == "master" ]]; then
+            echo "ENV=production" >> $GITHUB_OUTPUT
+          else
+            echo "ENV=preview" >> $GITHUB_OUTPUT
+          fi
 
-      - name: 🛠️ Build Project Artifacts
-        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
-
-      - name: 🚀 Deploy https://manup.dev to Vercel
-        run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+      - name: 🚀 Deploy https://manup.dev to Vercel (${{ steps.env.outputs.ENV }})
+        run: |
+          if [[ "${{ steps.env.outputs.ENV }}" == "production" ]]; then
+            vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}
+          else
+            vercel deploy --target=preview --token=${{ secrets.VERCEL_TOKEN }}
+          fi
 
       - name: ✉️ Send Message to Slack
         uses: act10ns/slack@v2
