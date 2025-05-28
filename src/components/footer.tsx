@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
 import {
-  Anchor,
   Box,
   Divider,
   Flex,
@@ -11,6 +10,7 @@ import {
 } from '@mantine/core';
 import { useLocalStorage } from '@mantine/hooks';
 import { HoverAnimated } from 'components/animated';
+import Link from 'next/link';
 import TechIcon from 'components/icons/tech';
 import useLanguageVerbiage from 'hooks/use-language-verbiage';
 import useTheme from 'hooks/use-theme';
@@ -76,13 +76,16 @@ export default () => {
           <Stack align='center'>
             <Text>
               {footer.madeWith[0]} ❤️ {footer.madeWith[1]}{' '}
-              <Text component='span' fw='bolder'>
-                <Anchor
-                  target='_blank'
-                  style={{ transition: 'all 0.5s', textDecoration: 'none' }}
-                >
-                  Manu Perez
-                </Anchor>
+              <Text
+                variant='anchor'
+                component='span'
+                fw='bolder'
+                style={{
+                  transition: 'all 0.5s',
+                  textDecoration: 'none',
+                }}
+              >
+                Manu Perez
               </Text>{' '}
               © {new Date().getFullYear()}
             </Text>
@@ -99,9 +102,9 @@ export default () => {
                     scaleOut={1.25}
                     style={{ width: 'unset' }}
                   >
-                    <Anchor href={url} target='_blank'>
+                    <Link href={url} target='_blank'>
                       {icon}
-                    </Anchor>
+                    </Link>
                   </HoverAnimated>
                 ))}
               </Flex>

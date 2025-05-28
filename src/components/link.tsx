@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { HTMLAttributeAnchorTarget, ReactNode } from 'react';
 import type { LinkProps } from 'next/link';
 import Link from 'next/link';
 import type { AnchorProps } from '@mantine/core';
@@ -7,6 +7,7 @@ import { Anchor } from '@mantine/core';
 type Props = LinkProps &
   AnchorProps & {
     children: ReactNode;
+    target?: HTMLAttributeAnchorTarget;
   };
 
 export default (props: Props) => (

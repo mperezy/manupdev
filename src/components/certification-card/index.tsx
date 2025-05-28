@@ -1,5 +1,6 @@
 import type { CSSProperties } from 'react';
 import { TbExternalLink } from 'react-icons/tb';
+import Link from 'next/link';
 import { Card, Group, Text, Flex, Button } from '@mantine/core';
 import { HoverAnimated } from 'components/animated';
 import certificationCardColors from 'components/certification-card/colors';
@@ -114,7 +115,7 @@ export default ({
 
         <Group mt='lg' justify='flex-start'>
           <Button
-            component='a'
+            component={Link}
             w={{ base: '100%', md: 'auto' }}
             href={certification.certificateLink}
             target='_blank'
@@ -132,7 +133,7 @@ export default ({
           </Button>
 
           <Button
-            component='a'
+            component={Link}
             w={{ base: '100%', md: 'auto' }}
             href={certification.courseLink}
             target='_blank'

@@ -138,6 +138,17 @@ const mainTheme = createTheme({
 
     Text: Text.extend({
       styles: (_, { variant }) => {
+        if (variant === 'anchor') {
+          return {
+            root: {
+              color: `var(${anchor.textColor})`,
+              fontWeight: '700',
+              cursor: 'pointer',
+              textDecoration: 'underline',
+            },
+          };
+        }
+
         if (variant === 'label') {
           return {
             root: {

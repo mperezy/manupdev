@@ -1,9 +1,10 @@
 'use client';
 
 import { TypeAnimation } from 'react-type-animation';
-import { Anchor, em, Flex, Image, Stack, Text } from '@mantine/core';
+import { em, Flex, Image, Stack, Text } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 import NextImage from 'next/image';
+import Link from 'components/link';
 import {
   FallDownAnimated,
   HoverAnimated,
@@ -93,13 +94,13 @@ export default ({ homeSection }: Props) => {
             <Flex w='100%' mt='md' justify={{ base: 'center', md: 'left' }}>
               <FallDownAnimated>
                 <HoverAnimated scaleOut={1.07}>
-                  <Anchor
+                  <Link
                     href='/portfolio'
                     fz={{ base: 'lg', md: 'xl' }}
                     style={{ transition: 'all 0.5s' }}
                   >
                     {homePage.portfolioLink}
-                  </Anchor>
+                  </Link>
                 </HoverAnimated>
               </FallDownAnimated>
             </Flex>

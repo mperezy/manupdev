@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { MdDateRange } from 'react-icons/md';
 import { TbExternalLink } from 'react-icons/tb';
-import { Anchor, Accordion, Flex, Stack, Text, List, Box } from '@mantine/core';
+import { Accordion, Flex, Stack, Text, List, Box } from '@mantine/core';
 import {
   FallDownAnimated,
   HorizontalMoveAnimated,
@@ -10,6 +10,7 @@ import {
 } from 'components/animated';
 import BaseModal from 'components/base-modal';
 import CompanyIcon from 'components/company-icon';
+import Link from 'components/link';
 import Pulsating from 'components/pulsating-container';
 import TechBadge from 'components/tech-badge';
 import useLanguageVerbiage from 'hooks/use-language-verbiage';
@@ -196,14 +197,14 @@ export default ({
             }}
           >
             <HoverAnimated scaleOut={1.07}>
-              <Anchor href={url} target={url === '#' ? '_self' : '_blank'}>
+              <Link href={url} target={url === '#' ? '_self' : '_blank'}>
                 <Flex align='center' gap='.25rem'>
                   {portfolioPage.websiteLink}{' '}
                   <TbExternalLink
                     style={{ position: 'relative', top: '-1px' }}
                   />
                 </Flex>
-              </Anchor>
+              </Link>
             </HoverAnimated>
           </FallDownAnimated>
         </Flex>

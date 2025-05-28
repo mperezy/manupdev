@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import {
   Accordion,
-  Anchor,
   em,
   Flex,
   Stack,
@@ -143,7 +142,8 @@ export default ({ portfolio }: Props) => {
                                   {isEnglish
                                     ? job.description.en
                                     : job.description.es}
-                                  <Anchor
+                                  <Text
+                                    variant='anchor'
                                     children={portfolioPage.moreDetails}
                                     onClick={() => handleMoreDetails(job)}
                                   />
@@ -222,7 +222,8 @@ export default ({ portfolio }: Props) => {
                                   {isEnglish
                                     ? job.description.en
                                     : job.description.es}
-                                  <Anchor
+                                  <Text
+                                    variant='anchor'
                                     children='See more details'
                                     onClick={() => handleMoreDetails(job)}
                                   />
