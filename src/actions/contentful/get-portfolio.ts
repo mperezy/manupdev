@@ -1,3 +1,5 @@
+import fetchQuery from 'actions/contentful/fetch-query';
+
 const query = `
 query GetAllProfessionalJobsQuery {
   jobCollection (
@@ -29,11 +31,6 @@ query GetAllProfessionalJobsQuery {
     }
   }
 }`;
-
-const SPACE_ID = process.env.API_CONTENTFUL_SPACE_ID ?? '';
-const ACCESS_TOKEN = process.env.API_CONTENTFUL_ACCESS_TOKEN ?? '';
-// eslint-disable-next-line max-len
-const URL = `https://graphql.contentful.com/content/v1/spaces/${SPACE_ID}/environments/master`;
 
 const getJobsFlatDetailed = (jobs: JobContentful[]): Work[] => {
   const arr = jobs
@@ -69,30 +66,21 @@ const getJobsFlatDetailed = (jobs: JobContentful[]): Work[] => {
 };
 
 export default async (): Promise<Portfolio> => {
-  const fetchResponse = await fetch(URL, {
-    next: { revalidate: 3600 },
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-      authorization: `Bearer ${ACCESS_TOKEN}`,
+  const response = await fetchQuery<'job', JobContentful>({
+    query,
+    nextHeaders: {
+      revalidate: 3600,
     },
-    body: JSON.stringify({ query }),
   });
 
-  if (!fetchResponse.ok) {
+  if (!response) {
     return {
       professional: [],
       personal: [],
     };
   }
 
-  const jsonResponse =
-    (await fetchResponse.json()) as ContentfulGraphQLResponse<
-      'job',
-      JobContentful
-    >;
-
-  const allJobs = jsonResponse.data.jobCollection.items;
+  const allJobs = response.jobCollection.items;
   const professional = getJobsFlatDetailed(
     allJobs.filter(({ isProfessionalJob }) => isProfessionalJob)
   );

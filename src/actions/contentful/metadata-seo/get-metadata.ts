@@ -1,3 +1,5 @@
+import fetchQuery from 'actions/contentful/fetch-query';
+
 const homeSEOQuery = `
 query GetHomeSEOQuery {
   websiteSeoCollection (
@@ -52,11 +54,6 @@ const queryMap: Record<WebsiteSEOType, string> = {
   'about-me': aboutMeSEOQuery,
 };
 
-const SPACE_ID = process.env.API_CONTENTFUL_SPACE_ID ?? '';
-const ACCESS_TOKEN = process.env.API_CONTENTFUL_ACCESS_TOKEN ?? '';
-// eslint-disable-next-line max-len
-const URL = `https://graphql.contentful.com/content/v1/spaces/${SPACE_ID}/environments/master`;
-
 export default async (seoType: WebsiteSEOType): Promise<MetadataSEO> => {
   const query = queryMap[seoType] ?? '';
 
@@ -67,29 +64,18 @@ export default async (seoType: WebsiteSEOType): Promise<MetadataSEO> => {
     };
   }
 
-  const fetchResponse = await fetch(URL, {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-      authorization: `Bearer ${ACCESS_TOKEN}`,
-    },
-    body: JSON.stringify({ query }),
+  const response = await fetchQuery<'websiteSeo', MetadataSEOContentful>({
+    query,
   });
 
-  if (!fetchResponse.ok) {
+  if (!response) {
     return {
       title: '',
       image: '',
     };
   }
 
-  const jsonResponse =
-    (await fetchResponse.json()) as ContentfulGraphQLResponse<
-      'websiteSeo',
-      MetadataSEOContentful
-    >;
-
-  const metadata = jsonResponse.data.websiteSeoCollection.items[0];
+  const metadata = response.websiteSeoCollection.items[0];
 
   return {
     ...metadata,

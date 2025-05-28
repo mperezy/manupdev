@@ -1,9 +1,3 @@
-type ContentfulCollection<T extends string> = `${T}Collection`;
-
-type ContentfulGraphQLResponse<T extends string, U> = {
-  data: Record<ContentfulCollection<T>, { items: U[] }>;
-};
-
 type MultiLanguageData<T> = {
   en: T;
   es: T;
