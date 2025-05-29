@@ -10,7 +10,7 @@ query GetAboutMeSectionQuery {
   ) {
     items {
       profile {
-        url
+        url(transform: { width: 500, height: 500, resizeStrategy: SCALE })
       }
       text
     }

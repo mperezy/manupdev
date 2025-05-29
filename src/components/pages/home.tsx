@@ -1,9 +1,9 @@
 'use client';
 
 import { TypeAnimation } from 'react-type-animation';
-import { em, Flex, Image, Stack, Text } from '@mantine/core';
+import { em, Flex, Stack, Text } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
-import NextImage from 'next/image';
+// import NextImage from 'next/image';
 import Link from 'components/link';
 import {
   FallDownAnimated,
@@ -12,6 +12,7 @@ import {
   ScaleOutAnimated,
 } from 'components/animated';
 import Heading from 'components/heading';
+import Image from 'components/image';
 import MainLayout from 'components/main-layout';
 import useLanguageVerbiage from 'hooks/use-language-verbiage';
 import useTheme from 'hooks/use-theme';
@@ -114,7 +115,7 @@ export default ({ homeSection }: Props) => {
           <ScaleOutAnimated style={{ width: '100%', position: 'relative' }}>
             <Image
               priority
-              component={NextImage}
+              loading='eager'
               width={350}
               height={350}
               src={homeSection.profile}

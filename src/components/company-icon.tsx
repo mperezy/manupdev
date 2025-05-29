@@ -1,5 +1,6 @@
 import type { ThemeIconProps } from '@mantine/core';
-import { Image, ThemeIcon } from '@mantine/core';
+import { ThemeIcon } from '@mantine/core';
+import Image from 'components/image';
 
 type Props = Pick<ThemeIconProps, 'size'> & {
   company: string;
@@ -11,13 +12,20 @@ export default ({ company, size }: Props) => {
     ? 'bonzzu'
     : companySlug.includes('google-drive')
       ? 'google-drive'
-      : companySlug.includes('manup.dev')
-        ? 'vite'
-        : companySlug;
+      : companySlug;
 
   return (
     <ThemeIcon color='#FFF' size={size}>
-      <Image src={`images/companies/${_company}.png`} w='83%' />
+      <Image
+        priority
+        loading='eager'
+        width={20}
+        height={20}
+        src={`/images/companies/${_company}.png`}
+        w='83%'
+        h='auto'
+        alt={`${company}-logo`}
+      />
     </ThemeIcon>
   );
 };
