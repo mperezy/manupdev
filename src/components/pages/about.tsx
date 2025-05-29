@@ -1,7 +1,7 @@
 'use client';
 
-import { Flex, Image, Stack, Text } from '@mantine/core';
-import NextImage from 'next/image';
+import { Flex, Stack, Text } from '@mantine/core';
+// import NextImage from 'next/image';
 import {
   FallDownAnimated,
   HorizontalMoveAnimated,
@@ -9,6 +9,7 @@ import {
 } from 'components/animated';
 import CertificationCard from 'components/certification-card';
 import Heading from 'components/heading';
+import Image from 'components/image';
 import MainLayout from 'components/main-layout';
 import useLanguageVerbiage from 'hooks/use-language-verbiage';
 import useWidthBreakpoints from 'hooks/use-width-breakpoints';
@@ -44,7 +45,7 @@ export default ({ aboutMeSection, certifications }: Props) => {
             <ScaleOutAnimated style={{ width: '100%', position: 'relative' }}>
               <Image
                 priority
-                component={NextImage}
+                loading='eager'
                 width={250}
                 height={250}
                 src={aboutMeSection.profile}
