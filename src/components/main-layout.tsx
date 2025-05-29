@@ -81,7 +81,7 @@ export default ({ pageTitle, children, fullyCentered }: Props) => {
 
                 <PopoverHint text='Go to home'>
                   <Link
-                    href='/public'
+                    href='/'
                     style={{ color: '#E7E7E7', textDecoration: 'none' }}
                   >
                     <Title order={2}>manup.dev</Title>
