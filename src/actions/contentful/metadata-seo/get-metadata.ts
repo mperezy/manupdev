@@ -26,7 +26,7 @@ query GetPortfolioSEOQuery {
     items {
       title
       image {
-        url
+        url(transform: { width: 550, resizeStrategy: SCALE })
       }
     }
   }
@@ -42,7 +42,7 @@ query GetAboutMeSEOQuery {
     items {
       title
       image {
-        url
+        url(transform: { width: 550, resizeStrategy: SCALE })
       }
     }
   }
