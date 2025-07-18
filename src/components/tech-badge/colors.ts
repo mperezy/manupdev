@@ -94,6 +94,11 @@ const colors: Record<Tech, BadgeColors> = {
     background: '#E1009866',
   },
 
+  Go: {
+    background: '#09D0FF',
+    textColor: '#FFF',
+  },
+
   Javascript: {
     background: '#f7df1eB3',
     textColor: '#464646',
@@ -129,6 +134,11 @@ const colors: Record<Tech, BadgeColors> = {
     darkTextColor: '#FFF',
   },
 
+  'OpenAPI Specification': {
+    background: '#5EB341',
+    textColor: '#FFF',
+  },
+
   'Play Framework': {
     background: '#A5DB5CB2',
     textColor: '#464646',
@@ -137,6 +147,11 @@ const colors: Record<Tech, BadgeColors> = {
 
   Prettier: {
     background: '#24292E',
+  },
+
+  Python: {
+    background: '#A5903A',
+    textColor: '#FFF',
   },
 
   'React.js': {
@@ -168,8 +183,14 @@ const colors: Record<Tech, BadgeColors> = {
     textColor: '#464646',
     borderColor: '#000',
   },
+
   TailwindCSS: {
     background: '',
+  },
+
+  Terraform: {
+    background: '#7676E6',
+    textColor: '#FFF',
   },
 
   Typescript: {

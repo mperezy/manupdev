@@ -1,4 +1,5 @@
 import fetchQuery from 'actions/contentful/fetch-query';
+import isProd from 'utils/is-prod';
 
 const query = `
 query GetAllCertificationsQuery {
@@ -24,7 +25,9 @@ query GetAllCertificationsQuery {
 export default async (): Promise<Certification[]> => {
   const response = await fetchQuery<'certification', CertificationContentful>({
     query,
-    nextHeaders: { revalidate: 3600 },
+    nextHeaders: {
+      revalidate: isProd() ? 3600 : 0,
+    },
   });
 
   if (!response) {

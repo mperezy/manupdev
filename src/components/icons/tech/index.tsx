@@ -17,6 +17,7 @@ import Firebase from 'components/icons/tech/firebase';
 import Github from 'components/icons/tech/github';
 import Gitlab from 'components/icons/tech/gitlab';
 import GraphQL from 'components/icons/tech/graphql';
+import Go from 'components/icons/tech/go';
 import Javascript from 'components/icons/tech/javascript';
 import Jquery from 'components/icons/tech/jquery';
 import LinkedIn from 'components/icons/tech/linked-in';
@@ -24,14 +25,17 @@ import Mantine from 'components/icons/tech/mantine';
 import MongoDB from 'components/icons/tech/mongodb';
 import NextJS from 'components/icons/tech/nextjs';
 import NodeJS from 'components/icons/tech/nodejs';
+import OpenapiSpecification from 'components/icons/tech/openapi-specification';
 import PlayFramework from 'components/icons/tech/play-framework';
 import Prettier from 'components/icons/tech/prettier';
+import Python from 'components/icons/tech/python';
 import ReactJS from 'components/icons/tech/reactjs';
 import ReduxToolkit from 'components/icons/tech/redux-toolkit';
 import Scala from 'components/icons/tech/scala';
 import Selenium from 'components/icons/tech/selenium';
 import SqlServer from 'components/icons/tech/sql-server';
 import TailwindCss from 'components/icons/tech/tailwind-css';
+import Terraform from 'components/icons/tech/terraform';
 import Typescript from 'components/icons/tech/typescript';
 import Udemy from 'components/icons/tech/udemy';
 import Vite from 'components/icons/tech/vite';
@@ -55,6 +59,7 @@ const techIcons: Record<Tech, ComponentType<SVGProps<SVGElement>>> = {
   Github,
   Gitlab,
   GraphQL,
+  Go,
   Javascript,
   jQuery: Jquery,
   LinkedIn,
@@ -62,8 +67,10 @@ const techIcons: Record<Tech, ComponentType<SVGProps<SVGElement>>> = {
   MongoDB,
   'Next.js': NextJS,
   'Node.js': NodeJS,
+  'OpenAPI Specification': OpenapiSpecification,
   'Play Framework': PlayFramework,
   Prettier,
+  Python,
   'React.js': ReactJS,
   'React Native': ReactJS,
   'Redux Toolkit': ReduxToolkit,
@@ -72,6 +79,7 @@ const techIcons: Record<Tech, ComponentType<SVGProps<SVGElement>>> = {
   'Shell Scripting': Bash,
   'SQL Server': SqlServer,
   TailwindCSS: TailwindCss,
+  Terraform,
   Typescript,
   Udemy,
   Vite,
