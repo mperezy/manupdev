@@ -1,4 +1,5 @@
 import fetchQuery from 'actions/contentful/fetch-query';
+import isProd from 'utils/is-prod';
 
 const query = `
 query GetAllProfessionalJobsQuery {
@@ -69,7 +70,7 @@ export default async (): Promise<Portfolio> => {
   const response = await fetchQuery<'job', JobContentful>({
     query,
     nextHeaders: {
-      revalidate: 3600,
+      revalidate: isProd() ? 3600 : 0,
     },
   });
 

@@ -1,4 +1,5 @@
 import fetchQuery from 'actions/contentful/fetch-query';
+import isProd from 'utils/is-prod';
 
 const query = `
 query GetHomeSectionQuery {
@@ -21,7 +22,7 @@ export default async (): Promise<HomeSection> => {
   const response = await fetchQuery<'portfolioSection', HomeSectionContentful>({
     query,
     nextHeaders: {
-      revalidate: 3600,
+      revalidate: isProd() ? 3600 : 0,
     },
   });
 

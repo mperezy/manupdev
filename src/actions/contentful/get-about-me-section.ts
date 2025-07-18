@@ -1,4 +1,5 @@
 import fetchQuery from 'actions/contentful/fetch-query';
+import isProd from 'utils/is-prod';
 
 const query = `
 query GetAboutMeSectionQuery {
@@ -23,7 +24,9 @@ export default async (): Promise<AboutMeSection> => {
     AboutMeSectionContentful
   >({
     query,
-    nextHeaders: { revalidate: 3600 },
+    nextHeaders: {
+      revalidate: isProd() ? 3600 : 0,
+    },
   });
 
   if (!response) {
