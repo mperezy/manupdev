@@ -1,17 +1,16 @@
-import js from '@eslint/js';
 import globals from 'globals';
 import nextPlugin from '@next/eslint-plugin-next';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import tsEslint from 'typescript-eslint';
 
-export default tsEslint.config(
+/** @type {import("eslint").Linter.Config[]} */
+const eslintConfig = [
   { ignores: ['dist'] },
   {
-    extends: [
-      js.configs.recommended,
-      ...tsEslint.configs.recommended,
-      nextPlugin.flatConfig.recommended,
-    ],
+    ...nextPlugin.flatConfig.recommended,
+  },
+  ...tsEslint.configs.recommended,
+  {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
@@ -56,5 +55,7 @@ export default tsEslint.config(
       'react/react-in-jsx-scope': 'off',
       'react/display-name': 'off',
     },
-  }
-);
+  },
+];
+
+export default eslintConfig;
