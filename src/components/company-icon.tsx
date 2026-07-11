@@ -22,6 +22,7 @@ export default ({ company, size }: Props) => {
         width={20}
         height={20}
         src={`/images/companies/${_company}.png`}
+        fallbackSrc='/images/companies/fallback.png'
         w='83%'
         h='auto'
         alt={`${company}-logo`}
