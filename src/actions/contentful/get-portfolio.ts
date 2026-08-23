@@ -9,6 +9,7 @@ query GetAllProfessionalJobsQuery {
     items {
       title
       isProfessionalJob
+      isAiAssisted
       description
       verbose
       verbose2

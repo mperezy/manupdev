@@ -28,6 +28,7 @@ type TechContentful = {
 type JobContentful = {
   title: string;
   isProfessionalJob: boolean;
+  isAiAssisted: boolean | null;
   description: MultiLanguageData<string>;
   verbose: MultiLanguageData<string>;
   verbose2: MultiLanguageData<string[]>;
