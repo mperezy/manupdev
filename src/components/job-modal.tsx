@@ -44,6 +44,7 @@ export default ({
   roles,
   technologiesUsed,
   url,
+  isAiAssisted,
   ...rest
 }: Props) => {
   const language = useLanguageState();
@@ -53,6 +54,7 @@ export default ({
   const [accordionOpened, setAccordionOpened] = useState<boolean>(false);
   const parsedFrom = parseDate(from, isEnglish ? 'en-US' : 'es-ES');
   const parsedTo = parseDate(to, isEnglish ? 'en-US' : 'es-ES');
+  const increaseDueToAI = isAiAssisted ? 0.5 : 0;
 
   const handleClickAccordionControl = () =>
     setAccordionOpened(!accordionOpened);
@@ -131,7 +133,7 @@ export default ({
           </Accordion>
         </FallDownAnimated>
 
-        <Stack px='md' gap='sm'>
+        {isAiAssisted && (
           <FallDownAnimated
             initial='hidden'
             animate='visible'
@@ -140,12 +142,28 @@ export default ({
               delay: 1,
             }}
           >
+            <Text fw='bolder'>✨ AI Assisted</Text>
+          </FallDownAnimated>
+        )}
+
+        <Stack px='md' gap='sm'>
+          <FallDownAnimated
+            initial='hidden'
+            animate='visible'
+            transition={{
+              duration: 0.5,
+              delay: 1 + increaseDueToAI,
+            }}
+          >
             <Text variant='label' component='span'>
               {portfolioPage.roles}
             </Text>
           </FallDownAnimated>
 
-          <HorizontalMoveAnimated direction='left-to-right' delay={1.5}>
+          <HorizontalMoveAnimated
+            direction='left-to-right'
+            delay={1.5 + increaseDueToAI}
+          >
             <Text pl='.5rem'>{roles.join(', ')}</Text>
           </HorizontalMoveAnimated>
         </Stack>
@@ -156,7 +174,7 @@ export default ({
             animate='visible'
             transition={{
               duration: 0.5,
-              delay: 2,
+              delay: 2 + increaseDueToAI,
             }}
           >
             <Text variant='label' component='span'>
@@ -179,7 +197,7 @@ export default ({
                 key={value}
                 direction='left-to-right'
                 custom={index}
-                delay={2.5}
+                delay={2.5 + increaseDueToAI}
               >
                 <TechBadge techName={value} />
               </HorizontalMoveAnimated>
@@ -193,7 +211,7 @@ export default ({
             animate='visible'
             transition={{
               duration: 0.5,
-              delay: 3 + (technologiesUsed.length - 1) * 0.2,
+              delay: 3 + (technologiesUsed.length - 1) * 0.2 + increaseDueToAI,
             }}
           >
             <HoverAnimated scaleOut={1.07}>

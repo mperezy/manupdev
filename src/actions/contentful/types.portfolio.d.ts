@@ -3,6 +3,7 @@ type Role = 'Frontend' | 'Backend' | 'Fullstack Dev' | 'Devops';
 type Job = {
   year: number;
   title: string;
+  isAiAssisted: boolean | null;
   description: MultiLanguageData<string>;
   verbose: MultiLanguageData<string>;
   verbose2: MultiLanguageData<string[]>;

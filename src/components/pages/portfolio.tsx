@@ -132,7 +132,10 @@ export default ({ portfolio }: Props) => {
                               children={
                                 <Flex align='center' gap='xs'>
                                   <CompanyIcon company={job.title} />
-                                  {job.title}
+                                  {job.title}{' '}
+                                  {job.isAiAssisted && (
+                                    <>&nbsp;&nbsp;•&nbsp;&nbsp;✨ AI Assisted</>
+                                  )}
                                 </Flex>
                               }
                             />
@@ -212,7 +215,10 @@ export default ({ portfolio }: Props) => {
                               children={
                                 <Flex align='center' gap='xs'>
                                   <CompanyIcon company={job.title} />
-                                  {job.title}
+                                  {job.title}{' '}
+                                  {job.isAiAssisted && (
+                                    <>&nbsp;&nbsp;•&nbsp;&nbsp;✨ AI Assisted</>
+                                  )}
                                 </Flex>
                               }
                             />
