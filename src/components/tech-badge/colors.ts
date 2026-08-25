@@ -31,10 +31,21 @@ const colors: Record<Tech, BadgeColors> = {
     textColor: '#464646',
   },
 
+  'Claude Code': {
+    background: '#caa194',
+    borderColor: '#d97757',
+    textColor: '#faf9f5',
+  },
+
   Coursera: {
     background: '#FFF',
     textColor: '#0056D2',
     borderColor: '#0056D2',
+  },
+
+  Cursor: {
+    background: '#393939',
+    borderColor: '#6a6a6a',
   },
 
   Cypress: {
