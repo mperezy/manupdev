@@ -5,7 +5,9 @@ import Backbone from 'components/icons/tech/backbone';
 import Bash from 'components/icons/tech/bash';
 import Bitbucket from 'components/icons/tech/bitbucket';
 import Chakra from 'components/icons/tech/chakra';
+import ClaudeCode from 'components/icons/tech/claude-code';
 import Coursera from 'components/icons/tech/coursera';
+import Cursor from 'components/icons/tech/cursor';
 import Cypress from 'components/icons/tech/cypress';
 import Docker from 'components/icons/tech/docker';
 import Docusign from 'components/icons/tech/docusign';
@@ -47,7 +49,9 @@ const techIcons: Record<Tech, ComponentType<SVGProps<SVGElement>>> = {
   'Bash scripting': Bash,
   Bitbucket,
   'Chakra-UI': Chakra,
+  'Claude Code': ClaudeCode,
   Coursera,
+  Cursor,
   Cypress,
   Docker,
   Docusign,
